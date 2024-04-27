@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
+import Acordeon from "@/components/Acordeon";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,7 +14,6 @@ export default function Home() {
         <link rel="icon" type="image/png" href="./public/logo-geba.png" />
       </Head>
       <main className="text-success">
-        Pagina vacia
       </main>
     </>
   );
