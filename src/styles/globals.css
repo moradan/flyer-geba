@@ -1,0 +1,15 @@
+.fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 101vw;
+    height: 101vh;
+    overflow: clip;
+    margin: -1vh -1vw;
+
+    z-index: -1;
+
+    background-image: url("../../public/fondo-flyer-geba.jpeg");
+    background-repeat: no-repeat;
+    filter: brightness(0.9) blur(3px);
+}
