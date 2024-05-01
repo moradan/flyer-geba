@@ -7,16 +7,16 @@ import BotonCompartir from './BotonCompartir';
 export default function PanelControl() {
     return (
         <div className='row g-1'>
-            <div className='col'>
+            <div className='col-6 col-sm-3'>
                 <BotonNuevo />
             </div>
-            <div className='col'>
+            <div className='col-6 col-sm-3'>
                 <BotonGuardar />
             </div>
-            <div className='col'>
+            <div className='col-6 col-sm-3'>
                 <BotonAbrir />
             </div>
-            <div className='col'>
+            <div className='col-6 col-sm-3'>
                 <BotonCompartir />
             </div>
         </div>
