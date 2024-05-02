@@ -1,11 +1,10 @@
+import { EncabezadoFecha } from "./EncabezadoFecha";
 import { SeccionLocalia } from "./SeccionLocalia";
 
 export function ElementoFecha() {
   return (
     <div className="card border-dark p-2">
-      <header>
-        <h3 className="text-center">Primera Fecha</h3>
-      </header>
+      <EncabezadoFecha fecha="Primera Fecha"/>
       <SeccionLocalia value="Local" />
       <SeccionLocalia value="Visitante" />
     </div>
