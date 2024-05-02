@@ -1,6 +1,6 @@
 export function ElementoFecha() {
     return (
-        <div className="card border-dark">
+        <div className="card border-dark p-2">
             <header>
                 <h3 className="text-center">
                     Primera Fecha
