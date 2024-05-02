@@ -6,7 +6,7 @@ import BotonCompartir from './BotonCompartir';
 
 export default function PanelControl() {
     return (
-        <div className='row g-1'>
+        <>
             <div className='col-6 col-sm-3'>
                 <BotonNuevo />
             </div>
@@ -19,6 +19,6 @@ export default function PanelControl() {
             <div className='col-6 col-sm-3'>
                 <BotonCompartir />
             </div>
-        </div>
+        </>
     );
 }

@@ -17,15 +17,15 @@ export default function Home() {
       </Head>
       <div className='fondo' />
       <div className='d-flex flex-column vw-100 vh-100 px-3 pt-3'>
-          <nav>
+          <nav className="row g-1">
             <PanelControl />
           </nav>
-          <header>
+          <header className="col">
             <form>
               <Formulario />
             </form>
           </header>
-          <main>
+          <main className="col">
             <Presentacion />
           </main> 
       </div>
