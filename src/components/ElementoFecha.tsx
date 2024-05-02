@@ -1,13 +1,13 @@
 export function ElementoFecha() {
     return (
-        <>
+        <div className="card border-dark">
             <header>
-                <h3>
+                <h3 className="text-center">
                     Primera Fecha
                 </h3>
             </header>
             <section>
-                <h4>Local</h4>
+                <h4 className="text-center">Local</h4>
                 <ul className="list-group-flush p-0">
                     <li className="list-group-item">
                         <div className="row">
@@ -25,7 +25,7 @@ export function ElementoFecha() {
                 </ul>
             </section>
             <section>
-                <h4>Visitante</h4>
+                <h4 className="text-center">Visitante</h4>
                 <ul className="list-group-flush p-0">
                     <li className="list-group-item">
                         <div className="row">
@@ -42,6 +42,6 @@ export function ElementoFecha() {
                     </li>
                 </ul>
             </section>
-        </>
+        </div>
     );
 }
