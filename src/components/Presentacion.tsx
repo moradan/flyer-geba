@@ -10,10 +10,10 @@ export default function Presentacion() {
             </header>
             <ul className="list-group-flush p-0">
                 <li className="list-group-item mb-3">
-                    <ElementoFecha />
+                    <ElementoFecha fecha="Primera Fecha" />
                 </li>
                 <li className="list-group-item mb-3">
-                    <ElementoFecha />
+                    <ElementoFecha fecha="Segunda Fecha" />
                 </li>
             </ul>
         </>
