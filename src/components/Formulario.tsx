@@ -2,26 +2,12 @@ import { Campo } from "./Campo";
 
 export default function Formulario() {
   return (
-    <form>
-      <div className="row">
+    <div className="row">
         <Campo id="CampoFecha" etiqueta="Fecha" />
-        <div>
-          <label htmlFor="CampoLocalia">Localía</label>
-          <input id="CampoLocalia" className="form-control bg-transparent" />
-        </div>
-        <div>
-          <label htmlFor="CampoHorario">Horario</label>
-          <input id="CampoHorario" className="form-control bg-transparent" />
-        </div>
-        <div>
-          <label htmlFor="CampoAdversario">Adversario</label>
-          <input id="CampoAdversario" className="form-control bg-transparent" />
-        </div>
-        <div>
-          <label htmlFor="CampoCategoria">Categoría</label>
-          <input id="CampoCategoria" className="form-control bg-transparent" />
-        </div>
-      </div>
-    </form>
+        <Campo id="CampoLocalia" etiqueta="Localía" />
+        <Campo id="CampoHorario" etiqueta="Horario" />
+        <Campo id="CampoAdversario" etiqueta="Adversario" />
+        <Campo id="CampoCategoria" etiqueta="Categoría" />
+    </div>
   );
 }

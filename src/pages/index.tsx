@@ -21,7 +21,9 @@ export default function Home() {
             <PanelControl />
           </nav>
           <header>
-            <Formulario />
+            <form>
+              <Formulario />
+            </form>
           </header>
           <main>
             <Presentacion />
