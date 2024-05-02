@@ -7,7 +7,7 @@
 
     z-index: -1;
 
-    background-image: url("../../public/fondo-flyer-geba.jpeg");
+    /* background-image: url("../../public/fondo-flyer-geba.jpeg"); */
     background-repeat: no-repeat;
     background-position: center;
     filter: brightness(0.9) blur(3px);

@@ -1,6 +1,6 @@
 export default function Presentacion() {
     return (
-        <div>
+        <div className="col">
         </div>
     );
 }
