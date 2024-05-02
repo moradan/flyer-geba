@@ -16,10 +16,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <div className='container col-12 col-sm-9 col-md-8 col-lg-7 col-xl-6 pt-3'>
-          <nav className="row g-1">
+          <nav className="row g-1 mb-5">
             <PanelControl />
           </nav>
-          <header className="col">
+          <header className="col mb-5">
             <form>
               <Formulario />
             </form>
