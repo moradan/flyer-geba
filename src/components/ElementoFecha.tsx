@@ -1,4 +1,4 @@
-import { ElementoPartido } from "./ElementoPartido";
+import { SeccionLocalia } from "./SeccionLocalia";
 
 export function ElementoFecha() {
   return (
@@ -6,22 +6,8 @@ export function ElementoFecha() {
       <header>
         <h3 className="text-center">Primera Fecha</h3>
       </header>
-      <section>
-        <h4 className="text-center">Local</h4>
-        <ul className="list-group-flush p-0">
-          <li className="list-group-item">
-            <ElementoPartido />
-          </li>
-        </ul>
-      </section>
-      <section>
-        <h4 className="text-center">Visitante</h4>
-        <ul className="list-group-flush p-0">
-          <li className="list-group-item">
-            <ElementoPartido />
-          </li>
-        </ul>
-      </section>
+      <SeccionLocalia value="Local" />
+      <SeccionLocalia value="Visitante" />
     </div>
   );
 }
