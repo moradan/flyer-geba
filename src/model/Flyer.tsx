@@ -1,11 +1,21 @@
+import { ReactNode } from "react";
 import { Contenido } from "./Contenido";
+import { IPresentable } from "./IPresentable";
 
-const VACIO = "flyer vacio";
 export class Flyer implements IPresentable {
-    name: string = VACIO;
+    title: string = "Interclubes 2024";
     content = new Contenido;
 
-    presentacion(): any {
-        return this.content.presentacion();
+    presentacion(): ReactNode {
+        return (
+            <>
+                <header>
+                    <h2 className="text-center mb-3">
+                        {this.title}
+                    </h2>
+                </header>
+                {this.content.presentacion()}
+            </>
+        );
     }
 }
