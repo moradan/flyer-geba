@@ -2,7 +2,7 @@ export function Campo( {id, type, etiqueta}: {id: string, type: string, etiqueta
     return (
         <div>
             <label htmlFor={id}>{etiqueta}</label>
-            <input id={id} type={type} className="form-control bg-transparent border-dark" />
+            <input id={id} type={type} className="form-control bg-transparent border-dark" required/>
         </div>
     );
 }
