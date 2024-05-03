@@ -3,12 +3,13 @@ import { Flyer } from "../model/Flyer";
 
 export default function Presentacion() {
     
-    let representacion: string = "representacion";
     let flyer = new Flyer;
 
-    representacion;
-
-    return <span>{representacion}</span>;
+    return (
+        <>
+            {flyer.presentacion()}
+        </>
+    );
 
     // return (
     //     <>
