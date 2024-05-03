@@ -1,3 +1,0 @@
-interface IPresentable {
-    presentacion(): any;
-}
