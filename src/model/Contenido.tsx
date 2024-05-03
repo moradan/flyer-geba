@@ -8,6 +8,12 @@ export class Contenido implements IPresentable, IModificable<Partido> {
     
     listaPartidos = new Collections.LinkedList<Partido>;
 
+    constructor() {
+        this.listaPartidos.add(
+            new Partido("01/07/2023", "Local", "11:00", "Independiente", "Caballeros +70")
+        );
+    }
+
     agregar(partido: Partido): void {
         this.listaPartidos.add(partido);
         return;
@@ -19,22 +25,30 @@ export class Contenido implements IPresentable, IModificable<Partido> {
     }
     
     presentacion(): ReactNode {
-        return <ContenidoFormateado />;
+        return <ContenidoFormateado listaPartidos={this.listaPartidos}/>;
     }
 }
 
-function ContenidoFormateado(): ReactNode {
+function ContenidoFormateado( {listaPartidos}: {listaPartidos: Collections.LinkedList<Partido>} ): ReactNode {
+
+    const listaPartidosArray = listaPartidos.toArray();
+    const listaPartidosJSX = listaPartidosArray.map<ReactNode>(
+        (partido: Partido, i: number, array: Partido[]) => 
+            <li key={i.toString()} className="list-group-item mb-3">
+                {partido.toString()}
+            </li>
+    );
+
     return (
-        <>
-        </>
+        <ul className="list-group-flush p-0">
+            {listaPartidosJSX}
+        </ul>
     );
 }
 
-// <ul className="list-group-flush p-0">
 //     <li className="list-group-item mb-3">
 //         <ElementoFecha fecha="Primera Fecha" />
 //     </li>
 //     <li className="list-group-item mb-3">
 //         <ElementoFecha fecha="Segunda Fecha" />
 //     </li>
-// </ul>
