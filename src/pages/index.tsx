@@ -4,10 +4,15 @@ import { Inter } from "next/font/google";
 import PanelControl from "@/components/PanelControl"
 import Formulario from "@/components/Formulario";
 import Presentacion from "@/components/Presentacion";
+import { useState } from "react";
+import { Flyer } from "@/model/Flyer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+
+  const [flyer, setFlyer] = useState(new Flyer);
+
   return (
     <>
       <Head>
@@ -25,7 +30,7 @@ export default function Home() {
             </form>
           </header>
           <main className="col">
-            <Presentacion />
+            <Presentacion flyer={flyer} />
           </main> 
       </div>
     </>

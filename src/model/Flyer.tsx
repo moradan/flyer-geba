@@ -1,11 +1,11 @@
 import { Contenido } from "./Contenido";
 
-const SIN_NOMBRE = "sin nombre";
+const VACIO = "flyer vacio";
 export class Flyer implements IPresentable {
-    name: string = SIN_NOMBRE;
+    name: string = VACIO;
     content = new Contenido;
 
-    presentacion(): string {
+    presentacion(): any {
         return this.content.presentacion();
     }
 }

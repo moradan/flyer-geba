@@ -1,3 +1,3 @@
 interface IPresentable {
-    presentacion(): string;
+    presentacion(): any;
 }
