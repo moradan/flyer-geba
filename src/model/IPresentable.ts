@@ -1,0 +1,3 @@
+interface IPresentable {
+    presentacion(): string;
+}
