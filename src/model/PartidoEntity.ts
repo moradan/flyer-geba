@@ -1,7 +1,7 @@
 export class Partido {
-    fecha: string = "01/01/1970";
+    fecha: string = "01/01/2024";
     localia: string = "Local";
-    horario: string = "00:00";
+    horario: string = "09:00";
     adversario: string = "";
     categoria: string = "";
 
