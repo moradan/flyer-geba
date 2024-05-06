@@ -9,7 +9,7 @@ export class Contenido implements IPresentable {
         const itemsPresentados = this.listaFechas.map(presentar);
         return (
             <ul>
-                {itemsPresentados};
+                {itemsPresentados}
             </ul>
         );
     }
