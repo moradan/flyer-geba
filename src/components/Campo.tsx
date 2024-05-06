@@ -1,8 +1,8 @@
-export function Campo( {id, type, etiqueta}: {id: string, type: string, etiqueta: string} ) {
+export function Campo( {identifier, type, etiqueta}: {identifier: string, type: string, etiqueta: string} ) {
     return (
         <div>
-            <label htmlFor={id}>{etiqueta}</label>
-            <input id={id} type={type} className="form-control bg-transparent border-dark" required/>
+            <label htmlFor={identifier}>{etiqueta}</label>
+            <input id={identifier} type={type} className="form-control bg-transparent border-dark"/>
         </div>
     );
 }
