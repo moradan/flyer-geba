@@ -1,4 +1,4 @@
-export class Partido {
+export class PartidoEntity {
     fecha: string = "01/01/2024";
     localia: string = "Local";
     horario: string = "09:00";

@@ -1,4 +1,5 @@
 import { Campo } from "./Campo";
+import { agregarPartido } from "../controller/agregarPartido";
 
 export default function Formulario() {
   return (
@@ -30,10 +31,4 @@ export default function Formulario() {
       </div>
     </>
   );
-}
-
-function agregarPartido() {
-  const campoFecha: HTMLInputElement | null = document.querySelector("#CampoFecha");
-
-  if (campoFecha != null) alert(campoFecha.value);
 }
