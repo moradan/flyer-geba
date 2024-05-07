@@ -1,4 +1,1 @@
-export class ContenidoAdaptador {
-    manejarFormulario(event: Event) {
-    }
-}
+export class ContenidoAdaptador {}

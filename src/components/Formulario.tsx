@@ -1,9 +1,21 @@
+import { ContenidoEntity } from "@/model/ContenidoEntity";
 import { Campo } from "./Campo";
 
-export default function Formulario() {
+export default function Formulario( 
+  {contenido}: 
+  {contenido: ContenidoEntity}
+) {
+
+  function agregarPartido() {
+    contenido.agregarPartido();
+  }
+
+  function quitarPartido() {
+    contenido.quitarPartido();
+  }
 
   return (
-    <>
+    <form>
       <div className="row g-2 mb-3">
         <div className="col-6">
           <Campo identifier="CampoFecha" type="date" etiqueta="Fecha" />
@@ -23,12 +35,12 @@ export default function Formulario() {
       </div>
       <div className="row g-1 mb-3">
         <div className="col-6">
-          <button type="button" className="btn btn-outline-dark col-12">Agregar</button>
+          <button type="button" className="btn btn-outline-dark col-12" onClick={agregarPartido}>Agregar</button>
         </div>
         <div className="col-6">
-          <button type="button" className="btn btn-outline-dark col-12">Borrar ultimo</button>
+          <button type="button" className="btn btn-outline-dark col-12" onClick={quitarPartido}>Borrar ultimo</button>
         </div>
       </div>
-    </>
+    </form>
   );
 }

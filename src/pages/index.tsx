@@ -12,8 +12,7 @@ import { ContenidoAdaptador } from "@/controller/ContenidoAdaptador";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const adaptador = new ContenidoAdaptador;
-  const manejarFormulario = adaptador.manejarFormulario.bind(adaptador);
+  const contenido = new ContenidoEntity("Partidos");
 
   return (
     <>
@@ -27,9 +26,7 @@ export default function Home() {
             <PanelControl />
           </nav>
           <header className="col mb-5">
-            <form>
-              <Formulario />
-            </form>
+            <Formulario contenido={contenido}/>
           </header>
           <main className="col">
           </main> 
