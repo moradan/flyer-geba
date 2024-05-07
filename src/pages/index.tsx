@@ -6,12 +6,14 @@ import Formulario from "@/components/Formulario";
 import Presentacion from "@/components/Presentacion";
 import { useState } from "react";
 import { Flyer } from "@/components/Flyer";
+import { ContenidoEntity } from "@/model/ContenidoEntity";
+import { ContenidoAdaptador } from "@/controller/ContenidoAdaptador";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-
-  const [flyer, setFlyer] = useState(new Flyer);
+  const adaptador = new ContenidoAdaptador;
+  const manejarFormulario = adaptador.manejarFormulario.bind(adaptador);
 
   return (
     <>
@@ -30,7 +32,6 @@ export default function Home() {
             </form>
           </header>
           <main className="col">
-            <Presentacion flyer={flyer} />
           </main> 
       </div>
     </>
