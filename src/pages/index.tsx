@@ -17,7 +17,7 @@ export default function Home() {
   
   useEffect(
     () => {
-      const listaPartidosJSON = localStorage.getItem("Partidos") ?? "";
+      const listaPartidosJSON = localStorage.getItem("Partidos") ?? "[]";
       const listaPartidos = JSON.parse(listaPartidosJSON);
       const nuevoFlyer = new Flyer(listaPartidos);
       setFlyer(nuevoFlyer);
