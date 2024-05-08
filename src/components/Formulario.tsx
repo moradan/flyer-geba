@@ -1,9 +1,17 @@
+import { ContenidoEntity } from "@/model/ContenidoEntity";
 import { Campo } from "./Campo";
-import { agregarPartido } from "../controller/agregarPartido";
+import { Dispatch, SetStateAction } from "react";
+import { Flyer } from "./Flyer";
 
-export default function Formulario() {
+export default function Formulario( 
+) {
+
+  function agregarPartido() {}
+
+  function quitarPartido() {}
+
   return (
-    <>
+    <form>
       <div className="row g-2 mb-3">
         <div className="col-6">
           <Campo identifier="CampoFecha" type="date" etiqueta="Fecha" />
@@ -23,12 +31,12 @@ export default function Formulario() {
       </div>
       <div className="row g-1 mb-3">
         <div className="col-6">
-          <input type="submit" className="btn btn-outline-dark col-12" value="Agregar" onClick={agregarPartido}/>
+          <button type="button" className="btn btn-outline-dark col-12" onClick={agregarPartido}>Agregar</button>
         </div>
         <div className="col-6">
-            <input type="reset" className="btn btn-outline-dark col-12" value="Descartar" />
+          <button type="button" className="btn btn-outline-dark col-12" onClick={quitarPartido}>Borrar ultimo</button>
         </div>
       </div>
-    </>
+    </form>
   );
 }

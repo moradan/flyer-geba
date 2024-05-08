@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { IPresentable, presentar } from "./IPresentable";
 
-export class Contenido implements IPresentable {
+export class ContenidoVista implements IPresentable {
     
     listaFechas: IPresentable[] = [];
     
