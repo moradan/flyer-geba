@@ -1,14 +1,16 @@
-import { ContenidoEntity } from "@/model/ContenidoEntity";
 import { Campo } from "./Campo";
-import { Dispatch, SetStateAction } from "react";
-import { Flyer } from "./Flyer";
 
-export default function Formulario( 
-) {
+export default function Formulario() {
 
-  function agregarPartido() {}
+  function agregar() {
+    console.log("agregando un partido");
+    
+  }
 
-  function quitarPartido() {}
+  function quitar() {
+    console.log("quitando el ultimo partido");
+    
+  }
 
   return (
     <form>
@@ -31,10 +33,10 @@ export default function Formulario(
       </div>
       <div className="row g-1 mb-3">
         <div className="col-6">
-          <button type="button" className="btn btn-outline-dark col-12" onClick={agregarPartido}>Agregar</button>
+          <button type="button" className="btn btn-outline-dark col-12" onClick={agregar}>Agregar</button>
         </div>
         <div className="col-6">
-          <button type="button" className="btn btn-outline-dark col-12" onClick={quitarPartido}>Borrar ultimo</button>
+          <button type="button" className="btn btn-outline-dark col-12" onClick={quitar}>Borrar ultimo</button>
         </div>
       </div>
     </form>
