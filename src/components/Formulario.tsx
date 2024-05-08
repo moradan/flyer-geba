@@ -1,18 +1,14 @@
 import { ContenidoEntity } from "@/model/ContenidoEntity";
 import { Campo } from "./Campo";
+import { Dispatch, SetStateAction } from "react";
+import { Flyer } from "./Flyer";
 
 export default function Formulario( 
-  {contenido}: 
-  {contenido: ContenidoEntity}
 ) {
 
-  function agregarPartido() {
-    contenido.agregarPartido();
-  }
+  function agregarPartido() {}
 
-  function quitarPartido() {
-    contenido.quitarPartido();
-  }
+  function quitarPartido() {}
 
   return (
     <form>

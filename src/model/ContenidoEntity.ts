@@ -2,15 +2,17 @@ import { PartidoEntity } from "./PartidoEntity";
 
 export class ContenidoEntity {
     clave = "";
-    listaPartidos: PartidoEntity[] = [];
+    listaPartidos: Array<PartidoEntity>;
 
     constructor(clave: string) {
         console.log("Se creo un nuevo contenido")
         this.clave = clave;
+        this.listaPartidos = JSON.parse(localStorage.getItem(clave) ?? "");
     }
 
     agregarPartido() {
         const partido = this.leerFormulario();
+        this.limpiarFormulario();
 
         this.listaPartidos.push(partido);
         this.guardar();
@@ -42,5 +44,17 @@ export class ContenidoEntity {
         )
 
         return partido;
+    }
+
+    private limpiarFormulario() {
+        const campoLocalia: HTMLInputElement | null = document.querySelector("#CampoLocalia");
+        const campoHorario: HTMLInputElement | null = document.querySelector("#CampoHorario");
+        const campoAdversario: HTMLInputElement | null = document.querySelector("#CampoAdversario");
+        const CampoCategoria: HTMLInputElement | null = document.querySelector("#CampoCategoria");
+
+        campoLocalia!.value = "";
+        campoHorario!.value = "";
+        campoAdversario!.value = "";
+        CampoCategoria!.value = "";
     }
 }

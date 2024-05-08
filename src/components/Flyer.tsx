@@ -1,12 +1,31 @@
 import { ReactNode } from "react";
-import { Contenido } from "./Contenido";
+import { ContenidoVista } from "./Contenido";
 import { IPresentable } from "./IPresentable";
+import { PartidoEntity } from "@/model/PartidoEntity";
 
 export class Flyer implements IPresentable {
     title: string = "Interclubes 2024";
-    content = new Contenido;
+    listaPartidos: Array<PartidoEntity>;
 
+    constructor(listaPartidos?: Array<PartidoEntity>) {
+        this.listaPartidos = listaPartidos ?? [];
+    }
+    
     presentacion(): ReactNode {
+        const listaItems = this.listaPartidos.map<ReactNode>(
+            (partidoEntity: PartidoEntity) => {
+                return (
+                    <li>
+                        {partidoEntity.fecha} 
+                        {partidoEntity.localia} 
+                        {partidoEntity.horario} 
+                        {partidoEntity.adversario}
+                        {partidoEntity.categoria}
+                    </li>
+                );
+            }
+        );
+
         return (
             <>
                 <header>
@@ -14,7 +33,9 @@ export class Flyer implements IPresentable {
                         {this.title}
                     </h2>
                 </header>
-                {this.content.presentacion()}
+                <ul>
+                    {listaItems}
+                </ul>
             </>
         );
     }
