@@ -15,7 +15,7 @@ export class Flyer implements IPresentable {
         const listaItems = this.listaPartidos.map<ReactNode>(
             (partidoEntity: PartidoEntity) => {
                 return (
-                    <li>
+                    <li key={partidoEntity.toString()}>
                         {partidoEntity.fecha} 
                         {partidoEntity.localia} 
                         {partidoEntity.horario} 
