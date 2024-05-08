@@ -2,11 +2,15 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import PanelControl from "@/components/PanelControl"
 import Formulario from "@/components/Formulario";
-import { Flyer } from "@/components/Flyer";
+import Flyer from "@/components/Flyer";
+import PartidoData from "@/model/PartidoData";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+
+  const titulo = "";
+  const datos: Array<PartidoData> = [];
   
   return (
     <>
@@ -23,7 +27,7 @@ export default function Home() {
             <Formulario />
           </header>
           <main className="col">
-            <Flyer />
+            <Flyer titulo={titulo} datos={datos}/>
           </main> 
       </div>
     </>

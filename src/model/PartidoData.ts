@@ -1,4 +1,4 @@
-export class PartidoEntity {
+export default class PartidoData {
     fecha: string;
     localia: string;
     horario: string;
