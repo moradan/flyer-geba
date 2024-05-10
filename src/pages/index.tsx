@@ -3,14 +3,13 @@ import { Inter } from "next/font/google";
 import PanelControl from "@/components/PanelControl"
 import Formulario from "@/components/Formulario";
 import Flyer from "@/components/Flyer";
-import PartidoData from "@/model/PartidoData";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
 
-  const titulo = "";
-  const datos: Array<PartidoData> = [];
+  const [fecha, setFecha] = useState("");  
   
   return (
     <>
@@ -24,10 +23,10 @@ export default function Home() {
             <PanelControl />
           </nav>
           <header className="col mb-5">
-            <Formulario />
+            <Formulario fecha={fecha} setFecha={setFecha}/>
           </header>
           <main className="col">
-            <Flyer titulo={titulo} datos={datos}/>
+            <Flyer />
           </main> 
       </div>
     </>
