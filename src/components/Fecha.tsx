@@ -4,7 +4,7 @@ import ListaPartidos from "./ListaPartidos";
 export default function Fecha() {
     return (
         <>
-            <EncabezadoFecha />
+            <EncabezadoFecha fecha=""/>
             <ListaPartidos />
         </>
     )
