@@ -1,42 +1,22 @@
-import { ReactNode } from "react";
-import { ContenidoVista } from "./Contenido";
-import { IPresentable } from "./IPresentable";
-import { PartidoEntity } from "@/model/PartidoEntity";
+import Partido from "@/model/Partido";
 
-export class Flyer implements IPresentable {
-    title: string = "Interclubes 2024";
-    listaPartidos: Array<PartidoEntity>;
-
-    constructor(listaPartidos?: Array<PartidoEntity>) {
-        this.listaPartidos = listaPartidos ?? [];
-    }
+export default function Flyer( 
+    {listaPartidos}:
+    {listaPartidos: Array<Partido>}
+) {
+    /* Logica para convertir datos en una representacion que siga la jerarquia
+    de componentes establecida */
     
-    presentacion(): ReactNode {
-        const listaItems = this.listaPartidos.map<ReactNode>(
-            (partidoEntity: PartidoEntity) => {
-                return (
-                    <li key={partidoEntity.toString()}>
-                        {partidoEntity.fecha} 
-                        {partidoEntity.localia} 
-                        {partidoEntity.horario} 
-                        {partidoEntity.adversario}
-                        {partidoEntity.categoria}
-                    </li>
-                );
-            }
-        );
+    const listaElementos = listaPartidos.map((partido, indice) => 
+        <li key={indice}>
+            {`${partido.fecha} ${partido.localia}`}
+        </li>
+    )
 
-        return (
-            <>
-                <header>
-                    <h2 className="text-center mb-3">
-                        {this.title}
-                    </h2>
-                </header>
-                <ul>
-                    {listaItems}
-                </ul>
-            </>
-        );
-    }
+    return (
+        <ul>
+            {listaElementos}
+        </ul>
+    );
 }
+

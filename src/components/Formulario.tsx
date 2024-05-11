@@ -1,24 +1,58 @@
-import { ContenidoEntity } from "@/model/ContenidoEntity";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Campo } from "./Campo";
-import { Dispatch, SetStateAction } from "react";
-import { Flyer } from "./Flyer";
+import deepcopy from "deepcopy";
+import Partido from "@/model/Partido";
 
 export default function Formulario( 
+  { listaPartidos, actualizador, clave }:
+  { listaPartidos: Array<Partido>, actualizador: Dispatch<SetStateAction<Array<Partido>>>, clave: string}
 ) {
 
-  function agregarPartido() {}
+  const [fechaFormularioTexto, setFechaFormularioTexto] = useState("");
+  const [localiaFormularioTexto, setLocaliaFormularioTexto] = useState("");
+ 
+  function agregar() {
+    const copiaListaPartidos: Array<Partido> = deepcopy(listaPartidos);
+    const partidoFormulario = new Partido(fechaFormularioTexto, localiaFormularioTexto)
+    copiaListaPartidos.push(partidoFormulario);
+    guardar(copiaListaPartidos);
+    actualizador(copiaListaPartidos);
 
-  function quitarPartido() {}
+    setLocaliaFormularioTexto("");
+  }
+
+  function borrar() {
+    const copiaListaPartidos: Array<Partido> = deepcopy(listaPartidos);
+
+    copiaListaPartidos.pop();
+    guardar(copiaListaPartidos);
+    actualizador(copiaListaPartidos)
+  }
+
+  function guardar(listaPartidos: Array<Partido>) {
+    localStorage.setItem(clave, JSON.stringify(listaPartidos));
+  }
 
   return (
     <form>
       <div className="row g-2 mb-3">
         <div className="col-6">
-          <Campo identifier="CampoFecha" type="date" etiqueta="Fecha" />
+          <Campo 
+            identifier="CampoFecha" 
+            type="date" 
+            etiqueta="Fecha"
+            valor={fechaFormularioTexto}
+            actualizador={setFechaFormularioTexto} />
         </div>
         <div className="col-6">
-          <Campo identifier="CampoLocalia" type="text" etiqueta="Localía" />
+          <Campo 
+            identifier="CampoLocalia" 
+            type="text" 
+            etiqueta="Localía" 
+            valor={localiaFormularioTexto}
+            actualizador={setLocaliaFormularioTexto}/>
         </div>
+        {/* 
         <div className="col-4">
           <Campo identifier="CampoHorario" type="time" etiqueta="Horario" />
         </div>
@@ -28,15 +62,19 @@ export default function Formulario(
         <div className="col">
           <Campo identifier="CampoCategoria" type="text" etiqueta="Categoría" />
         </div>
+        */}
       </div>
+
       <div className="row g-1 mb-3">
         <div className="col-6">
-          <button type="button" className="btn btn-outline-dark col-12" onClick={agregarPartido}>Agregar</button>
+          <button type="button" className="btn btn-outline-dark col-12" onClick={agregar}>Agregar</button>
         </div>
         <div className="col-6">
-          <button type="button" className="btn btn-outline-dark col-12" onClick={quitarPartido}>Borrar ultimo</button>
+          <button type="button" className="btn btn-outline-dark col-12" onClick={borrar}>Borrar ultimo</button>
         </div>
       </div>
     </form>
   );
+
+
 }

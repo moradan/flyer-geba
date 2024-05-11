@@ -1,28 +1,25 @@
-
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import PanelControl from "@/components/PanelControl"
 import Formulario from "@/components/Formulario";
-import Presentacion from "@/components/Presentacion";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { Flyer } from "@/components/Flyer";
-import { ContenidoEntity } from "@/model/ContenidoEntity";
-import { ContenidoAdaptador } from "@/controller/ContenidoAdaptador";
-import { ContenidoVista } from "@/components/Contenido";
+import Flyer from "@/components/Flyer";
+import { useEffect, useState } from "react";
+import Partido from "@/model/Partido";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [flyer, setFlyer] = useState(new Flyer);
+
+  const clave = "Partidos"
+  const [listaPartidos, setListaPartidos] = useState<Array<Partido>>([]);
   
   useEffect(
     () => {
-      const listaPartidosJSON = localStorage.getItem("Partidos") ?? "[]";
-      const listaPartidos = JSON.parse(listaPartidosJSON);
-      const nuevoFlyer = new Flyer(listaPartidos);
-      setFlyer(nuevoFlyer);
-    }
-  , []);
+      const partidosAlmacenados: string = localStorage.getItem(clave) ?? "[]";
+      const listaPartidosInicial: Array<Partido> = JSON.parse(partidosAlmacenados);
+      setListaPartidos(listaPartidosInicial);
+    }, []
+  )
 
   return (
     <>
@@ -36,10 +33,10 @@ export default function Home() {
             <PanelControl />
           </nav>
           <header className="col mb-5">
-            <Formulario />
+            <Formulario listaPartidos={listaPartidos} actualizador={setListaPartidos} clave={clave}/>
           </header>
           <main className="col">
-            <Presentacion flyer={flyer}/>
+            <Flyer listaPartidos={listaPartidos}/>
           </main> 
       </div>
     </>
