@@ -1,6 +1,7 @@
 import Partido from "@/model/Partido";
 import Titulo from "./Titulo";
 import formatDate from "./formatDate";
+import formatTime from "./formatTime";
 
 export default function Flyer( 
     {listaPartidos}:
@@ -11,7 +12,7 @@ export default function Flyer(
     
     const listaElementos = listaPartidos.map((partido, indice) => 
         <li key={indice} className="list-group-item">
-            {`${formatDate(partido.fecha)} ${partido.localia}`}
+            {`${formatDate(partido.fecha)} ${partido.localia} ${formatTime(partido.horario)}`}
         </li>
     )
 

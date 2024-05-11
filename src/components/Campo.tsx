@@ -12,7 +12,8 @@ export function Campo(
                 type={type} 
                 className="form-control bg-transparent border-dark"
                 value={valor}
-                onChange={(e) => actualizador(e.target.value)}/>
+                onChange={(e) => actualizador(e.target.value)}
+                required/>
         </div>
     );
 }
