@@ -1,4 +1,4 @@
-import { EncabezadoFecha } from "./EncabezadoFecha";
+import EncabezadoFecha from "./EncabezadoFecha";
 import { SeccionLocalia } from "./SeccionLocalia";
 
 export function ElementoFecha( {fecha}: {fecha: string} ) {

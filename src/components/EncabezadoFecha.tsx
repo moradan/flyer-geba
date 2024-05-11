@@ -1,7 +1,10 @@
-export default function EncabezadoFecha() {
+export default function EncabezadoFecha(
+    {fecha}:
+    {fecha: string}
+) {
     return (
         <header>
-            <h3 className="text-center">23-abr</h3>
+            <h3 className="text-center">{fecha}</h3>
         </header>
     );
 }
