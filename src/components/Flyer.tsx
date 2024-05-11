@@ -1,4 +1,6 @@
 import Partido from "@/model/Partido";
+import Titulo from "./Titulo";
+import formatDate from "./formatDate";
 
 export default function Flyer( 
     {listaPartidos}:
@@ -8,15 +10,17 @@ export default function Flyer(
     de componentes establecida */
     
     const listaElementos = listaPartidos.map((partido, indice) => 
-        <li key={indice}>
-            {`${partido.fecha} ${partido.localia}`}
+        <li key={indice} className="list-group-item">
+            {`${formatDate(partido.fecha)} ${partido.localia}`}
         </li>
     )
 
     return (
-        <ul>
-            {listaElementos}
-        </ul>
+        <>
+            <Titulo titulo="Interclubes 2024" />
+            <ul className="list-group-flush">
+                {listaElementos}
+            </ul>
+        </>
     );
 }
-
