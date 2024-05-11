@@ -34,7 +34,7 @@ export default function Formulario(
   }
 
   return (
-    <form>
+    <form onSubmit={(e) => e.preventDefault()}>
       <div className="row g-2 mb-3">
         <div className="col-6">
           <Campo 
