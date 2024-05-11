@@ -1,14 +1,16 @@
+import Partido from "@/model/Partido";
+import hash from "object-hash"
 
 export default function Flyer( 
-    {listaFechas}:
-    {listaFechas: Array<string>}
+    {listaPartidos}:
+    {listaPartidos: Array<Partido>}
 ) {
     /* Logica para convertir datos en una representacion que siga la jerarquia
     de componentes establecida */
     
-    const listaElementos = listaFechas.map(fecha => 
-        <li>
-            {fecha}
+    const listaElementos = listaPartidos.map((partido, indice) => 
+        <li key={indice}>
+            {`${partido.fecha} ${partido.localia}`}
         </li>
     )
 

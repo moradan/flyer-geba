@@ -1,32 +1,36 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { Campo } from "./Campo";
 import deepcopy from "deepcopy";
+import Partido from "@/model/Partido";
 
 export default function Formulario( 
-  { listaFechas, actualizador }:
-  { listaFechas: Array<string>, actualizador: Dispatch<SetStateAction<Array<string>>>}
+  { listaPartidos, actualizador, clave }:
+  { listaPartidos: Array<Partido>, actualizador: Dispatch<SetStateAction<Array<Partido>>>, clave: string}
 ) {
 
   const [fechaFormularioTexto, setFechaFormularioTexto] = useState("");
-
+  const [localiaFormularioTexto, setLocaliaFormularioTexto] = useState("");
+ 
   function agregar() {
-    const copiaListaFechas: Array<string> = deepcopy(listaFechas);
+    const copiaListaPartidos: Array<Partido> = deepcopy(listaPartidos);
+    const partidoFormulario = new Partido(fechaFormularioTexto, localiaFormularioTexto)
+    copiaListaPartidos.push(partidoFormulario);
+    guardar(copiaListaPartidos);
+    actualizador(copiaListaPartidos);
 
-    copiaListaFechas.push(fechaFormularioTexto);
-    guardar(copiaListaFechas);
-    actualizador(copiaListaFechas);
+    setLocaliaFormularioTexto("");
   }
 
   function borrar() {
-    const copiaListaFechas: Array<string> = deepcopy(listaFechas);
+    const copiaListaPartidos: Array<Partido> = deepcopy(listaPartidos);
 
-    copiaListaFechas.pop();
-    guardar(copiaListaFechas);
-    actualizador(copiaListaFechas)
+    copiaListaPartidos.pop();
+    guardar(copiaListaPartidos);
+    actualizador(copiaListaPartidos)
   }
 
-  function guardar(copiaListaFechas: string[]) {
-    localStorage.setItem("Fechas", JSON.stringify(copiaListaFechas));
+  function guardar(listaPartidos: Array<Partido>) {
+    localStorage.setItem(clave, JSON.stringify(listaPartidos));
   }
 
   return (
@@ -40,10 +44,15 @@ export default function Formulario(
             valor={fechaFormularioTexto}
             actualizador={setFechaFormularioTexto} />
         </div>
-        {/* 
         <div className="col-6">
-          <Campo identifier="CampoLocalia" type="text" etiqueta="Localía" />
+          <Campo 
+            identifier="CampoLocalia" 
+            type="text" 
+            etiqueta="Localía" 
+            valor={localiaFormularioTexto}
+            actualizador={setLocaliaFormularioTexto}/>
         </div>
+        {/* 
         <div className="col-4">
           <Campo identifier="CampoHorario" type="time" etiqueta="Horario" />
         </div>

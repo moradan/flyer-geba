@@ -3,13 +3,23 @@ import { Inter } from "next/font/google";
 import PanelControl from "@/components/PanelControl"
 import Formulario from "@/components/Formulario";
 import Flyer from "@/components/Flyer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Partido from "@/model/Partido";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
 
-  const [listaFechas, setListaFechas] = useState<Array<string>>([]);
+  const clave = "Partidos"
+  const [listaPartidos, setListaPartidos] = useState<Array<Partido>>([]);
+  
+  useEffect(
+    () => {
+      const partidosAlmacenados: string = localStorage.getItem(clave) ?? "[]";
+      const listaPartidosInicial: Array<Partido> = JSON.parse(partidosAlmacenados);
+      setListaPartidos(listaPartidosInicial);
+    }, []
+  )
 
   return (
     <>
@@ -23,10 +33,10 @@ export default function Home() {
             <PanelControl />
           </nav>
           <header className="col mb-5">
-            <Formulario listaFechas={listaFechas} actualizador={setListaFechas}/>
+            <Formulario listaPartidos={listaPartidos} actualizador={setListaPartidos} clave={clave}/>
           </header>
           <main className="col">
-            <Flyer listaFechas={listaFechas}/>
+            <Flyer listaPartidos={listaPartidos}/>
           </main> 
       </div>
     </>
