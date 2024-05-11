@@ -1,5 +1,4 @@
 import Partido from "@/model/Partido";
-import hash from "object-hash"
 
 export default function Flyer( 
     {listaPartidos}:
