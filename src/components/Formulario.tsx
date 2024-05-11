@@ -2,6 +2,8 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { Campo } from "./Campo";
 import deepcopy from "deepcopy";
 import Partido from "@/model/Partido";
+import parseTimeString from "./parseTimeString";
+import parseDateString from "./parseDateString";
 
 export default function Formulario( 
   { listaPartidos, actualizador, clave }:
@@ -10,15 +12,19 @@ export default function Formulario(
 
   const [fecha, setFecha] = useState("");
   const [localia, setLocalia] = useState("");
+  const [horario, setHorario] = useState("");
  
   function agregar() {
     const copiaListaPartidos: Array<Partido> = deepcopy(listaPartidos);
-    const partidoFormulario = new Partido(new Date(Date.parse(fecha)), localia)
+    const horarioParseado = parseTimeString(horario);
+    const fechaParseada = parseDateString(fecha);
+    const partidoFormulario = new Partido(fechaParseada, localia, horarioParseado);
     copiaListaPartidos.push(partidoFormulario);
     guardar(copiaListaPartidos);
     actualizador(copiaListaPartidos);
 
     setLocalia("");
+    setHorario("");
   }
 
   function borrar() {
@@ -34,7 +40,7 @@ export default function Formulario(
   }
 
   return (
-    <form>
+    <form onSubmit={(e) => e.preventDefault()}>
       <div className="row g-2 mb-3">
         <div className="col-6">
           <Campo 
@@ -52,10 +58,15 @@ export default function Formulario(
             valor={localia}
             actualizador={setLocalia}/>
         </div>
-        {/* 
         <div className="col-4">
-          <Campo identifier="CampoHorario" type="time" etiqueta="Horario" />
+          <Campo 
+            identifier="CampoHorario" 
+            type="time" 
+            etiqueta="Horario" 
+            valor={horario}
+            actualizador={setHorario}/>
         </div>
+        {/* 
         <div className="col-8">
           <Campo identifier="CampoAdversario" type="text" etiqueta="Adversario" />
         </div>
@@ -75,6 +86,4 @@ export default function Formulario(
       </div>
     </form>
   );
-
-
 }
