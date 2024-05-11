@@ -35,7 +35,7 @@ export default function Home() {
           <header className="col mb-5">
             <Formulario listaPartidos={listaPartidos} actualizador={setListaPartidos} clave={clave}/>
           </header>
-          <main className="col">
+          <main className="col d-flex flex-column align-items-center">
             <Flyer listaPartidos={listaPartidos}/>
           </main> 
       </div>

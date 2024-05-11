@@ -8,17 +8,17 @@ export default function Formulario(
   { listaPartidos: Array<Partido>, actualizador: Dispatch<SetStateAction<Array<Partido>>>, clave: string}
 ) {
 
-  const [fechaFormularioTexto, setFechaFormularioTexto] = useState("");
-  const [localiaFormularioTexto, setLocaliaFormularioTexto] = useState("");
+  const [fecha, setFecha] = useState("");
+  const [localia, setLocalia] = useState("");
  
   function agregar() {
     const copiaListaPartidos: Array<Partido> = deepcopy(listaPartidos);
-    const partidoFormulario = new Partido(fechaFormularioTexto, localiaFormularioTexto)
+    const partidoFormulario = new Partido(new Date(Date.parse(fecha)), localia)
     copiaListaPartidos.push(partidoFormulario);
     guardar(copiaListaPartidos);
     actualizador(copiaListaPartidos);
 
-    setLocaliaFormularioTexto("");
+    setLocalia("");
   }
 
   function borrar() {
@@ -41,16 +41,16 @@ export default function Formulario(
             identifier="CampoFecha" 
             type="date" 
             etiqueta="Fecha"
-            valor={fechaFormularioTexto}
-            actualizador={setFechaFormularioTexto} />
+            valor={fecha}
+            actualizador={setFecha} />
         </div>
         <div className="col-6">
           <Campo 
             identifier="CampoLocalia" 
             type="text" 
             etiqueta="Localía" 
-            valor={localiaFormularioTexto}
-            actualizador={setLocaliaFormularioTexto}/>
+            valor={localia}
+            actualizador={setLocalia}/>
         </div>
         {/* 
         <div className="col-4">

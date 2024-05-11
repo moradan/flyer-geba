@@ -1,9 +1,9 @@
 export default class Partido {
-    fecha: string;
+    fecha: Date;
     localia: string;
     
     constructor(
-        fecha: string,
+        fecha: Date,
         localia: string,
     ) {
         this.fecha = fecha;
