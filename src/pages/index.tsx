@@ -9,8 +9,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
 
-  const [fecha, setFecha] = useState("");  
-  
+  const [listaFechas, setListaFechas] = useState<Array<string>>([]);
+
   return (
     <>
       <Head>
@@ -23,10 +23,10 @@ export default function Home() {
             <PanelControl />
           </nav>
           <header className="col mb-5">
-            <Formulario fecha={fecha} setFecha={setFecha}/>
+            <Formulario listaFechas={listaFechas} actualizador={setListaFechas}/>
           </header>
           <main className="col">
-            <Flyer />
+            <Flyer listaFechas={listaFechas}/>
           </main> 
       </div>
     </>

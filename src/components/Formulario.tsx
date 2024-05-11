@@ -1,19 +1,32 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Campo } from "./Campo";
+import deepcopy from "deepcopy";
 
 export default function Formulario( 
-  {fecha, setFecha}: 
-  {fecha: string, setFecha: Dispatch<SetStateAction<string>>} 
-  ) {
+  { listaFechas, actualizador }:
+  { listaFechas: Array<string>, actualizador: Dispatch<SetStateAction<Array<string>>>}
+) {
+
+  const [fechaFormularioTexto, setFechaFormularioTexto] = useState("");
 
   function agregar() {
-    console.log("agregando un partido");
-    
+    const copiaListaFechas: Array<string> = deepcopy(listaFechas);
+
+    copiaListaFechas.push(fechaFormularioTexto);
+    guardar(copiaListaFechas);
+    actualizador(copiaListaFechas);
   }
 
-  function quitar() {
-    console.log("quitando el ultimo partido");
-    
+  function borrar() {
+    const copiaListaFechas: Array<string> = deepcopy(listaFechas);
+
+    copiaListaFechas.pop();
+    guardar(copiaListaFechas);
+    actualizador(copiaListaFechas)
+  }
+
+  function guardar(copiaListaFechas: string[]) {
+    localStorage.setItem("Fechas", JSON.stringify(copiaListaFechas));
   }
 
   return (
@@ -24,8 +37,8 @@ export default function Formulario(
             identifier="CampoFecha" 
             type="date" 
             etiqueta="Fecha"
-            valor={fecha}
-            actualizador={setFecha} />
+            valor={fechaFormularioTexto}
+            actualizador={setFechaFormularioTexto} />
         </div>
         {/* 
         <div className="col-6">
@@ -48,9 +61,11 @@ export default function Formulario(
           <button type="button" className="btn btn-outline-dark col-12" onClick={agregar}>Agregar</button>
         </div>
         <div className="col-6">
-          <button type="button" className="btn btn-outline-dark col-12" onClick={quitar}>Borrar ultimo</button>
+          <button type="button" className="btn btn-outline-dark col-12" onClick={borrar}>Borrar ultimo</button>
         </div>
       </div>
     </form>
   );
+
+
 }
