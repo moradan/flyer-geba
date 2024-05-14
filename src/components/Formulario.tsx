@@ -12,18 +12,23 @@ export default function Formulario(
   const [fecha, setFecha] = useState("");
   const [localia, setLocalia] = useState("");
   const [horario, setHorario] = useState("");
- 
+  const [adversario, setAdversario] = useState("");
+  const [categoria, setCategoria] = useState("");
+
   function agregar() {
     const copiaListaPartidos: Array<Partido> = deepcopy(listaPartidos);
     const fechaParseada = new Date(fecha);
     const horarioParseado = parseTimeString(horario);
-    const partidoFormulario = new Partido(fechaParseada, localia, horarioParseado);
+    const partidoFormulario = new Partido(fechaParseada, localia, horarioParseado, adversario, categoria);
     copiaListaPartidos.push(partidoFormulario);
     guardar(copiaListaPartidos);
     actualizador(copiaListaPartidos);
 
-    setLocalia("");
     setHorario("");
+    setAdversario("");
+    setCategoria("");
+
+    (document.querySelector("#CampoLocalia") as HTMLElement).focus();
   }
 
   function borrar() {
@@ -39,7 +44,7 @@ export default function Formulario(
   }
 
   return (
-    <form onSubmit={(e) => e.preventDefault()}>
+    <form onSubmit={(e) => {e.preventDefault(); agregar()}}>
       <div className="row g-2 mb-3">
         <div className="col-6">
           <Campo 
@@ -55,7 +60,7 @@ export default function Formulario(
             type="text" 
             etiqueta="Localía" 
             valor={localia}
-            actualizador={setLocalia}/>
+            actualizador={setLocalia} />
         </div>
         <div className="col-4">
           <Campo 
@@ -63,16 +68,24 @@ export default function Formulario(
             type="time" 
             etiqueta="Horario" 
             valor={horario}
-            actualizador={setHorario}/>
+            actualizador={setHorario} />
         </div>
-        {/* 
         <div className="col-8">
-          <Campo identifier="CampoAdversario" type="text" etiqueta="Adversario" />
+          <Campo 
+            identifier="CampoAdversario" 
+            type="text" 
+            etiqueta="Adversario" 
+            valor={adversario}
+            actualizador={setAdversario} />
         </div>
         <div className="col">
-          <Campo identifier="CampoCategoria" type="text" etiqueta="Categoría" />
+          <Campo 
+            identifier="CampoCategoria"
+             type="text" 
+             etiqueta="Categoría"
+             valor={categoria}
+             actualizador={setCategoria} />
         </div>
-        */}
       </div>
 
       <div className="row g-1 mb-3">

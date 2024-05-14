@@ -12,7 +12,7 @@ export default function Flyer(
     
     const listaElementos = listaPartidos.map((partido, indice) => 
         <li key={indice} className="list-group-item">
-            {`${formatDate(partido.fecha)} ${partido.localia} ${formatTime(partido.horario)}`}
+            {`${formatDate(partido.fecha)} ${partido.localia} ${formatTime(partido.horario)} ${partido.adversario} ${partido.categoria}`}
         </li>
     )
 
