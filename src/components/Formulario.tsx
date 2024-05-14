@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { Campo } from "./Campo";
 import deepcopy from "deepcopy";
 import Partido from "@/model/Partido";
-import parseTimeString from "./parseTimeString";
+import parseTimeString from "../utils/parseTimeString";
 
 export default function Formulario( 
   { listaPartidos, actualizador, clave }:
