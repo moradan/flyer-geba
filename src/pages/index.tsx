@@ -4,7 +4,7 @@ import PanelControl from "@/components/PanelControl"
 import Formulario from "@/components/Formulario";
 import Flyer from "@/components/Flyer";
 import { useEffect, useState } from "react";
-import Partido from "@/model/Partido";
+import Partido, { PartidoTexto } from "@/model/Partido";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +16,8 @@ export default function Home() {
   useEffect(
     () => {
       const partidosAlmacenados: string = localStorage.getItem(clave) ?? "[]";
-      const listaPartidosInicial: Array<Partido> = JSON.parse(partidosAlmacenados);
+      const listaPartidosTexto: Array<PartidoTexto> = JSON.parse(partidosAlmacenados);
+      const listaPartidosInicial: Array<Partido> = listaPartidosTexto.map(partidoTexto => Partido.fromText(partidoTexto))
       setListaPartidos(listaPartidosInicial);
     }, []
   )

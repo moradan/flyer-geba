@@ -3,7 +3,6 @@ import { Campo } from "./Campo";
 import deepcopy from "deepcopy";
 import Partido from "@/model/Partido";
 import parseTimeString from "./parseTimeString";
-import parseDateString from "./parseDateString";
 
 export default function Formulario( 
   { listaPartidos, actualizador, clave }:
@@ -16,8 +15,8 @@ export default function Formulario(
  
   function agregar() {
     const copiaListaPartidos: Array<Partido> = deepcopy(listaPartidos);
+    const fechaParseada = new Date(fecha);
     const horarioParseado = parseTimeString(horario);
-    const fechaParseada = parseDateString(fecha);
     const partidoFormulario = new Partido(fechaParseada, localia, horarioParseado);
     copiaListaPartidos.push(partidoFormulario);
     guardar(copiaListaPartidos);
