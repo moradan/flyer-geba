@@ -5,6 +5,7 @@ import Formulario from "@/components/Formulario";
 import Flyer from "@/components/Flyer";
 import { useEffect, useState } from "react";
 import Partido, { PartidoTexto } from "@/model/Partido";
+import Fondo from "@/components/Fondo";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,7 +38,7 @@ export default function Home() {
             <Formulario listaPartidos={listaPartidos} actualizador={setListaPartidos} clave={clave}/>
           </header>
           <main className="position-relative col d-flex flex-column align-items-center">
-            <div className="fondo" />
+            <Fondo />
             <Flyer listaPartidos={listaPartidos}/>
           </main> 
       </div>

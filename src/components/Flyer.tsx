@@ -1,7 +1,8 @@
 import Partido from "@/model/Partido";
 import Titulo from "./Titulo";
-import formatDate from "./formatDate";
-import formatTime from "./formatTime";
+import { ReactNode } from "react";
+import ElementoFecha from "./ElementoFecha";
+import formatDate from "@/utils/formatDate";
 
 export default function Flyer( 
     {listaPartidos}:
@@ -10,16 +11,28 @@ export default function Flyer(
     /* Logica para convertir datos en una representacion que siga la jerarquia
     de componentes establecida */
     
-    const listaElementos = listaPartidos.map((partido, indice) => 
-        <li key={indice} className="list-group-item">
-            {`${formatDate(partido.fecha)} ${partido.localia} ${formatTime(partido.horario)} ${partido.adversario} ${partido.categoria}`}
-        </li>
-    )
+    const listaElementos: Array<ReactNode> = [];
+    const listaFechas = new Map<number, Array<Partido>>();
+
+    for (const partido of listaPartidos) {
+        if (listaFechas.has(partido.fecha.getTime())) {
+            listaFechas.get(partido.fecha.getTime())!.push(partido)
+        } else {
+            listaFechas.set(partido.fecha.getTime(), new Array<Partido>(partido))
+        }
+    }
+
+    listaFechas.forEach(
+        (listaPartidos, fecha) => 
+            listaElementos.push(
+                <ElementoFecha fecha={new Date(fecha)} listaPartidos={listaPartidos} />
+            )
+    );
 
     return (
         <>
             <Titulo titulo="Interclubes 2024" />
-            <ul className="list-group-flush">
+            <ul className="list-group-flush w-100">
                 {listaElementos}
             </ul>
         </>
