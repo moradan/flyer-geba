@@ -6,8 +6,8 @@ export function SeccionLocalia(
     { tipo: string, listaPartidos: Array<Partido> }
 ) {
     const listaElementos = listaPartidos.map(
-        (partido) =>
-            <ElementoPartido partido={partido} />
+        (partido, index) =>
+            <ElementoPartido partido={partido} indice={index} />
     );
 
     return (
