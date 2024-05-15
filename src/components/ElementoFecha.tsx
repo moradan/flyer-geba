@@ -11,7 +11,7 @@ export default function ElementoFecha(
   const partidosVisitantes: Array<Partido> = [];
 
   for (const partido of listaPartidos) {
-    if (partido.localia = "Local") {
+    if (partido.localia == "Local") {
       partidosLocales.push(partido);
     } else {
       partidosVisitantes.push(partido);
@@ -19,7 +19,7 @@ export default function ElementoFecha(
   }
 
   return (
-    <li className="card border-transparent p-2">
+    <li className="list-group-item border-transparent p-2">
       <EncabezadoFecha fecha={fecha}/>
       <SeccionLocalia tipo="Local" listaPartidos={partidosLocales} />
       <SeccionLocalia tipo="Visitante" listaPartidos={partidosVisitantes} />

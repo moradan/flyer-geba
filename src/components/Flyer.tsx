@@ -32,7 +32,7 @@ export default function Flyer(
     return (
         <>
             <Titulo titulo="Interclubes 2024" />
-            <ul className="list-group-flush">
+            <ul className="list-group-flush w-100">
                 {listaElementos}
             </ul>
         </>
