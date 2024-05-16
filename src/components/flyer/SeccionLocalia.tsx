@@ -19,7 +19,9 @@ export function SeccionLocalia({
       <h4 className="text-center mb-0">
         <span className="bg-primary-subtle p-1 rounded">{tipo}</span>
       </h4>
-      <ul className="list-group-flush p-0">{listaPartidosJSX}</ul>
+      <ul className="list-group-flush p-0 bg-primary rounded">
+        {listaPartidosJSX}
+      </ul>
     </section>
   );
 }

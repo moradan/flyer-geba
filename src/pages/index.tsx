@@ -34,7 +34,7 @@ export default function Home() {
       </Head>
 
       <div className="container col-12 col-sm-9 col-md-8 col-lg-7 col-xl-6">
-        <PanelControl />
+        {/* <PanelControl /> */}
         <Formulario
           listaPartidos={listaPartidos}
           actualizador={setListaPartidos}
