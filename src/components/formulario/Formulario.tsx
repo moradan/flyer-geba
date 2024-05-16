@@ -71,7 +71,7 @@ export default function Formulario({
   }
 
   return (
-    <form onSubmit={manejarFormulario}>
+    <form className="col mb-5" onSubmit={manejarFormulario}>
       <LayoutCampos estado={estadoDelFormulario} />
 
       <LayoutBotones clickHandler={manejarClick}></LayoutBotones>
