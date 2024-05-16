@@ -21,8 +21,8 @@ export default function ElementoFecha(
   return (
     <li className="list-group-item border-transparent p-2">
       <EncabezadoFecha fecha={fecha}/>
-      <SeccionLocalia tipo="Local" listaPartidos={partidosLocales} />
-      <SeccionLocalia tipo="Visitante" listaPartidos={partidosVisitantes} />
+      {partidosLocales.length !== 0 && <SeccionLocalia tipo="Local" listaPartidos={partidosLocales} /> }
+      {partidosVisitantes.length !==0 && <SeccionLocalia tipo="Visitante" listaPartidos={partidosVisitantes} />}
     </li>
   );
 }

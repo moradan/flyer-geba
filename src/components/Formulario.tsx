@@ -3,6 +3,7 @@ import { Campo } from "./Campo";
 import deepcopy from "deepcopy";
 import Partido from "@/model/Partido";
 import parseTimeString from "../utils/parseTimeString";
+import { ordenPorFecha } from "@/utils/ordenDeFechaYTiempo";
 
 export default function Formulario( 
   { listaPartidos, actualizador, clave }:
@@ -21,14 +22,24 @@ export default function Formulario(
     const horarioParseado = parseTimeString(horario);
     const partidoFormulario = new Partido(fechaParseada, localia, horarioParseado, adversario, categoria);
     copiaListaPartidos.push(partidoFormulario);
+    copiaListaPartidos.sort(ordenPorFecha);
+    
     guardar(copiaListaPartidos);
     actualizador(copiaListaPartidos);
 
+    limpiarFormulario();
+
+    enfocarCampoHorario();
+  }
+  
+  function enfocarCampoHorario() {
+    (document.querySelector("#CampoHorario") as HTMLElement).focus();
+  }
+
+  function limpiarFormulario() {
     setHorario("");
     setAdversario("");
     setCategoria("");
-
-    (document.querySelector("#CampoLocalia") as HTMLElement).focus();
   }
 
   function borrar() {
@@ -81,10 +92,10 @@ export default function Formulario(
         <div className="col">
           <Campo 
             identifier="CampoCategoria"
-             type="text" 
-             etiqueta="Categoría"
-             valor={categoria}
-             actualizador={setCategoria} />
+            type="text" 
+            etiqueta="Categoría"
+            valor={categoria}
+            actualizador={setCategoria} />
         </div>
       </div>
 
