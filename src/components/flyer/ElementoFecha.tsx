@@ -2,11 +2,13 @@ import Partido from "@/model/Partido";
 import EncabezadoFecha from "./EncabezadoFecha";
 import { SeccionLocalia } from "./SeccionLocalia";
 
-export default function ElementoFecha( 
-  {fecha, listaPartidos}: 
-  {fecha: Date, listaPartidos: Array<Partido>} 
-) {
-
+export default function ElementoFecha({
+  fecha,
+  listaPartidos,
+}: {
+  fecha: Date;
+  listaPartidos: Array<Partido>;
+}) {
   const partidosLocales: Array<Partido> = [];
   const partidosVisitantes: Array<Partido> = [];
 
@@ -20,9 +22,13 @@ export default function ElementoFecha(
 
   return (
     <li className="list-group-item border-transparent p-2">
-      <EncabezadoFecha fecha={fecha}/>
-      {partidosLocales.length !== 0 && <SeccionLocalia tipo="Local" listaPartidos={partidosLocales} /> }
-      {partidosVisitantes.length !==0 && <SeccionLocalia tipo="Visitante" listaPartidos={partidosVisitantes} />}
+      <EncabezadoFecha fecha={fecha} />
+      {partidosLocales.length !== 0 && (
+        <SeccionLocalia tipo="Local" listaPartidos={partidosLocales} />
+      )}
+      {partidosVisitantes.length !== 0 && (
+        <SeccionLocalia tipo="Visitante" listaPartidos={partidosVisitantes} />
+      )}
     </li>
   );
 }
