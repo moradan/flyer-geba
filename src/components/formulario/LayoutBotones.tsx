@@ -1,4 +1,5 @@
 import { MouseEventHandler } from "react";
+import Boton from "../Boton";
 
 export function LayoutBotones({
   clickHandler,
@@ -8,24 +9,18 @@ export function LayoutBotones({
   return (
     <div className="row g-1 mb-3">
       <div className="col-6">
-        <button
-          type="button"
-          id="botonAgregar"
-          className="btn btn-outline-dark col-12"
-          onClick={clickHandler}
-        >
-          Agregar
-        </button>
+        <Boton
+          identifier="botonAgregar"
+          clickHandler={clickHandler}
+          caption="Agregar"
+        />
       </div>
       <div className="col-6">
-        <button
-          type="button"
-          id="botonQuitar"
-          className="btn btn-outline-dark col-12"
-          onClick={clickHandler}
-        >
-          Borrar ultimo
-        </button>
+        <Boton
+          identifier="botonQuitar"
+          clickHandler={clickHandler}
+          caption="Quitar ultimo"
+        />
       </div>
     </div>
   );
