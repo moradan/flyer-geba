@@ -1,8 +1,6 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import deepcopy from "deepcopy";
 import Partido from "@/model/Partido";
-import parseTimeString from "../../utils/parseTimeString";
-import { ordenPorFecha } from "@/utils/ordenDeFechaYTiempo";
 import EstadoFormulario from "./EstadoFormulario";
 import LayoutCampos from "./LayoutCampos";
 import { LayoutBotones } from "./LayoutBotones";
@@ -16,7 +14,23 @@ export default function Formulario({
   actualizador: Dispatch<SetStateAction<Array<Partido>>>;
   clave: string;
 }) {
-  const estadoDelFormulario = new EstadoFormulario();
+  const [fecha, setFecha] = useState("");
+  const [localia, setLocalia] = useState("");
+  const [horario, setHorario] = useState("");
+  const [adversario, setAdversario] = useState("");
+  const [categoria, setCategoria] = useState("");
+  const estadoDelFormulario = new EstadoFormulario(
+    fecha,
+    localia,
+    horario,
+    adversario,
+    categoria,
+    setFecha,
+    setLocalia,
+    setHorario,
+    setAdversario,
+    setCategoria
+  );
 
   function manejarFormulario() {}
 

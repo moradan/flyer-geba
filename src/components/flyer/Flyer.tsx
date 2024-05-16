@@ -1,7 +1,7 @@
 import Partido from "@/model/Partido";
-import Titulo from "./Titulo";
 import { ReactNode } from "react";
 import ElementoFecha from "./ElementoFecha";
+import Titulo from "./Titulo";
 
 export default function Flyer({
   listaPartidos,
