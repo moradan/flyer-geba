@@ -1,5 +1,5 @@
 import Boton from "../Boton";
 
 export default function BotonGuardar() {
-  return <Boton caption="Guardar" />;
+  return <Boton caption="Guardar" identifier="BotonGuardar" />;
 }

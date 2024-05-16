@@ -7,7 +7,7 @@ export default function Boton({
 }: {
   caption: string;
   identifier: string;
-  clickHandler: MouseEventHandler;
+  clickHandler?: MouseEventHandler;
 }) {
   return (
     <button
