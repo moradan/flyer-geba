@@ -33,17 +33,21 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <div className="container col-12 col-sm-9 col-md-8 col-lg-7 col-xl-6">
-        <PanelControl />
-        <Formulario
-          listaPartidos={listaPartidos}
-          actualizador={setListaPartidos}
-          clave={clave}
-        />
-        <main className="position-relative col d-flex flex-column align-items-center">
-          <Fondo />
-          <Flyer listaPartidos={listaPartidos} />
-        </main>
+      <div className="container-fluid">
+        <div className="row justify-content-center">
+          <div className="col-12 col-sm-11 col-md-10 col-lg-9 col-xl-7 col-xxl-6">
+            {/* <PanelControl /> */}
+            <Formulario
+              listaPartidos={listaPartidos}
+              actualizador={setListaPartidos}
+              clave={clave}
+            />
+            <main className="position-relative col d-flex flex-column align-items-center">
+              <Fondo />
+              <Flyer listaPartidos={listaPartidos} />
+            </main>
+          </div>
+        </div>
       </div>
     </>
   );

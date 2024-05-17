@@ -1,9 +1,17 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import {
+  Dispatch,
+  FormEvent,
+  MouseEvent,
+  SetStateAction,
+  useState,
+} from "react";
 import deepcopy from "deepcopy";
 import Partido from "@/model/Partido";
 import EstadoFormulario from "./EstadoFormulario";
 import LayoutCampos from "./LayoutCampos";
 import { LayoutBotones } from "./LayoutBotones";
+import parseTimeString from "@/utils/parseTimeString";
+import { ordenPorFecha } from "@/utils/ordenDeFechaYTiempo";
 
 export default function Formulario({
   listaPartidos,
@@ -32,12 +40,25 @@ export default function Formulario({
     setCategoria
   );
 
-  function manejarFormulario() {}
+  function manejarFormulario(e: FormEvent) {
+    e.preventDefault();
+  }
 
-  function manejarClick() {}
+  function manejarClick(e: MouseEvent) {
+    const boton = e.target as HTMLElement;
+    switch (boton.id) {
+      case "botonAgregar":
+        agregar();
+        break;
+      case "botonQuitar":
+        borrar();
+        break;
+      default:
+        break;
+    }
+  }
 
   function agregar() {
-    /*
     const copiaListaPartidos: Array<Partido> = deepcopy(listaPartidos);
     const fechaParseada = new Date(fecha);
     const horarioParseado = parseTimeString(horario);
@@ -57,7 +78,6 @@ export default function Formulario({
     limpiarFormulario();
 
     enfocarCampoHorario();
-    */
   }
 
   function enfocarCampoHorario() {
@@ -65,11 +85,9 @@ export default function Formulario({
   }
 
   function limpiarFormulario() {
-    /*
     setHorario("");
     setAdversario("");
     setCategoria("");
-    */
   }
 
   function borrar() {
@@ -85,7 +103,7 @@ export default function Formulario({
   }
 
   return (
-    <form className="col mb-5" onSubmit={manejarFormulario}>
+    <form className="col my-5" onSubmit={manejarFormulario}>
       <LayoutCampos estado={estadoDelFormulario} />
 
       <LayoutBotones clickHandler={manejarClick}></LayoutBotones>
