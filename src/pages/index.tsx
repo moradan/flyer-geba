@@ -34,8 +34,8 @@ export default function Home() {
       </Head>
 
       <div className="container-fluid">
-        <div className="row">
-          <div className="col-12">
+        <div className="row justify-content-center">
+          <div className="col-12 col-sm-11 col-md-10 col-lg-9 col-xl-7 col-xxl-6">
             {/* <PanelControl /> */}
             <Formulario
               listaPartidos={listaPartidos}
