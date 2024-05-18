@@ -1,6 +1,6 @@
 import { Campo } from "./Campo";
 import EstadoFormulario from "./EstadoFormulario";
-import { SeleccionLocalia } from "./SeleccionLocalia";
+import { SelectorLocalia } from "./SelectorLocalia";
 
 export default function LayoutCampos({ estado }: { estado: EstadoFormulario }) {
   return (
@@ -13,11 +13,8 @@ export default function LayoutCampos({ estado }: { estado: EstadoFormulario }) {
         valor={estado.fecha}
         actualizador={estado.setFecha}
       />
-      <SeleccionLocalia
+      <SelectorLocalia
         ancho="col-6"
-        identifier="CampoLocalia"
-        type="text"
-        etiqueta="Localía"
         valor={estado.localia}
         actualizador={estado.setLocalia}
       />

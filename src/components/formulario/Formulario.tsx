@@ -23,7 +23,7 @@ export default function Formulario({
   clave: string;
 }) {
   const [fecha, setFecha] = useState("");
-  const [localia, setLocalia] = useState("");
+  const [localia, setLocalia] = useState("Local");
   const [horario, setHorario] = useState("");
   const [adversario, setAdversario] = useState("");
   const [categoria, setCategoria] = useState("");
