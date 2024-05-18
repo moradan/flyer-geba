@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 
 export function SeleccionLocalia({
   ancho,
@@ -15,6 +15,14 @@ export function SeleccionLocalia({
   valor: string;
   actualizador: Dispatch<SetStateAction<string>>;
 }) {
+  useEffect(() => {
+    const botonLocal = document.querySelector(
+      "#opcionLocal"
+    ) as HTMLInputElement;
+    const localia = botonLocal.getAttribute("checked");
+    console.log(localia);
+  }, []);
+
   return (
     <div className={ancho}>
       <input
