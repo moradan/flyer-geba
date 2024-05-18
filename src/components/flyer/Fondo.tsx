@@ -3,7 +3,7 @@ export default function Fondo() {
     <img
       src="/fondo.jpg"
       alt="imagen de las canchas de GEBA"
-      className="position-absolute z-n1 h-100 w-auto"
+      className="position-absolute z-n1 tamanio-fondo"
     />
   );
 }

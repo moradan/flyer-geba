@@ -26,7 +26,7 @@ export default function Flyer({
   );
 
   return (
-    <div className="pt-2">
+    <div className="p-2">
       <Titulo titulo="Interclubes 2024" />
       <ul className="list-group-flush p-0">{listaFechasJSX}</ul>
     </div>
