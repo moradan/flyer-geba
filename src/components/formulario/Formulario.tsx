@@ -3,6 +3,7 @@ import {
   FormEvent,
   MouseEvent,
   SetStateAction,
+  useEffect,
   useState,
 } from "react";
 import deepcopy from "deepcopy";
@@ -12,6 +13,7 @@ import LayoutCampos from "./LayoutCampos";
 import { LayoutBotones } from "./LayoutBotones";
 import parseTimeString from "@/utils/parseTimeString";
 import { ordenPorFecha } from "@/utils/ordenDeFechaYTiempo";
+import formatDate from "@/utils/formatDate";
 
 export default function Formulario({
   listaPartidos,
@@ -22,6 +24,7 @@ export default function Formulario({
   actualizador: Dispatch<SetStateAction<Array<Partido>>>;
   clave: string;
 }) {
+  const [formValid, setFormValid] = useState(false);
   const [fecha, setFecha] = useState("");
   const [localia, setLocalia] = useState("Local");
   const [horario, setHorario] = useState("");
@@ -39,6 +42,16 @@ export default function Formulario({
     setAdversario,
     setCategoria
   );
+
+  useEffect(() => {
+    setFormValid(
+      horario !== "" &&
+        adversario !== "" &&
+        categoria !== "" &&
+        fecha !== "" &&
+        localia !== ""
+    );
+  });
 
   function manejarFormulario(e: FormEvent) {
     e.preventDefault();
@@ -106,7 +119,10 @@ export default function Formulario({
     <form className="col my-5" onSubmit={manejarFormulario}>
       <LayoutCampos estado={estadoDelFormulario} />
 
-      <LayoutBotones clickHandler={manejarClick}></LayoutBotones>
+      <LayoutBotones
+        formValid={formValid}
+        clickHandler={manejarClick}
+      ></LayoutBotones>
     </form>
   );
 }

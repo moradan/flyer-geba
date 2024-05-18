@@ -2,8 +2,10 @@ import { MouseEventHandler } from "react";
 import Boton from "../Boton";
 
 export function LayoutBotones({
+  formValid = false,
   clickHandler,
 }: {
+  formValid: boolean;
   clickHandler: MouseEventHandler;
 }) {
   return (
@@ -13,6 +15,7 @@ export function LayoutBotones({
           identifier="botonAgregar"
           clickHandler={clickHandler}
           caption="Agregar"
+          disabled={!formValid}
         />
       </div>
       <div className="col-6">
