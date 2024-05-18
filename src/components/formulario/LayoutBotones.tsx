@@ -7,7 +7,7 @@ export function LayoutBotones({
   clickHandler: MouseEventHandler;
 }) {
   return (
-    <div className="row g-1 mb-3">
+    <div className="row gx-2 mb-3">
       <div className="col-6">
         <Boton
           identifier="botonAgregar"
