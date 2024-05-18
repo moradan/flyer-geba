@@ -42,7 +42,7 @@ export default function Home() {
               actualizador={setListaPartidos}
               clave={clave}
             />
-            <main className="position-relative col d-flex flex-column align-items-center">
+            <main className="position-relative col align-items-center">
               <Fondo />
               <Flyer listaPartidos={listaPartidos} />
             </main>
