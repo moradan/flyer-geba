@@ -21,7 +21,7 @@ export function Campo({
       <input
         id={identifier}
         type={type}
-        className="form-control bg-transparent border-light"
+        className="form-control bg-transparent border-light text-uppercase"
         value={valor}
         onChange={(e) => actualizador(e.target.value)}
         required
