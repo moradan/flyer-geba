@@ -34,10 +34,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <div className="container-fluid">
+      <div className="container-fluid p-0">
         <div className="row justify-content-center">
           <div className="col-12 col-sm-11 col-md-10 col-lg-9 col-xl-7 col-xxl-6">
-            <Card className="mt-2 mb-5">
+            <Card className="mt-2 mb-5 mx-2">
               <Card.Header>
                 <PanelControl />
               </Card.Header>
