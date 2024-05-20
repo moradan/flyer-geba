@@ -22,7 +22,7 @@ export function SeccionLocalia({
         </h4>
       </header>
       <section>
-        <ul className="list-group-flush p-0 bg-primary rounded">
+        <ul className="list-group-flush p-0 bg-primary text-dark rounded">
           {listaPartidosJSX}
         </ul>
       </section>
