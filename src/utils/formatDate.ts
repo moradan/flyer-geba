@@ -9,7 +9,8 @@ export default function formatDate(date: Date): string {
     };
 
     const dateFormatter = new Intl.DateTimeFormat('es', options);
-    const formattedDate = dateFormatter.format(date);
+    const formattedDate: string = dateFormatter.format(date);
+    const cadenaLimpia: string  = formattedDate.replace(/,|de/gi, "");
 
-    return formattedDate;
+    return cadenaLimpia;
 }

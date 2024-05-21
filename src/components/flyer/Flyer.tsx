@@ -8,9 +8,6 @@ export default function Flyer({
 }: {
   listaPartidos: Array<Partido>;
 }) {
-  /* Logica para convertir datos en una representacion que siga la jerarquia
-    de componentes establecida */
-
   const listaFechasJSX: Array<ReactNode> = [];
   const listaFechas = new Map<number, Array<Partido>>();
 
@@ -26,7 +23,7 @@ export default function Flyer({
   );
 
   return (
-    <div className="p-2">
+    <div className="pt-4">
       <Titulo titulo="Interclubes 2024" />
       <ul className="list-group-flush p-0">{listaFechasJSX}</ul>
     </div>

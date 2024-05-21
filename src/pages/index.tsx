@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Partido, { PartidoTexto } from "@/model/Partido";
 import Fondo from "@/components/flyer/Fondo";
 import Flyer from "@/components/flyer/Flyer";
+import { Card } from "react-bootstrap";
 
 export default function Home() {
   const clave = "Partidos";
@@ -33,15 +34,21 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <div className="container-fluid">
+      <div className="container-fluid p-0">
         <div className="row justify-content-center">
           <div className="col-12 col-sm-11 col-md-10 col-lg-9 col-xl-7 col-xxl-6">
-            {/* <PanelControl /> */}
-            <Formulario
-              listaPartidos={listaPartidos}
-              actualizador={setListaPartidos}
-              clave={clave}
-            />
+            <Card className="mt-2 mb-3 mx-2">
+              <Card.Header>
+                <PanelControl />
+              </Card.Header>
+              <Card.Body>
+                <Formulario
+                  listaPartidos={listaPartidos}
+                  actualizador={setListaPartidos}
+                  clave={clave}
+                />
+              </Card.Body>
+            </Card>
             <main className="position-relative col align-items-center">
               <Fondo />
               <Flyer listaPartidos={listaPartidos} />

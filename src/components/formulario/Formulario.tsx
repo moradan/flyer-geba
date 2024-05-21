@@ -14,6 +14,7 @@ import { LayoutBotones } from "./LayoutBotones";
 import parseTimeString from "@/utils/parseTimeString";
 import { ordenPorFecha } from "@/utils/ordenDeFechaYTiempo";
 import formatDate from "@/utils/formatDate";
+import { Button, Card } from "react-bootstrap";
 
 export default function Formulario({
   listaPartidos,
@@ -116,13 +117,9 @@ export default function Formulario({
   }
 
   return (
-    <form className="col my-5" onSubmit={manejarFormulario}>
+    <form className="col" onSubmit={manejarFormulario}>
       <LayoutCampos estado={estadoDelFormulario} />
-
-      <LayoutBotones
-        formValid={formValid}
-        clickHandler={manejarClick}
-      ></LayoutBotones>
+      <LayoutBotones formValid={formValid} clickHandler={manejarClick} />
     </form>
   );
 }
