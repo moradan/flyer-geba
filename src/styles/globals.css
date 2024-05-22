@@ -10,11 +10,15 @@ h3, h4 {
     min-width: 100%;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the aspect ratio is maintained at the expense of height */
+    object-fit: cover;
 }
 
 .font-tahoma {
-    font-family: Tahoma, Geneva, Verdana, sans-serif
+    font-family: 'Tahoma Bold', Geneva, Verdana, sans-serif
+}
+
+.text-shadow {
+    text-shadow: -3px 0px black;
 }
 
 @media (min-width: 820px) {
