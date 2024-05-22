@@ -4,7 +4,7 @@ export default function EncabezadoFecha({ fecha }: { fecha: Date }) {
   return (
     <header>
       <h3 className="d-flex justify-content-center">
-        <span className="bg-primary-subtle p-1 rounded">
+        <span className="bg-primario p-1 text-capitalize rounded">
           {formatDate(fecha)}
         </span>
       </h3>
