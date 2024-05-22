@@ -23,7 +23,7 @@ export default function Flyer({
   );
 
   return (
-    <div className="pt-4">
+    <div className="pt-4 font-tahoma">
       <Titulo titulo="Interclubes 2024" />
       <ul className="list-group-flush p-0">{listaFechasJSX}</ul>
     </div>

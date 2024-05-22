@@ -13,6 +13,9 @@ h3, h4 {
     object-fit: cover; /* Ensures the aspect ratio is maintained at the expense of height */
 }
 
+.font-tahoma {
+    font-family: Tahoma, Geneva, Verdana, sans-serif
+}
 
 @media (min-width: 820px) {
     .fs-7 {
@@ -42,4 +45,20 @@ h3, h4 {
     .fs-7 {
         font-size: 0.73rem;
     }
+}
+
+.text-primario {
+    color: #1d0d8c
+} 
+
+.bg-primario {
+    background-color: #1d0d8c;
+}
+
+.secundario {
+    color: #2aafce
+}
+
+.bg-secundario {
+    background-color: #2aafce
 }

@@ -18,11 +18,11 @@ export function SeccionLocalia({
     <section>
       <header>
         <h4 className="d-flex justify-content-center">
-          <span className="bg-primary-subtle p-1">{tipo}</span>
+          <span className="bg-primario p-1 text-capitalize">{tipo}</span>
         </h4>
       </header>
       <section>
-        <ul className="list-group-flush px-0 py-1 bg-primary text-dark rounded">
+        <ul className="list-group-flush bg-secundario text-primario px-0 py-1 rounded">
           {listaPartidosJSX}
         </ul>
       </section>
