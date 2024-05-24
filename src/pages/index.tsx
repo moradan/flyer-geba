@@ -49,7 +49,10 @@ export default function Home() {
                 />
               </Card.Body>
             </Card>
-            <main className="position-relative col align-items-center">
+            <main
+              id="flyer"
+              className="position-relative col align-items-center"
+            >
               <Fondo />
               <Flyer listaPartidos={listaPartidos} />
             </main>
