@@ -18,7 +18,9 @@ export function SeccionLocalia({
     <section>
       <header>
         <h4 className="d-flex justify-content-center">
-          <span className="bg-primario p-1 text-capitalize">{tipo}</span>
+          <span className="bg-primario p-1 text-shadow text-capitalize">
+            {tipo}
+          </span>
         </h4>
       </header>
       <section>

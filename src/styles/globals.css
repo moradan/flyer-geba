@@ -1,7 +1,3 @@
-html {
-    font-size: 12px;
-}
-
 h3, h4 {
     margin-bottom: 0;
 }
@@ -10,41 +6,15 @@ h3, h4 {
     min-width: 100%;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the aspect ratio is maintained at the expense of height */
+    object-fit: cover;
 }
 
 .font-tahoma {
-    font-family: Tahoma, Geneva, Verdana, sans-serif
+    font-family: 'Tahoma Bold', Geneva, Verdana, sans-serif
 }
 
-@media (min-width: 820px) {
-    .fs-7 {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 820px) {
-    .fs-7 {
-        font-size: 1.3rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .fs-7 {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 430px) {
-    .fs-7 {
-        font-size: 0.84rem;
-    }
-}
-
-@media (max-width: 391px) {
-    .fs-7 {
-        font-size: 0.73rem;
-    }
+.text-shadow {
+    text-shadow: -3px 0px black;
 }
 
 .text-primario {
