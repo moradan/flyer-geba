@@ -65,7 +65,9 @@ export default function Formulario({
         agregar();
         break;
       case "botonQuitar":
-        borrar();
+        if (confirm("Ojo lo que haces!")) {
+          borrar();
+        }
         break;
       default:
         break;
