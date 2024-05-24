@@ -50,7 +50,7 @@ export default function Home() {
               </Card.Body>
             </Card>
             <main
-              id="flyer"
+              id="flyer-node"
               className="position-relative col align-items-center"
             >
               <Fondo />
