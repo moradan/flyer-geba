@@ -6,8 +6,8 @@ export default function ElementoPartido({ partido }: { partido: Partido }) {
     <li className="list-group-item px-2">
       <div className="row fs-7 fw-bold gx-1 text-uppercase text-nowrap">
         <div className="col-1">{formatTime(partido.horario)}</div>
-        <div className="col-6">{partido.adversario}</div>
-        <div className="col-5 text-end">{partido.categoria}</div>
+        <div className="col-5">{partido.adversario}</div>
+        <div className="col-6 text-end">{partido.categoria}</div>
       </div>
     </li>
   );
