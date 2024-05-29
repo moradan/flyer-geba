@@ -9,20 +9,20 @@ export function LayoutBotones({
   clickHandler: MouseEventHandler;
 }) {
   return (
-    <div className="row gx-2">
-      <div className="col-6">
+    <div className='row gx-2'>
+      <div className='col-6'>
         <Boton
-          identifier="botonAgregar"
+          identifier='botonQuitar'
           clickHandler={clickHandler}
-          caption="Agregar"
-          disabled={!formValid}
+          caption='Quitar ultimo'
         />
       </div>
-      <div className="col-6">
+      <div className='col-6'>
         <Boton
-          identifier="botonQuitar"
+          identifier='botonAgregar'
           clickHandler={clickHandler}
-          caption="Quitar ultimo"
+          caption='Agregar'
+          disabled={!formValid}
         />
       </div>
     </div>
