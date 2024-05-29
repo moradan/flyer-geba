@@ -12,7 +12,7 @@ import EstadoFormulario from "./EstadoFormulario";
 import LayoutCampos from "./LayoutCampos";
 import { LayoutBotones } from "./LayoutBotones";
 import parseTimeString from "@/utils/parseTimeString";
-import { ordenPorFecha } from "@/utils/ordenDeFechaYTiempo";
+import { ordenPorTimeStamp } from "@/utils/ordenDeFechaYTiempo";
 
 export default function Formulario({
   listaPartidos,
@@ -54,6 +54,7 @@ export default function Formulario({
 
   function manejarFormulario(e: FormEvent) {
     e.preventDefault();
+    console.log("Formulario enviado. Mentira.");
   }
 
   function manejarClick(e: MouseEvent) {
@@ -91,7 +92,7 @@ export default function Formulario({
       categoria
     );
     copiaListaPartidos.push(partidoFormulario);
-    copiaListaPartidos.sort(ordenPorFecha);
+    copiaListaPartidos.sort(ordenPorTimeStamp);
 
     guardar(copiaListaPartidos);
     actualizador(copiaListaPartidos);
