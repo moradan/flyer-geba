@@ -13,8 +13,6 @@ import LayoutCampos from "./LayoutCampos";
 import { LayoutBotones } from "./LayoutBotones";
 import parseTimeString from "@/utils/parseTimeString";
 import { ordenPorFecha } from "@/utils/ordenDeFechaYTiempo";
-import formatDate from "@/utils/formatDate";
-import { Button, Card } from "react-bootstrap";
 
 export default function Formulario({
   listaPartidos,
@@ -65,8 +63,15 @@ export default function Formulario({
         agregar();
         break;
       case "botonQuitar":
-        if (confirm("Ojo lo que haces!")) {
-          borrar();
+        const ultimo: number = listaPartidos.length;
+        const mensaje = `Decime cual linea queres borrar.\nLa ultima linea es la ${ultimo}`;
+        const indiceTexto = prompt(mensaje);
+
+        if (!indiceTexto) {
+          alert("No pusiste un numero valido.");
+        } else {
+          const indice: number | undefined = parseInt(indiceTexto);
+          borrar(indice);
         }
         break;
       default:
@@ -106,12 +111,20 @@ export default function Formulario({
     setCategoria("");
   }
 
-  function borrar() {
-    const copiaListaPartidos: Array<Partido> = deepcopy(listaPartidos);
+  function borrar(indice: number) {
+    if (indice < 1 || indice > listaPartidos.length + 1) {
+      alert("No pusiste un numero valido.");
+      return;
+    }
 
-    copiaListaPartidos.pop();
-    guardar(copiaListaPartidos);
-    actualizador(copiaListaPartidos);
+    const copiaListaPartidos: Array<Partido> = deepcopy(listaPartidos);
+    const arraySinElemento = [
+      ...copiaListaPartidos.slice(0, indice - 1),
+      ...copiaListaPartidos.slice(indice),
+    ];
+
+    guardar(arraySinElemento);
+    actualizador(arraySinElemento);
   }
 
   function guardar(listaPartidos: Array<Partido>) {
@@ -119,7 +132,7 @@ export default function Formulario({
   }
 
   return (
-    <form className="col" onSubmit={manejarFormulario}>
+    <form className='col' onSubmit={manejarFormulario}>
       <LayoutCampos estado={estadoDelFormulario} />
       <LayoutBotones formValid={formValid} clickHandler={manejarClick} />
     </form>

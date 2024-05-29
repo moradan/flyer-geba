@@ -11,11 +11,7 @@ export function LayoutBotones({
   return (
     <div className='row gx-2'>
       <div className='col-6'>
-        <Boton
-          identifier='botonQuitar'
-          clickHandler={clickHandler}
-          caption='Quitar ultimo'
-        />
+        <Boton identifier='botonQuitar' clickHandler={clickHandler} caption='Quitar' />
       </div>
       <div className='col-6'>
         <Boton
