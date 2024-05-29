@@ -54,6 +54,7 @@ export default function Formulario({
 
   function manejarFormulario(e: FormEvent) {
     e.preventDefault();
+    console.log("Formulario enviado. Mentira.");
   }
 
   function manejarClick(e: MouseEvent) {
