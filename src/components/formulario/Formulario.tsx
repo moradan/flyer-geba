@@ -7,12 +7,11 @@ import {
   useState,
 } from "react";
 import deepcopy from "deepcopy";
-import Partido from "@/model/Partido";
-import EstadoFormulario from "./EstadoFormulario";
+import Partido, { PartidoTexto } from "@/model/Partido";
 import LayoutCampos from "./LayoutCampos";
 import { LayoutBotones } from "./LayoutBotones";
-import parseTimeString from "@/utils/parseTimeString";
 import { ordenPorTimeStamp } from "@/utils/ordenDeFechaYTiempo";
+import Estado from "@/utils/Estado";
 
 export default function Formulario({
   listaPartidos,
@@ -23,34 +22,16 @@ export default function Formulario({
   actualizador: Dispatch<SetStateAction<Array<Partido>>>;
   clave: string;
 }) {
-  const [formValid, setFormValid] = useState(false);
-  const [fecha, setFecha] = useState("");
-  const [localia, setLocalia] = useState("Local");
-  const [horario, setHorario] = useState("");
-  const [adversario, setAdversario] = useState("");
-  const [categoria, setCategoria] = useState("");
-  const estadoDelFormulario = new EstadoFormulario(
-    fecha,
-    localia,
-    horario,
-    adversario,
-    categoria,
-    setFecha,
-    setLocalia,
-    setHorario,
-    setAdversario,
-    setCategoria
-  );
+  const estadoFormulario = new Estado<PartidoTexto>(useState(new PartidoTexto()));
+  const [formularioValido, setFormularioValido] = useState(false);
 
-  useEffect(() => {
-    setFormValid(
-      horario !== "" &&
-        adversario !== "" &&
-        categoria !== "" &&
-        fecha !== "" &&
-        localia !== ""
-    );
-  });
+  useEffect(() => setFormularioValido(validarFormulario()));
+
+  function validarFormulario(): boolean {
+    const partido: PartidoTexto = estadoFormulario.valor;
+    const respuesta: boolean = partido.esValido();
+    return respuesta;
+  }
 
   function manejarFormulario(e: FormEvent) {
     e.preventDefault();
@@ -64,16 +45,7 @@ export default function Formulario({
         agregar();
         break;
       case "botonQuitar":
-        const ultimo: number = listaPartidos.length;
-        const mensaje = `Decime cual linea queres borrar.\nLa ultima linea es la ${ultimo}`;
-        const indiceTexto = prompt(mensaje);
-
-        if (!indiceTexto) {
-          alert("No pusiste un numero valido.");
-        } else {
-          const indice: number | undefined = parseInt(indiceTexto);
-          borrar(indice);
-        }
+        borrar();
         break;
       default:
         break;
@@ -81,17 +53,10 @@ export default function Formulario({
   }
 
   function agregar() {
+    const partidoTexto: PartidoTexto = estadoFormulario.valor!;
     const copiaListaPartidos: Array<Partido> = deepcopy(listaPartidos);
-    const fechaParseada = new Date(fecha);
-    const horarioParseado = parseTimeString(horario);
-    const partidoFormulario = new Partido(
-      fechaParseada,
-      localia,
-      horarioParseado,
-      adversario,
-      categoria
-    );
-    copiaListaPartidos.push(partidoFormulario);
+    const partido = new Partido(partidoTexto);
+    copiaListaPartidos.push(partido);
     copiaListaPartidos.sort(ordenPorTimeStamp);
 
     guardar(copiaListaPartidos);
@@ -107,13 +72,25 @@ export default function Formulario({
   }
 
   function limpiarFormulario() {
-    setHorario("");
-    setAdversario("");
-    setCategoria("");
+    let nuevoEstado = new PartidoTexto();
+    Object.assign(nuevoEstado, estadoFormulario.valor);
+    nuevoEstado.horario = "";
+    nuevoEstado.adversario = "";
+    nuevoEstado.categoria = "";
+
+    estadoFormulario.actualizar(nuevoEstado);
   }
 
-  function borrar(indice: number) {
-    if (indice < 1 || indice > listaPartidos.length + 1) {
+  function borrar() {
+    const ultimo: number = listaPartidos.length;
+    const mensaje = `Decime cual linea queres borrar.\nLa ultima linea es la ${ultimo}`;
+    const indiceTexto = prompt(mensaje);
+    let indice: number | undefined;
+
+    if (indiceTexto && (indice = parseInt(indiceTexto))) {
+      if (indice > 0 && indice < listaPartidos.length + 1) {
+      }
+    } else {
       alert("No pusiste un numero valido.");
       return;
     }
@@ -134,8 +111,8 @@ export default function Formulario({
 
   return (
     <form className='col' onSubmit={manejarFormulario}>
-      <LayoutCampos estado={estadoDelFormulario} />
-      <LayoutBotones formValid={formValid} clickHandler={manejarClick} />
+      <LayoutCampos estado={estadoFormulario} />
+      <LayoutBotones formValid={formularioValido} clickHandler={manejarClick} />
     </form>
   );
 }

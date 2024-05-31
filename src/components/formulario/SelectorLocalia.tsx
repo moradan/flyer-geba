@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { ChangeEvent, Dispatch, SetStateAction, useEffect } from "react";
 import { ButtonGroup, ToggleButton } from "react-bootstrap";
 
 export function SelectorLocalia({
@@ -8,29 +8,29 @@ export function SelectorLocalia({
 }: {
   ancho: string;
   valor: string;
-  actualizador: Dispatch<SetStateAction<string>>;
+  actualizador: (e: ChangeEvent<HTMLInputElement>) => void;
 }) {
   const radios = [
-    { name: "Local", value: "Local" },
-    { name: "Visita", value: "Visitante" },
+    { caption: "Local", value: "Local" },
+    { caption: "Visita", value: "Visitante" },
   ];
 
   return (
     <div className={ancho}>
-      <div className="row">
-        <ButtonGroup className="col">
+      <div className='row'>
+        <ButtonGroup className='col'>
           {radios.map((radio, idx) => (
             <ToggleButton
               key={idx}
               id={`radio-${idx}`}
-              type="radio"
-              variant="outline"
-              name="radio"
+              type='radio'
+              variant='outline'
+              name='localia'
               value={radio.value}
               checked={valor === radio.value}
-              onChange={(e) => actualizador(e.currentTarget.value)}
+              onChange={actualizador}
             >
-              {radio.name}
+              {radio.caption}
             </ToggleButton>
           ))}
         </ButtonGroup>

@@ -1,8 +1,9 @@
-import { Dispatch, SetStateAction } from "react";
+import { ChangeEvent } from "react";
 
 export function Campo({
   ancho,
   identifier,
+  nombre,
   type,
   etiqueta,
   valor,
@@ -10,20 +11,22 @@ export function Campo({
 }: {
   ancho: string;
   identifier: string;
+  nombre: string;
   type: string;
   etiqueta: string;
   valor: string;
-  actualizador: Dispatch<SetStateAction<string>>;
+  actualizador: (e: ChangeEvent<HTMLInputElement>) => void;
 }) {
   return (
     <div className={ancho}>
       <label htmlFor={identifier}>{etiqueta}</label>
       <input
         id={identifier}
+        name={nombre}
         type={type}
-        className="form-control bg-transparent border-light text-uppercase"
+        className='form-control bg-transparent border-light text-uppercase'
         value={valor}
-        onChange={(e) => actualizador(e.target.value)}
+        onChange={actualizador}
         required
       />
     </div>

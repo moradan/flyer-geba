@@ -15,10 +15,9 @@ export default function Home() {
 
   function cargarPartidos() {
     const partidosAlmacenados: string = localStorage.getItem(clave) ?? "[]";
-    const listaPartidosTexto: Array<PartidoTexto> =
-      JSON.parse(partidosAlmacenados);
+    const listaPartidosTexto: Array<PartidoTexto> = JSON.parse(partidosAlmacenados);
     const listaPartidosInicial: Array<Partido> = listaPartidosTexto.map(
-      (partidoTexto) => Partido.fromText(partidoTexto)
+      (partidoTexto) => new Partido(partidoTexto)
     );
     setListaPartidos(listaPartidosInicial);
   }
@@ -28,16 +27,16 @@ export default function Home() {
       <Head>
         <title>Flyer GEBA</title>
         <meta
-          name="description"
-          content="App para generar un flyer con los partidos de las fechas del mes."
+          name='description'
+          content='App para generar un flyer con los partidos de las fechas del mes.'
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
 
-      <div className="container-fluid p-0">
-        <div className="row g-0 justify-content-center">
-          <div className="col-12 col-sm-11 col-md-10 col-lg-9 col-xl-7 col-xxl-6">
-            <Card className="mt-2 mb-3 mx-2">
+      <div className='container-fluid p-0'>
+        <div className='row g-0 justify-content-center'>
+          <div className='col-12 col-sm-11 col-md-10 col-lg-9 col-xl-7 col-xxl-6'>
+            <Card className='mt-2 mb-3 mx-2'>
               <Card.Header>
                 <PanelControl />
               </Card.Header>
@@ -49,10 +48,7 @@ export default function Home() {
                 />
               </Card.Body>
             </Card>
-            <main
-              id="flyer-node"
-              className="position-relative col align-items-center"
-            >
+            <main id='flyer-node' className='position-relative col align-items-center'>
               <Fondo />
               <Flyer listaPartidos={listaPartidos} />
             </main>
