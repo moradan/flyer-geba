@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 export function Campo({
   ancho,
@@ -8,6 +8,7 @@ export function Campo({
   etiqueta,
   valor,
   actualizador,
+  autocompletar = false,
 }: {
   ancho: string;
   identifier: string;
@@ -16,7 +17,19 @@ export function Campo({
   etiqueta: string;
   valor: string;
   actualizador: (e: ChangeEvent<HTMLInputElement>) => void;
+  autocompletar?: boolean;
 }) {
+  const [valoresAutocompletar, setValoresAutocompletar] = useState<string[]>([]);
+
+  if (autocompletar) {
+    useEffect(() => {
+      const storedTextArray = localStorage.getItem(nombre);
+      if (storedTextArray) {
+        setValoresAutocompletar(JSON.parse(storedTextArray));
+      }
+    }, [nombre]);
+  }
+
   return (
     <div className={ancho}>
       <label htmlFor={identifier}>{etiqueta}</label>
