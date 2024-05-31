@@ -27,6 +27,7 @@ export function Campo({
         className='form-control bg-transparent border-light text-uppercase'
         value={valor}
         onChange={actualizador}
+        autoComplete='on'
         required
       />
     </div>

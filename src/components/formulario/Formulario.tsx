@@ -110,7 +110,7 @@ export default function Formulario({
   }
 
   return (
-    <form className='col' onSubmit={manejarFormulario}>
+    <form className='col'>
       <LayoutCampos estado={estadoFormulario} />
       <LayoutBotones formValid={formularioValido} clickHandler={manejarClick} />
     </form>
