@@ -28,10 +28,11 @@ export default function Flyer({ listaPartidos }: { listaPartidos: Array<Partido>
 
   function catalogarFechas() {
     for (const partido of listaPartidos) {
-      if (listaFechas.has(partido.fecha.getTime())) {
-        listaFechas.get(partido.fecha.getTime())!.push(partido);
+      const timeStamp = partido.fecha.getTime();
+      if (listaFechas.has(timeStamp)) {
+        listaFechas.get(timeStamp)!.push(partido);
       } else {
-        listaFechas.set(partido.fecha.getTime(), new Array<Partido>(partido));
+        listaFechas.set(timeStamp, new Array<Partido>(partido));
       }
     }
   }
