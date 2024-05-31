@@ -1,8 +1,16 @@
 export default function parseTimeString(timeString: string): Date {
-  const [hours, minutes] = timeString.split(':').map(Number);
+  const [hours, minutes] = timeString.split(":").map(Number);
 
   // Checking if the parsed values are valid
-  if (isNaN(hours) || isNaN(minutes) || hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
+  if (
+    isNaN(hours) ||
+    isNaN(minutes) ||
+    hours < 0 ||
+    hours > 23 ||
+    minutes < 0 ||
+    minutes > 59
+  ) {
+    console.log(`timeString: ${timeString}\nHours: ${hours} Minutes: ${minutes}`);
     throw new Error("No es un horario correcto.");
   }
 
