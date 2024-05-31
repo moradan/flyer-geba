@@ -38,8 +38,7 @@ export default class Partido {
         this.horario = parseTimeString(partidoTexto.horario);
       } catch (error) {
         console.error(error);
-      } finally {
-        this.horario = new Date();
+        this.horario = new Date(0);
       }
     }
 
