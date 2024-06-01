@@ -73,7 +73,7 @@ export default function Formulario({
   }
 
   return (
-    <form className='col' onSubmit={manejarFormulario} autoComplete='on'>
+    <form className='col' onSubmit={manejarFormulario}>
       <LayoutCampos estado={estadoFormulario} />
       <LayoutBotones borrar={borrar} />
     </form>
