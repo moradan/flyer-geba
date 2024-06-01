@@ -18,8 +18,11 @@ export default function Formulario({
   const estadoFormulario = new Estado<PartidoTexto>(useState(new PartidoTexto()));
 
   function manejarFormulario(e: FormEvent) {
+    // TODO replace current buttons for agregar with a submit button and handle the action in this function.
     e.preventDefault();
-    console.log("Formulario enviado. Mentira.");
+    alert("Formulario enviado. Mentira.");
+    limpiarFormulario();
+    enfocarCampoHorario();
   }
 
   function manejarClick(e: MouseEvent) {
@@ -93,7 +96,7 @@ export default function Formulario({
   }
 
   return (
-    <form className='col'>
+    <form className='col' onSubmit={manejarFormulario}>
       <LayoutCampos estado={estadoFormulario} />
       <LayoutBotones clickHandler={manejarClick} />
     </form>

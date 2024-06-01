@@ -1,5 +1,6 @@
 import { MouseEventHandler } from "react";
 import Boton from "../Boton";
+import { Button } from "react-bootstrap";
 
 export function LayoutBotones({ clickHandler }: { clickHandler: MouseEventHandler }) {
   return (
@@ -8,7 +9,9 @@ export function LayoutBotones({ clickHandler }: { clickHandler: MouseEventHandle
         <Boton identifier='botonQuitar' clickHandler={clickHandler} caption='Quitar' />
       </div>
       <div className='col-6'>
-        <Boton identifier='botonAgregar' clickHandler={clickHandler} caption='Agregar' />
+        <Button className='col-12' variant='outline-light' type='submit'>
+          Agregar
+        </Button>
       </div>
     </div>
   );
