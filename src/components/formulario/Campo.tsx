@@ -1,6 +1,7 @@
 import { ChangeEvent, useEffect, useState } from "react";
 
 export function Campo({
+  requerido = false,
   ancho,
   identifier,
   nombre,
@@ -10,6 +11,7 @@ export function Campo({
   actualizador,
   autocompletar = false,
 }: {
+  requerido: boolean;
   ancho: string;
   identifier: string;
   nombre: string;
@@ -40,6 +42,7 @@ export function Campo({
         className='form-control bg-transparent border-light text-uppercase'
         value={valor}
         onChange={actualizador}
+        autoComplete='on'
         required
       />
     </div>

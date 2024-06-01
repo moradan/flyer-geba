@@ -28,7 +28,7 @@ export default function Home() {
         <title>Flyer GEBA</title>
         <meta
           name='description'
-          content='App para generar un flyer con los partidos de las fechas del mes.'
+          content='Intento hacer que funcione autocompletar nativo del browser con campos controlados por ReactJS'
         />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
