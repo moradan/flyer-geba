@@ -28,7 +28,7 @@ export default function Formulario({
   useEffect(() => setFormularioValido(validarFormulario()));
 
   function validarFormulario(): boolean {
-    const partido: PartidoTexto = estadoFormulario.valor;
+    const partido: PartidoTexto = estadoFormulario.contenido;
     const respuesta: boolean = partido.esValido();
     return respuesta;
   }
@@ -53,7 +53,7 @@ export default function Formulario({
   }
 
   function agregar() {
-    const partidoTexto: PartidoTexto = estadoFormulario.valor!;
+    const partidoTexto: PartidoTexto = estadoFormulario.contenido!;
     const copiaListaPartidos: Array<Partido> = deepcopy(listaPartidos);
     const partido = new Partido(partidoTexto);
     copiaListaPartidos.push(partido);
@@ -72,13 +72,9 @@ export default function Formulario({
   }
 
   function limpiarFormulario() {
-    let nuevoEstado = new PartidoTexto();
-    Object.assign(nuevoEstado, estadoFormulario.valor);
-    nuevoEstado.horario = "";
-    nuevoEstado.adversario = "";
-    nuevoEstado.categoria = "";
-
-    estadoFormulario.actualizar(nuevoEstado);
+    estadoFormulario.actualizar("horario", "");
+    estadoFormulario.actualizar("adversario", "");
+    estadoFormulario.actualizar("categoria", "");
   }
 
   function borrar() {
@@ -101,8 +97,8 @@ export default function Formulario({
       ...copiaListaPartidos.slice(indice),
     ];
 
-    guardar(arraySinElemento);
     actualizador(arraySinElemento);
+    guardar(arraySinElemento);
   }
 
   function guardar(listaPartidos: Array<Partido>) {

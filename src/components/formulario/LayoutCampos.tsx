@@ -5,16 +5,12 @@ import Estado from "@/utils/Estado";
 import { ChangeEvent } from "react";
 
 export default function LayoutCampos({ estado }: { estado: Estado<PartidoTexto> }) {
-  const partidoTexto = estado.valor;
-  const actualizar = estado.actualizar;
+  const partidoTexto = estado.contenido;
 
   function manejarCambios(evento: ChangeEvent<HTMLInputElement>) {
     const { name, value } = evento.target;
-    let nuevoPartido: PartidoTexto = new PartidoTexto();
-    Object.assign(nuevoPartido, partidoTexto);
-    (nuevoPartido as any)[name] = value;
 
-    actualizar(nuevoPartido);
+    estado.actualizar(name, value);
   }
 
   return (
@@ -48,8 +44,6 @@ export default function LayoutCampos({ estado }: { estado: Estado<PartidoTexto> 
         nombre='adversario'
         type='text'
         etiqueta='Adversario'
-        valor={partidoTexto.adversario}
-        actualizador={manejarCambios}
       />
       <Campo
         ancho='col'
