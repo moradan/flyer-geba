@@ -1,17 +1,10 @@
-import {
-  Dispatch,
-  FormEvent,
-  MouseEvent,
-  SetStateAction,
-  useEffect,
-  useState,
-} from "react";
+import { Dispatch, FormEvent, MouseEvent, SetStateAction, useState } from "react";
 import deepcopy from "deepcopy";
 import Partido, { PartidoTexto } from "@/model/Partido";
 import LayoutCampos from "./LayoutCampos";
 import { LayoutBotones } from "./LayoutBotones";
 import { ordenPorTimeStamp } from "@/utils/ordenDeFechaYTiempo";
-import Estado from "@/utils/Estado";
+import Estado, { CampoEstado } from "@/utils/Estado";
 
 export default function Formulario({
   listaPartidos,
@@ -63,9 +56,12 @@ export default function Formulario({
   }
 
   function limpiarFormulario() {
-    estadoFormulario.actualizar("horario", "");
-    estadoFormulario.actualizar("adversario", "");
-    estadoFormulario.actualizar("categoria", "");
+    const campos: CampoEstado[] = [
+      new CampoEstado({ name: "horario", value: "" }),
+      new CampoEstado({ name: "adversario", value: "" }),
+      new CampoEstado({ name: "categoria", value: "" }),
+    ];
+    estadoFormulario.actualizar(...campos);
   }
 
   function borrar() {
