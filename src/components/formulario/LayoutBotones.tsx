@@ -1,12 +1,7 @@
 import { MouseEventHandler } from "react";
 import Boton from "../Boton";
 
-export function LayoutBotones({
-  clickHandler,
-}: {
-  formValid: boolean;
-  clickHandler: MouseEventHandler;
-}) {
+export function LayoutBotones({ clickHandler }: { clickHandler: MouseEventHandler }) {
   return (
     <div className='row gx-2'>
       <div className='col-6'>

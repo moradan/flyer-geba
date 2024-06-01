@@ -23,15 +23,6 @@ export default function Formulario({
   clave: string;
 }) {
   const estadoFormulario = new Estado<PartidoTexto>(useState(new PartidoTexto()));
-  const [formularioValido, setFormularioValido] = useState(false);
-
-  // useEffect(() => setFormularioValido(validarFormulario()));
-
-  function validarFormulario(): boolean {
-    const partido: PartidoTexto = estadoFormulario.contenido;
-    const respuesta: boolean = partido.esValido();
-    return respuesta;
-  }
 
   function manejarFormulario(e: FormEvent) {
     e.preventDefault();
@@ -108,7 +99,7 @@ export default function Formulario({
   return (
     <form className='col'>
       <LayoutCampos estado={estadoFormulario} />
-      <LayoutBotones formValid={formularioValido} clickHandler={manejarClick} />
+      <LayoutBotones clickHandler={manejarClick} />
     </form>
   );
 }
