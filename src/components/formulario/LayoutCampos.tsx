@@ -44,6 +44,8 @@ export default function LayoutCampos({ estado }: { estado: Estado<PartidoTexto> 
         nombre='adversario'
         type='text'
         etiqueta='Adversario'
+        valor={partidoTexto.adversario}
+        actualizador={manejarCambios}
       />
       <Campo
         ancho='col'
