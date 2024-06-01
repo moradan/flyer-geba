@@ -18,25 +18,10 @@ export default function Formulario({
   const estadoFormulario = new Estado<PartidoTexto>(useState(new PartidoTexto()));
 
   function manejarFormulario(e: FormEvent) {
-    // TODO replace current buttons for agregar with a submit button and handle the action in this function.
     e.preventDefault();
-    alert("Formulario enviado. Mentira.");
+    agregar();
     limpiarFormulario();
-    enfocarCampoHorario();
-  }
-
-  function manejarClick(e: MouseEvent) {
-    const boton = e.target as HTMLElement;
-    switch (boton.id) {
-      case "botonAgregar":
-        agregar();
-        break;
-      case "botonQuitar":
-        borrar();
-        break;
-      default:
-        break;
-    }
+    (document.querySelector("#CampoHorario") as HTMLElement).focus();
   }
 
   function agregar() {
@@ -48,14 +33,6 @@ export default function Formulario({
 
     guardar(copiaListaPartidos);
     actualizador(copiaListaPartidos);
-
-    limpiarFormulario();
-
-    enfocarCampoHorario();
-  }
-
-  function enfocarCampoHorario() {
-    (document.querySelector("#CampoHorario") as HTMLElement).focus();
   }
 
   function limpiarFormulario() {
@@ -98,7 +75,7 @@ export default function Formulario({
   return (
     <form className='col' onSubmit={manejarFormulario}>
       <LayoutCampos estado={estadoFormulario} />
-      <LayoutBotones clickHandler={manejarClick} />
+      <LayoutBotones borrar={borrar} />
     </form>
   );
 }
