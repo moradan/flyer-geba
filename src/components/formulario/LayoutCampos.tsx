@@ -16,6 +16,7 @@ export default function LayoutCampos({ estado }: { estado: Estado<PartidoTexto> 
   return (
     <div className='row align-items-end g-2 mb-3'>
       <Campo
+        requerido={true}
         ancho='col-6'
         identifier='CampoFecha'
         nombre='fecha'
@@ -30,6 +31,7 @@ export default function LayoutCampos({ estado }: { estado: Estado<PartidoTexto> 
         actualizador={manejarCambios}
       />
       <Campo
+        requerido={true}
         ancho='col-4'
         identifier='CampoHorario'
         nombre='horario'
@@ -39,6 +41,7 @@ export default function LayoutCampos({ estado }: { estado: Estado<PartidoTexto> 
         actualizador={manejarCambios}
       />
       <Campo
+        requerido={true}
         ancho='col-8'
         identifier='CampoAdversario'
         nombre='adversario'
@@ -48,6 +51,7 @@ export default function LayoutCampos({ estado }: { estado: Estado<PartidoTexto> 
         actualizador={manejarCambios}
       />
       <Campo
+        requerido={true}
         ancho='col'
         identifier='CampoCategoria'
         nombre='categoria'

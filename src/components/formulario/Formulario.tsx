@@ -25,7 +25,7 @@ export default function Formulario({
   const estadoFormulario = new Estado<PartidoTexto>(useState(new PartidoTexto()));
   const [formularioValido, setFormularioValido] = useState(false);
 
-  useEffect(() => setFormularioValido(validarFormulario()));
+  // useEffect(() => setFormularioValido(validarFormulario()));
 
   function validarFormulario(): boolean {
     const partido: PartidoTexto = estadoFormulario.contenido;

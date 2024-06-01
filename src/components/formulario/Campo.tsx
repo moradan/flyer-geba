@@ -1,6 +1,7 @@
 import { ChangeEvent } from "react";
 
 export function Campo({
+  requerido = false,
   ancho,
   identifier,
   nombre,
@@ -9,6 +10,7 @@ export function Campo({
   valor,
   actualizador,
 }: {
+  requerido: boolean;
   ancho: string;
   identifier: string;
   nombre: string;
