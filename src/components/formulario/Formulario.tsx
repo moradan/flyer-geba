@@ -1,17 +1,10 @@
-import {
-  Dispatch,
-  FormEvent,
-  MouseEvent,
-  SetStateAction,
-  useEffect,
-  useState,
-} from "react";
+import { Dispatch, FormEvent, MouseEvent, SetStateAction, useState } from "react";
 import deepcopy from "deepcopy";
 import Partido, { PartidoTexto } from "@/model/Partido";
 import LayoutCampos from "./LayoutCampos";
 import { LayoutBotones } from "./LayoutBotones";
 import { ordenPorTimeStamp } from "@/utils/ordenDeFechaYTiempo";
-import Estado from "@/utils/Estado";
+import Estado, { CampoEstado } from "@/utils/Estado";
 
 export default function Formulario({
   listaPartidos,
@@ -23,37 +16,16 @@ export default function Formulario({
   clave: string;
 }) {
   const estadoFormulario = new Estado<PartidoTexto>(useState(new PartidoTexto()));
-  const [formularioValido, setFormularioValido] = useState(false);
-
-  useEffect(() => setFormularioValido(validarFormulario()));
-
-  function validarFormulario(): boolean {
-    const partido: PartidoTexto = estadoFormulario.valor;
-    const respuesta: boolean = partido.esValido();
-    return respuesta;
-  }
 
   function manejarFormulario(e: FormEvent) {
     e.preventDefault();
-    console.log("Formulario enviado. Mentira.");
-  }
-
-  function manejarClick(e: MouseEvent) {
-    const boton = e.target as HTMLElement;
-    switch (boton.id) {
-      case "botonAgregar":
-        agregar();
-        break;
-      case "botonQuitar":
-        borrar();
-        break;
-      default:
-        break;
-    }
+    agregar();
+    limpiarFormulario();
+    (document.querySelector("#CampoHorario") as HTMLElement).focus();
   }
 
   function agregar() {
-    const partidoTexto: PartidoTexto = estadoFormulario.valor!;
+    const partidoTexto: PartidoTexto = estadoFormulario.contenido!;
     const copiaListaPartidos: Array<Partido> = deepcopy(listaPartidos);
     const partido = new Partido(partidoTexto);
     copiaListaPartidos.push(partido);
@@ -61,24 +33,15 @@ export default function Formulario({
 
     guardar(copiaListaPartidos);
     actualizador(copiaListaPartidos);
-
-    limpiarFormulario();
-
-    enfocarCampoHorario();
-  }
-
-  function enfocarCampoHorario() {
-    (document.querySelector("#CampoHorario") as HTMLElement).focus();
   }
 
   function limpiarFormulario() {
-    let nuevoEstado = new PartidoTexto();
-    Object.assign(nuevoEstado, estadoFormulario.valor);
-    nuevoEstado.horario = "";
-    nuevoEstado.adversario = "";
-    nuevoEstado.categoria = "";
-
-    estadoFormulario.actualizar(nuevoEstado);
+    const campos: CampoEstado[] = [
+      new CampoEstado({ name: "horario", value: "" }),
+      new CampoEstado({ name: "adversario", value: "" }),
+      new CampoEstado({ name: "categoria", value: "" }),
+    ];
+    estadoFormulario.actualizar(...campos);
   }
 
   function borrar() {
@@ -101,8 +64,8 @@ export default function Formulario({
       ...copiaListaPartidos.slice(indice),
     ];
 
-    guardar(arraySinElemento);
     actualizador(arraySinElemento);
+    guardar(arraySinElemento);
   }
 
   function guardar(listaPartidos: Array<Partido>) {
@@ -112,7 +75,7 @@ export default function Formulario({
   return (
     <form className='col' onSubmit={manejarFormulario}>
       <LayoutCampos estado={estadoFormulario} />
-      <LayoutBotones formValid={formularioValido} clickHandler={manejarClick} />
+      <LayoutBotones borrar={borrar} />
     </form>
   );
 }

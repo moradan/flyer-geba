@@ -1,25 +1,22 @@
 import { PartidoTexto } from "@/model/Partido";
 import { Campo } from "./Campo";
 import { SelectorLocalia } from "./SelectorLocalia";
-import Estado from "@/utils/Estado";
+import Estado, { CampoEstado } from "@/utils/Estado";
 import { ChangeEvent } from "react";
 
 export default function LayoutCampos({ estado }: { estado: Estado<PartidoTexto> }) {
-  const partidoTexto = estado.valor;
-  const actualizar = estado.actualizar;
+  const partidoTexto = estado.contenido;
 
   function manejarCambios(evento: ChangeEvent<HTMLInputElement>) {
-    const { name, value } = evento.target;
-    let nuevoPartido: PartidoTexto = new PartidoTexto();
-    Object.assign(nuevoPartido, partidoTexto);
-    (nuevoPartido as any)[name] = value;
+    const campoEstado = new CampoEstado(evento.target);
 
-    actualizar(nuevoPartido);
+    estado.actualizar(campoEstado);
   }
 
   return (
     <div className='row align-items-end g-2 mb-3'>
       <Campo
+        requerido={true}
         ancho='col-6'
         identifier='CampoFecha'
         nombre='fecha'
@@ -34,6 +31,7 @@ export default function LayoutCampos({ estado }: { estado: Estado<PartidoTexto> 
         actualizador={manejarCambios}
       />
       <Campo
+        requerido={true}
         ancho='col-4'
         identifier='CampoHorario'
         nombre='horario'
@@ -43,6 +41,7 @@ export default function LayoutCampos({ estado }: { estado: Estado<PartidoTexto> 
         actualizador={manejarCambios}
       />
       <Campo
+        requerido={true}
         ancho='col-8'
         identifier='CampoAdversario'
         nombre='adversario'
@@ -52,6 +51,7 @@ export default function LayoutCampos({ estado }: { estado: Estado<PartidoTexto> 
         actualizador={manejarCambios}
       />
       <Campo
+        requerido={true}
         ancho='col'
         identifier='CampoCategoria'
         nombre='categoria'
