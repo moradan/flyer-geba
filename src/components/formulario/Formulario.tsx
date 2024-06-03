@@ -18,10 +18,10 @@ export default function Formulario({
   const estadoFormulario = new Estado<PartidoTexto>(useState(new PartidoTexto()));
 
   function manejarFormulario(e: FormEvent) {
-    e.preventDefault();
+    // e.preventDefault();
     agregar();
-    limpiarFormulario();
-    (document.querySelector("#CampoHorario") as HTMLElement).focus();
+    // limpiarFormulario();
+    (document.querySelector("#CampoFecha") as HTMLElement).focus();
   }
 
   function agregar() {
