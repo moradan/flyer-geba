@@ -7,7 +7,7 @@ export default function ElementoPartido({ partido }: { partido: Partido }) {
   // Adjust the font size based on the number of characters
   let fontSize;
   if (longitudTexto > 42) {
-    fontSize = "90%";
+    fontSize = "95%";
   }
 
   return (
