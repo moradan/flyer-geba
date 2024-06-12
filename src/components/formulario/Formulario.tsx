@@ -27,6 +27,10 @@ export default function Formulario({
   function agregar() {
     const partidoTexto: PartidoTexto = estadoFormulario.contenido!;
     const copiaListaPartidos: Array<Partido> = deepcopy(listaPartidos);
+
+    const orden = copiaListaPartidos.length;
+    partidoTexto.orden = orden;
+   
     const partido = new Partido(partidoTexto);
     copiaListaPartidos.push(partido);
     copiaListaPartidos.sort(ordenPorTimeStamp);
