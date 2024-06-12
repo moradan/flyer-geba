@@ -11,7 +11,8 @@ export default function ElementoPartido({ partido }: { partido: Partido }) {
   }
 
   return (
-    <li className='list-group-item px-2'>
+    <li className='list-group-item px-2 partido-elemento'>
+      <div className="text-muted partido-index">{partido.orden || "-"}</div>
       <div className='row fs-7 fw-bold gx-1 text-uppercase text-nowrap'>
         <div className='col-1'>{formatTime(partido.horario)}</div>
         <div className='col-5' style={{ fontSize }}>

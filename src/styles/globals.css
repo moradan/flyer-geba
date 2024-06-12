@@ -1,4 +1,5 @@
-h3, h4 {
+h3,
+h4 {
     margin-bottom: 0;
 }
 
@@ -19,7 +20,7 @@ h3, h4 {
 
 .text-primario {
     color: #1d0d8c
-} 
+}
 
 .bg-primario {
     background-color: #1d0d8c;
@@ -31,4 +32,13 @@ h3, h4 {
 
 .bg-secundario {
     background-color: #2aafce
+}
+
+.partido-elemento {
+    position: relative;
+}
+
+.partido-index {
+    position: absolute;
+    left: -20px;
 }
