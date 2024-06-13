@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import Head from "next/head";
 import PanelControl from "@/components/panelControl/PanelControl";
 import Formulario from "@/components/formulario/Formulario";
