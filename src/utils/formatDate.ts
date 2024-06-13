@@ -1,5 +1,4 @@
 export default function formatDate(date: Date): string {
-    const fecha: Date = date;
     
     const options: Intl.DateTimeFormatOptions = {
         weekday: 'long',

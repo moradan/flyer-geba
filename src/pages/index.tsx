@@ -6,12 +6,13 @@ import Partido, { PartidoTexto } from "@/model/Partido";
 import Fondo from "@/components/flyer/Fondo";
 import Flyer from "@/components/flyer/Flyer";
 import { Card } from "react-bootstrap";
+import { ordenPorTimeStamp } from "@/utils/ordenDeFechaYTiempo";
 
 export default function Home() {
   const clave = "Partidos";
   const [listaPartidos, setListaPartidos] = useState<Array<Partido>>([]);
 
-  useEffect(cargarPartidos, []);
+  useEffect(cargarPartidos, [listaPartidos]);
 
   function cargarPartidos() {
     const partidosAlmacenados: string = localStorage.getItem(clave) ?? "[]";
@@ -19,6 +20,7 @@ export default function Home() {
     const listaPartidosInicial: Array<Partido> = listaPartidosTexto.map(
       (partidoTexto) => new Partido(partidoTexto)
     );
+    listaPartidosInicial.sort(ordenPorTimeStamp);
     setListaPartidos(listaPartidosInicial);
   }
 

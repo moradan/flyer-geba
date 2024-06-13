@@ -1,4 +1,4 @@
-import { Dispatch, FormEvent, MouseEvent, SetStateAction, useState } from "react";
+import { Dispatch, FormEvent, SetStateAction, useState } from "react";
 import deepcopy from "deepcopy";
 import Partido, { PartidoTexto } from "@/model/Partido";
 import LayoutCampos from "./LayoutCampos";
