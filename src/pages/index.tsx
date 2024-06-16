@@ -34,8 +34,6 @@ export default function Home() {
           content='Intento hacer que funcione autocompletar nativo del browser con campos controlados por ReactJS'
         />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
-        ## Bootstrap-Icon CDN Link ##
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
       </Head>
 
 
