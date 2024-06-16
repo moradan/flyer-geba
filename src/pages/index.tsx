@@ -13,7 +13,7 @@ export default function Home() {
   const clave = "Partidos";
   const [listaPartidos, setListaPartidos] = useState<Array<Partido>>([]);
 
-  useEffect(cargarPartidos, [listaPartidos]);
+  useEffect(cargarPartidos, []);
 
   function cargarPartidos() {
     const partidosAlmacenados: string = localStorage.getItem(clave) ?? "[]";
@@ -34,7 +34,10 @@ export default function Home() {
           content='Intento hacer que funcione autocompletar nativo del browser con campos controlados por ReactJS'
         />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
+        ## Bootstrap-Icon CDN Link ##
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
       </Head>
+
 
       <div className='container-fluid p-0'>
         <div className='row g-0 justify-content-center'>

@@ -38,7 +38,8 @@ h4 {
     position: relative;
 }
 
-.partido-index {
+.icono-borrar-partido {
     position: absolute;
     left: -20px;
+    cursor: pointer;
 }
