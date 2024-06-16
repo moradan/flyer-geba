@@ -36,14 +36,14 @@ export default function BotonCompartir() {
 }
 
 function ocultarUI() {
-  const elementosIndice = document.querySelectorAll(".partido-index");
+  const elementosIndice = document.querySelectorAll(".icono-borrar-partido");
   for(const elemento of elementosIndice) {
     elemento.classList.add("d-none");
   }
 }
 
 function mostrarUI(value: void): void | PromiseLike<void> {
-  const elementosIndice = document.querySelectorAll(".partido-index");
+  const elementosIndice = document.querySelectorAll(".icono-borrar-partido");
   for(const elemento of elementosIndice) {
     elemento.classList.remove("d-none");
   }
