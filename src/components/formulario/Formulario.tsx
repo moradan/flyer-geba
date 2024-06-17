@@ -53,11 +53,7 @@ export default function Formulario({
       alert("No pusiste un numero valido.");
       return;
     }
-
-    const arraySinElemento = listaPartidos.toSpliced(indice - 1, 1); 
-
-    AdministradorDatos.guardar(arraySinElemento, nombreFlyer);
-    actualizador(arraySinElemento);
+    AdministradorDatos.borrarPartidoEnIndice(indice);
   }
 
   return (
