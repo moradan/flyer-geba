@@ -48,16 +48,12 @@ export default function Formulario({
     estadoFormulario.actualizar(...campos);
   }
 
-  function borrar() {
+  function dialogoParaBorrar() {
     const ultimo: number = listaPartidos.length;
     const mensaje = `Decime cual linea queres borrar.\nLa ultima linea es la ${ultimo}`;
-    const indiceTexto = prompt(mensaje);
-    let indice: number | undefined;
+    const indice: number | undefined = parseInt(prompt(mensaje) || "");
 
-    if (indiceTexto && (indice = parseInt(indiceTexto))) {
-      if (indice > 0 && indice < listaPartidos.length + 1) {
-      }
-    } else {
+    if (!indice) {
       alert("No pusiste un numero valido.");
       return;
     }
@@ -79,7 +75,7 @@ export default function Formulario({
   return (
     <form className='col' onSubmit={manejarFormulario} autoComplete='on'>
       <LayoutCampos estado={estadoFormulario} />
-      <LayoutBotones borrar={borrar} />
+      <LayoutBotones borrar={dialogoParaBorrar} />
     </form>
   );
 }
