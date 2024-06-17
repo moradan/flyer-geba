@@ -8,11 +8,13 @@ import Fondo from "@/components/flyer/Fondo";
 import Flyer from "@/components/flyer/Flyer";
 import { Card } from "react-bootstrap";
 import { ordenPorTimeStamp } from "@/utils/ordenDeFechaYTiempo";
+import AdministradorDatos from "@/utils/AdministradorDatos";
 
 export default function Home() {
   const clave = "Partidos";
   const [listaPartidos, setListaPartidos] = useState<Array<Partido>>([]);
-
+  AdministradorDatos.inicializar(setListaPartidos);
+  
   useEffect(cargarPartidos, []);
 
   function cargarPartidos() {

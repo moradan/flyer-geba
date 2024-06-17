@@ -32,7 +32,6 @@ export default function Formulario({
     copiaListaPartidos.push(partido);
     copiaListaPartidos.sort(ordenPorTimeStamp);
 
-    guardar(copiaListaPartidos);
     actualizador(copiaListaPartidos);
   }
 
@@ -58,11 +57,6 @@ export default function Formulario({
     const arraySinElemento = listaPartidos.toSpliced(indice - 1, 1); 
 
     actualizador(arraySinElemento);
-    guardar(arraySinElemento);
-  }
-
-  function guardar(listaPartidos: Array<Partido>) {
-    localStorage.setItem(clave, JSON.stringify(listaPartidos));
   }
 
   return (

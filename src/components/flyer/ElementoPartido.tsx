@@ -1,4 +1,5 @@
 import Partido from "@/model/Partido";
+import AdministradorDatos from "@/utils/AdministradorDatos";
 import formatTime from "@/utils/formatTime";
 
 export default function ElementoPartido({ partido }: { partido: Partido }) {
@@ -14,6 +15,7 @@ export default function ElementoPartido({ partido }: { partido: Partido }) {
     const horario = formatTime(partido.horario);
     if (confirm(`Estas segura que queres borrar este partido?\n ${horario} ${partido.adversario} ${partido.categoria}`)) {
       // borramos el partido. esto puede requerir que usemos un context.
+      AdministradorDatos.borrarPartido(partido);
     }
   }
 
