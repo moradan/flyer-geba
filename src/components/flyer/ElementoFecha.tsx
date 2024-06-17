@@ -6,8 +6,8 @@ export default function ElementoFecha({
   fecha,
   listaPartidos,
 }: {
-  fecha: Date;
-  listaPartidos: Array<Partido>;
+  fecha: Date,
+  listaPartidos: Array<Partido>,
 }) {
   const partidosLocales: Array<Partido> = [];
   const partidosVisitantes: Array<Partido> = [];

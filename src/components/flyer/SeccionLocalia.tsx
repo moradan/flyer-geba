@@ -6,8 +6,8 @@ export function SeccionLocalia({
   tipo,
   listaPartidos,
 }: {
-  tipo: string;
-  listaPartidos: Array<Partido>;
+  tipo: string,
+  listaPartidos: Array<Partido>,
 }) {
   listaPartidos.sort(ordenPorHorario);
   const listaPartidosJSX = listaPartidos.map((partido, index) => (
