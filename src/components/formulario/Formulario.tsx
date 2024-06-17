@@ -5,15 +5,16 @@ import LayoutCampos from "./LayoutCampos";
 import { LayoutBotones } from "./LayoutBotones";
 import { ordenPorTimeStamp } from "@/utils/ordenDeFechaYTiempo";
 import Estado, { CampoEstado } from "@/utils/Estado";
+import AdministradorDatos from "@/utils/AdministradorDatos";
 
 export default function Formulario({
   listaPartidos,
   actualizador,
-  clave,
+  nombreFlyer,
 }: {
   listaPartidos: Array<Partido>;
   actualizador: Dispatch<SetStateAction<Array<Partido>>>;
-  clave: string;
+  nombreFlyer: string;
 }) {
   const estadoFormulario = new Estado<PartidoTexto>(useState(new PartidoTexto()));
 
@@ -32,6 +33,7 @@ export default function Formulario({
     copiaListaPartidos.push(partido);
     copiaListaPartidos.sort(ordenPorTimeStamp);
 
+    AdministradorDatos.guardar(copiaListaPartidos, nombreFlyer)
     actualizador(copiaListaPartidos);
   }
 
@@ -56,6 +58,7 @@ export default function Formulario({
 
     const arraySinElemento = listaPartidos.toSpliced(indice - 1, 1); 
 
+    AdministradorDatos.guardar(arraySinElemento, nombreFlyer);
     actualizador(arraySinElemento);
   }
 

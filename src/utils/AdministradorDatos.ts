@@ -28,4 +28,9 @@ export default class AdministradorDatos {
             return listaPrevia;
         });
     }
+    
+    
+  static guardar(listaPartidos: Array<Partido>, nombreFlyer: string) {
+    localStorage.setItem(nombreFlyer, JSON.stringify(listaPartidos));
+  }
 }

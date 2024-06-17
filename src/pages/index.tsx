@@ -11,14 +11,14 @@ import { ordenPorTimeStamp } from "@/utils/ordenDeFechaYTiempo";
 import AdministradorDatos from "@/utils/AdministradorDatos";
 
 export default function Home() {
-  const clave = "Partidos";
+  const nombreFlyer = "Partidos";
   const [listaPartidos, setListaPartidos] = useState<Array<Partido>>([]);
   AdministradorDatos.inicializar(setListaPartidos);
   
   useEffect(cargarPartidos, []);
 
   function cargarPartidos() {
-    const partidosAlmacenados: string = localStorage.getItem(clave) ?? "[]";
+    const partidosAlmacenados: string = localStorage.getItem(nombreFlyer) ?? "[]";
     const listaPartidosTexto: Array<PartidoTexto> = JSON.parse(partidosAlmacenados);
     const listaPartidosInicial: Array<Partido> = listaPartidosTexto.map(
       (partidoTexto) => new Partido(partidoTexto)
@@ -50,7 +50,7 @@ export default function Home() {
                 <Formulario
                   listaPartidos={listaPartidos}
                   actualizador={setListaPartidos}
-                  clave={clave}
+                  nombreFlyer={nombreFlyer}
                 />
               </Card.Body>
             </Card>
