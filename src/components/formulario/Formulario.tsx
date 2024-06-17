@@ -58,11 +58,7 @@ export default function Formulario({
       return;
     }
 
-    const copiaListaPartidos: Array<Partido> = deepcopy(listaPartidos);
-    const arraySinElemento = [
-      ...copiaListaPartidos.slice(0, indice - 1),
-      ...copiaListaPartidos.slice(indice),
-    ];
+    const arraySinElemento = listaPartidos.toSpliced(indice - 1, 1); 
 
     actualizador(arraySinElemento);
     guardar(arraySinElemento);
