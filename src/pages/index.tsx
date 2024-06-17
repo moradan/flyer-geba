@@ -50,7 +50,6 @@ export default function Home() {
                 <Formulario
                   listaPartidos={listaPartidos}
                   actualizador={setListaPartidos}
-                  nombreFlyer={nombreFlyer}
                 />
               </Card.Body>
             </Card>

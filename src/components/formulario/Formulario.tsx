@@ -10,11 +10,9 @@ import AdministradorDatos from "@/utils/AdministradorDatos";
 export default function Formulario({
   listaPartidos,
   actualizador,
-  nombreFlyer,
 }: {
   listaPartidos: Array<Partido>;
   actualizador: Dispatch<SetStateAction<Array<Partido>>>;
-  nombreFlyer: string;
 }) {
   const estadoFormulario = new Estado<PartidoTexto>(useState(new PartidoTexto()));
 
@@ -33,7 +31,7 @@ export default function Formulario({
     copiaListaPartidos.push(partido);
     copiaListaPartidos.sort(ordenPorTimeStamp);
 
-    AdministradorDatos.guardar(copiaListaPartidos, nombreFlyer)
+    AdministradorDatos.guardar(copiaListaPartidos)
     actualizador(copiaListaPartidos);
   }
 

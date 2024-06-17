@@ -3,8 +3,10 @@ import { Dispatch, SetStateAction } from "react";
 
 export default class AdministradorDatos {
     private static setListaPartidos: Dispatch<SetStateAction<Array<Partido>>>; 
-
-    static inicializar(setListaPartidos: Dispatch<SetStateAction<Array<Partido>>>) {
+    private static nombreFlyer: string;
+    
+    static inicializar(setListaPartidos: Dispatch<SetStateAction<Array<Partido>>>, nombreFlyer: string) {
+        AdministradorDatos.nombreFlyer = nombreFlyer;
         AdministradorDatos.setListaPartidos = setListaPartidos;
     }
     
@@ -30,7 +32,7 @@ export default class AdministradorDatos {
     }
     
     
-  static guardar(listaPartidos: Array<Partido>, nombreFlyer: string) {
-    localStorage.setItem(nombreFlyer, JSON.stringify(listaPartidos));
+  static guardar(listaParaGuardar: Array<Partido>) {
+    localStorage.setItem(AdministradorDatos.nombreFlyer, JSON.stringify(listaParaGuardar));
   }
 }
