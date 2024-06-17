@@ -3,7 +3,6 @@ import parseTimeString from "@/utils/parseTimeString";
 const regex = /^.*?T.*?Z$/;
 
 export class PartidoTexto {
-  orden: number | undefined;
   fecha: string = "";
   localia: string = "Local";
   horario: string = "";
@@ -22,7 +21,6 @@ export class PartidoTexto {
 }
 
 export default class Partido {
-  orden: number | undefined;
   fecha: Date;
   localia: string;
   horario: Date;
@@ -30,7 +28,6 @@ export default class Partido {
   categoria: string;
 
   constructor(partidoTexto: PartidoTexto) {
-    this.orden = partidoTexto.orden;
     this.fecha = new Date(partidoTexto.fecha);
     this.localia = partidoTexto.localia;
 
