@@ -13,6 +13,7 @@ export default class AdministradorDatos {
     static borrarPartidoEnIndice(indice: number) {
         AdministradorDatos.setListaPartidos((listaPrevia) => {
             const listaNueva = listaPrevia.toSpliced(indice - 1, 1);
+            AdministradorDatos.guardar(listaNueva);
             return listaNueva;
         })
     }
@@ -20,9 +21,12 @@ export default class AdministradorDatos {
     static borrarPartido(partidoParaBorrar: Partido) {
         AdministradorDatos.setListaPartidos((listaPrevia) => {
             let indice = 0;
+
             for (const partidoIterado of listaPrevia) {
                 if (partidoIterado === partidoParaBorrar) {
-                    return listaPrevia.toSpliced(indice, 1);
+                    const listaNueva = listaPrevia.toSpliced(indice, 1);
+                    AdministradorDatos.guardar(listaNueva);
+                    return listaNueva;
                 } else {
                     indice += 1;
                 }

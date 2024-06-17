@@ -13,7 +13,7 @@ import AdministradorDatos from "@/utils/AdministradorDatos";
 export default function Home() {
   const nombreFlyer = "Partidos";
   const [listaPartidos, setListaPartidos] = useState<Array<Partido>>([]);
-  AdministradorDatos.inicializar(setListaPartidos);
+  AdministradorDatos.inicializar(setListaPartidos, nombreFlyer);
   
   useEffect(cargarPartidos, []);
 
