@@ -18,7 +18,7 @@ export default class AdministradorDatos {
     }
     
     static cargarPartidos() {
-        AdministradorDatos.nombreFlyer = localStorage.getItem("buffer") ?? "Partidos";
+        AdministradorDatos.nombreFlyer = localStorage.getItem("buffer") ?? "nuevo";
         console.log("Esto se ejecuta una sola vez cuando la pagina se carga.");
         const partidosAlmacenados: string = localStorage.getItem(AdministradorDatos.nombreFlyer) ?? "[]";
         const listaPartidosTexto: Array<PartidoTexto> = JSON.parse(partidosAlmacenados);
