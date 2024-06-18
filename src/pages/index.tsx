@@ -39,6 +39,9 @@ export default function Home() {
                   actualizador={setListaPartidos}
                 />
               </Card.Body>
+              <Card.Footer>
+                Flyer {AdministradorDatos.nombreFlyer}
+              </Card.Footer>
             </Card>
             <main id='flyer-node' className='position-relative col align-items-center'>
               <Fondo />
