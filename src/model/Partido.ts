@@ -41,6 +41,7 @@ export default class Partido {
         this.horario = new Date(0);
       }
     }
+    this.horario.setFullYear(0, 0, 0);
 
     this.adversario = partidoTexto.adversario;
     this.categoria = partidoTexto.categoria;
