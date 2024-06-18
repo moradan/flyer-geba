@@ -10,10 +10,9 @@ import { Card } from "react-bootstrap";
 import AdministradorDatos from "@/utils/AdministradorDatos";
 
 export default function Home() {
-  const nombreFlyer = "Partidos";
   const [listaPartidos, setListaPartidos] = useState<Array<Partido>>([]);
-  AdministradorDatos.inicializar(listaPartidos, setListaPartidos, nombreFlyer);
-  
+  AdministradorDatos.inicializar(listaPartidos, setListaPartidos);
+
   useEffect(AdministradorDatos.cargarPartidos, []);
 
   return (

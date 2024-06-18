@@ -5,17 +5,20 @@ import { ordenPorTimeStamp } from "./ordenDeFechaYTiempo";
 export default class AdministradorDatos {
     private static setListaPartidos: Dispatch<SetStateAction<Array<Partido>>>; 
     private static listaPartidos: Array<Partido>;
-    private static nombreFlyer: string;
-   
+    static nombreFlyer: string;
+    
     private constructor() {}
 
-    static inicializar(listaPartidos: Array<Partido>, setListaPartidos: Dispatch<SetStateAction<Array<Partido>>>, nombreFlyer: string) {
-        AdministradorDatos.nombreFlyer = nombreFlyer;
+    static inicializar(
+        listaPartidos: Array<Partido>,
+        setListaPartidos: Dispatch<SetStateAction<Array<Partido>>>,
+    ) {
         AdministradorDatos.listaPartidos = listaPartidos;
         AdministradorDatos.setListaPartidos = setListaPartidos;
     }
     
     static cargarPartidos() {
+        AdministradorDatos.nombreFlyer = localStorage.getItem("buffer") ?? "Partidos";
         console.log("Esto se ejecuta una sola vez cuando la pagina se carga.");
         const partidosAlmacenados: string = localStorage.getItem(AdministradorDatos.nombreFlyer) ?? "[]";
         const listaPartidosTexto: Array<PartidoTexto> = JSON.parse(partidosAlmacenados);
@@ -52,7 +55,12 @@ export default class AdministradorDatos {
     }
     
     
-  static guardar(listaParaGuardar: Array<Partido>) {
-    localStorage.setItem(AdministradorDatos.nombreFlyer, JSON.stringify(listaParaGuardar));
+  static guardar(listaParaGuardar?: Array<Partido>) {
+    if(!listaParaGuardar) {
+        listaParaGuardar = AdministradorDatos.listaPartidos;
+    }
+
+    localStorage.setItem(AdministradorDatos.nombreFlyer, JSON.stringify(listaParaGuardar));       
+    localStorage.setItem("buffer", AdministradorDatos.nombreFlyer);
   }
 }

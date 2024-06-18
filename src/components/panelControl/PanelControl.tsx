@@ -1,12 +1,11 @@
-import BotonNuevo from "@/components/panelControl/BotonNuevo";
 import BotonCompartir from "./BotonCompartir";
+import BotonGuardar from "./BotonGuardar";
 
 export default function PanelControl() {
   return (
-    <nav>
-      <div className="col col-sm-6">
-        <BotonCompartir />
-      </div>
+    <nav className="row g-2">
+        <BotonCompartir variant="col-12 col-md-6" />
+        <BotonGuardar variant="col-12 col-md-6"/>
     </nav>
   );
 }

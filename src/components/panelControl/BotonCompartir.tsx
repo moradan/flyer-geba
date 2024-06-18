@@ -2,7 +2,7 @@ import { MouseEvent, useState } from "react";
 import Boton from "../Boton";
 import { toJpeg } from "html-to-image";
 
-export default function BotonCompartir() {
+export default function BotonCompartir({ variant }: { variant: string}) {
   function manejarClick(e: MouseEvent) {
     const nodoFlyer: HTMLElement | null = document.querySelector("#flyer-node");
 
@@ -27,6 +27,7 @@ export default function BotonCompartir() {
   return (
     <>
       <Boton
+        variant={variant}
         caption="Compartir"
         identifier="BotonCompartir"
         clickHandler={manejarClick}
