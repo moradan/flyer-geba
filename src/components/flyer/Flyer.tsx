@@ -21,7 +21,7 @@ export default function Flyer({ listaPartidos }: { listaPartidos: Array<Partido>
 
   return (
     <div className='pt-4 font-tahoma'>
-      <Titulo titulo='Interclubes 2024' />
+      <Titulo titulo='Interclubes 2025' />
       <ul className='list-group-flush p-0'>{listaFechasJSX}</ul>
     </div>
   );
