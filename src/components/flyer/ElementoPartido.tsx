@@ -24,7 +24,7 @@ export default function ElementoPartido({ partido }: { partido: Partido }) {
       <div className="icono-borrar-partido" onClick={borrarPartido}>
         <i className="bi bi-x-lg fw-bold text-white bg-danger rounded-circle"></i>
       </div>
-      <div className='row fs-7 fw-bold gx-1 text-uppercase text-nowrap'>
+      <div className='row fs-7 fw-bold text-white gx-1 text-uppercase text-nowrap'>
         <div className='col-1'>{formatTime(partido.horario)}</div>
         <div className='col-5' style={{ fontSize }}>
           {partido.adversario}
