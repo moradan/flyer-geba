@@ -4,8 +4,8 @@ export default function Fondo() {
   return (
     <>
       <Image
-        src='/fondo-geba.jpeg'
-        alt='fondo liso'
+        src='/fondo-sin-escudo.jpg'
+        alt='fondo azul liso'
         className='position-absolute z-n1 tamanio-fondo'
       />
     </>
