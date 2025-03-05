@@ -20,7 +20,7 @@ export default function ElementoPartido({ partido }: { partido: Partido }) {
   }
 
   return (
-    <li className='list-group-item px-2 partido-elemento'>
+    <li className='list-group-item px-2 partido-elemento text-shadow'>
       <div className="icono-borrar-partido" onClick={borrarPartido}>
         <i className="bi bi-x-lg fw-bold text-white bg-danger rounded-circle"></i>
       </div>

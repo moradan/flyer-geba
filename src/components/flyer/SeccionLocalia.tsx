@@ -15,7 +15,7 @@ export function SeccionLocalia({
   ));
 
   return (
-    <section>
+    <section className="">
       <header>
         <h4 className="d-flex justify-content-center">
           <span className="p-1 text-shadow text-capitalize">
