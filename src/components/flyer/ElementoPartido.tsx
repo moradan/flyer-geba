@@ -26,7 +26,7 @@ export default function ElementoPartido({ partido }: { partido: Partido }) {
       </div>
       <div className='row fs-7 fw-bold text-white gx-1 text-uppercase text-nowrap'>
         <div className='col-1'>{formatTime(partido.horario)}</div>
-        <div className='col-5' style={{ fontSize }}>
+        <div className='col-5 ps-3 pb-2' style={{ fontSize }}>
           {partido.adversario}
         </div>
         <div className='col-6 text-end' style={{ fontSize }}>
