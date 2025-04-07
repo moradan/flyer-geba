@@ -2,6 +2,7 @@ import Partido from "@/model/Partido";
 import { ReactNode } from "react";
 import ElementoFecha from "./ElementoFecha";
 import Titulo from "./Titulo";
+import Image from 'react-bootstrap/Image'
 
 export default function Flyer({ listaPartidos }: { listaPartidos: Array<Partido> }) {
   const listaFechasJSX: Array<ReactNode> = [];
@@ -20,9 +21,14 @@ export default function Flyer({ listaPartidos }: { listaPartidos: Array<Partido>
   );
 
   return (
-    <div className='pt-4 font-tahoma'>
-      <Titulo titulo='Interclubes 2025' />
-      <ul className='list-group-flush p-0'>{listaFechasJSX}</ul>
+    <div className='pt-4 mb-5 font-tahoma position-relative'>
+      <Titulo titulo='Interclubes' />
+      <Image
+        className='position-absolute end-0 top-0 p-1'
+        src='/escudo.png'
+        alt='escudo de GEBA'
+        width='10%' />
+      <ul className='list-group-flush p-0 pb-5'>{listaFechasJSX}</ul>
     </div>
   );
 

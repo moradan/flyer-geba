@@ -15,16 +15,16 @@ export function SeccionLocalia({
   ));
 
   return (
-    <section>
+    <section className="">
       <header>
         <h4 className="d-flex justify-content-center">
-          <span className="bg-primario p-1 text-shadow text-capitalize">
+          <span className="p-1 text-shadow text-capitalize">
             {tipo}
           </span>
         </h4>
       </header>
       <section>
-        <ul className="list-group-flush bg-secundario text-primario px-0 py-1 rounded">
+        <ul className="list-group-flush text-primario px-0 py-1 rounded">
           {listaPartidosJSX}
         </ul>
       </section>

@@ -21,7 +21,7 @@ export default function ElementoFecha({
   }
 
   return (
-    <li className="list-group-item p-5">
+    <li className="list-group-item mx-5 my-4 light-backdrop rounded">
       <EncabezadoFecha fecha={fecha} />
       {partidosLocales.length !== 0 && (
         <SeccionLocalia tipo="Local" listaPartidos={partidosLocales} />

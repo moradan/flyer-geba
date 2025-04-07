@@ -20,13 +20,13 @@ export default function ElementoPartido({ partido }: { partido: Partido }) {
   }
 
   return (
-    <li className='list-group-item px-2 partido-elemento'>
+    <li className='list-group-item px-2 partido-elemento text-shadow'>
       <div className="icono-borrar-partido" onClick={borrarPartido}>
         <i className="bi bi-x-lg fw-bold text-white bg-danger rounded-circle"></i>
       </div>
-      <div className='row fs-7 fw-bold gx-1 text-uppercase text-nowrap'>
+      <div className='row fs-7 fw-bold text-white gx-1 text-uppercase text-nowrap'>
         <div className='col-1'>{formatTime(partido.horario)}</div>
-        <div className='col-5' style={{ fontSize }}>
+        <div className='col-5 ps-3 pb-2' style={{ fontSize }}>
           {partido.adversario}
         </div>
         <div className='col-6 text-end' style={{ fontSize }}>
