@@ -11,6 +11,7 @@ export default function LayoutCampos({ estado }: { estado: Estado<PartidoTexto> 
     const campoEstado = new CampoEstado(evento.target);
 
     estado.actualizar(campoEstado);
+    console.log(evento.target.value)
   }
 
   return (

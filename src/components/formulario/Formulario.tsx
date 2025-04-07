@@ -17,9 +17,7 @@ export default function Formulario({
   const estadoFormulario = new Estado<PartidoTexto>(useState(new PartidoTexto()));
 
   function manejarFormulario(e: FormEvent) {
-    // e.preventDefault();
     agregar();
-    // limpiarFormulario();
     (document.querySelector("#CampoFecha") as HTMLElement).focus();
   }
 

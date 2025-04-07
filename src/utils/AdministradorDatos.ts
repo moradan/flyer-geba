@@ -1,4 +1,4 @@
-import Partido, { PartidoTexto } from "@/model/Partido";
+import Partido, { PartidoExcel, PartidoTexto } from "@/model/Partido";
 import { Dispatch, SetStateAction } from "react";
 import { ordenPorTimeStamp } from "./ordenDeFechaYTiempo";
 
@@ -19,7 +19,6 @@ export default class AdministradorDatos {
     
     static cargarPartidos() {
         AdministradorDatos.nombreFlyer = localStorage.getItem("buffer") ?? "nuevo";
-        console.log("Esto se ejecuta una sola vez cuando la pagina se carga.");
         const partidosAlmacenados: string = localStorage.getItem(AdministradorDatos.nombreFlyer) ?? "[]";
         const listaPartidosTexto: Array<PartidoTexto> = JSON.parse(partidosAlmacenados);
         const listaPartidosInicial: Array<Partido> = listaPartidosTexto.map(
@@ -27,6 +26,16 @@ export default class AdministradorDatos {
         );
         listaPartidosInicial.sort(ordenPorTimeStamp);
         AdministradorDatos.setListaPartidos(listaPartidosInicial);
+    }
+
+    static cargarPartidosDeExcel(listaPartidosExcel: Array<PartidoExcel>) {
+        const listaPartidosInicial: Array<Partido> = listaPartidosExcel.map(
+            (partidoExcel) => partidoExcel.aPartido()
+        )
+        listaPartidosInicial.sort(ordenPorTimeStamp);
+        AdministradorDatos.setListaPartidos(listaPartidosInicial)
+        AdministradorDatos.nombreFlyer = "Excel";
+        localStorage.setItem("buffer", AdministradorDatos.nombreFlyer);
     }
 
     static borrarPartidoEnIndice(indice: number) {
