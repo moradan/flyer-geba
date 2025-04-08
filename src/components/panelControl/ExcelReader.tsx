@@ -33,6 +33,11 @@ export default function ExcelReader() {
 
     const encabezados = rows[0]
     const esValido = encabezadosEsperados.every((esperado, indice) => { return encabezados[indice] === esperado })
+    if (!esValido) {
+      alert("La hoja de excel no tiene el formato que esperabamos. No puedo leer los partidos.");
+      return
+    }
+
     const partidosExcel: PartidoExcel[] = [];
 
     for (let i = 1; i < rows.length; i++) {
