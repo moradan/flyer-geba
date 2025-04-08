@@ -11,10 +11,7 @@ export default function ExcelReader() {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const debug = document.getElementById('DebugLog')
-    var consola: Log;
-    if (debug) {
-      consola = new Log(debug);
-    }
+    var consola = new Log(debug);
 
     const file = event.target.files?.[0];
     if (!file) return;

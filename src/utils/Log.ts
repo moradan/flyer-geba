@@ -1,11 +1,11 @@
 export default class Log {
-    element: HTMLElement;
+    element: HTMLElement | null;
 
-    constructor(element: HTMLElement) {
+    constructor(element: HTMLElement | null) {
         this.element = element;
     }
 
     log(msg:String) {
-        this.element.innerHTML += "\n" + msg;   
+        if (this.element) this.element.innerHTML += "\n" + msg;   
     }
 }
