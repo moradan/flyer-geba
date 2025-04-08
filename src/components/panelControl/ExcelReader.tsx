@@ -28,6 +28,7 @@ export default function ExcelReader() {
     const rows: any[] = [];
 
     worksheet.eachRow({ includeEmpty: false }, (row, rowNumber) => {
+      consola.log(`Una linea del archivo excel: ${row.values}`)
       rows.push(row.values);
     });
 
