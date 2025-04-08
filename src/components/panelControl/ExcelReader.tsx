@@ -10,7 +10,7 @@ export default function ExcelReader() {
   const handleFileChange = async (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const debug = document.getElementById('DebugLog')
+    const debug = document.getElementById('DebugLog');
     var consola = new Log(debug);
 
     const file = event.target.files?.[0];
@@ -32,16 +32,17 @@ export default function ExcelReader() {
     });
 
     if (rows.length === 0) {
-      alert('El archivo de Excel esta vacio.')
+      alert('El archivo de Excel esta vacio.');
     }
 
     const encabezadosEsperados = ['Fecha', 'Hora', 'L/V', 'Local', 'Visitante', 'Competencia'];
 
-    const encabezados = rows[0]
-    const esValido = encabezadosEsperados.every((esperado, indice) => { return encabezados[indice + 1] === esperado })
+    const encabezados = rows[0];
+    consola.log(`Primer fila del archivo: ${encabezados}`);
+    const esValido = encabezadosEsperados.every((esperado, indice) => { return encabezados[indice + 1] === esperado });
     if (!esValido) {
       alert("La hoja de excel no tiene el formato que esperabamos. No puedo leer los partidos.");
-      return
+      return;
     }
 
     const partidosExcel: PartidoExcel[] = [];
