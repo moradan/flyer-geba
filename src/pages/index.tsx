@@ -8,6 +8,7 @@ import Fondo from "@/components/flyer/Fondo";
 import Flyer from "@/components/flyer/Flyer";
 import { Card } from "react-bootstrap";
 import AdministradorDatos from "@/utils/AdministradorDatos";
+import DebugLog from "@/components/DebugLog";
 
 export default function Home() {
   const [listaPartidos, setListaPartidos] = useState<Array<Partido>>([]);
@@ -17,6 +18,7 @@ export default function Home() {
 
   return (
     <>
+      <DebugLog></DebugLog>
       <Head>
         <title>Flyer GEBA</title>
         <meta

@@ -1,18 +1,27 @@
 'use client'; // If you're using Next.js App Router
 
-import React from 'react';
+import React, { useRef } from 'react';
 import ExcelJS from 'exceljs';
 import { PartidoExcel } from '@/model/Partido';
 import AdministradorDatos from '@/utils/AdministradorDatos';
+import Log from '@/utils/Log';
 
 export default function ExcelReader() {
   const handleFileChange = async (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
+    const debug = document.getElementById('DebugLog')
+    var consola: Log;
+    if (debug) {
+      consola = new Log(debug);
+    }
+
     const file = event.target.files?.[0];
     if (!file) return;
+    consola.log(`Abriendo el archivo: ${file}`);
 
     const buffer = await file.arrayBuffer(); // Convert File to ArrayBuffer
+    event.target.value = ''; // Borramos el nombre del archivo para que en un futuro se vuelva a disparar onChange.
 
     const workbook = new ExcelJS.Workbook();
     await workbook.xlsx.load(buffer);
@@ -32,7 +41,7 @@ export default function ExcelReader() {
     const encabezadosEsperados = ['Fecha', 'Hora', 'L/V', 'Local', 'Visitante', 'Competencia'];
 
     const encabezados = rows[0]
-    const esValido = encabezadosEsperados.every((esperado, indice) => { return encabezados[indice] === esperado })
+    const esValido = encabezadosEsperados.every((esperado, indice) => { return encabezados[indice + 1] === esperado })
     if (!esValido) {
       alert("La hoja de excel no tiene el formato que esperabamos. No puedo leer los partidos.");
       return

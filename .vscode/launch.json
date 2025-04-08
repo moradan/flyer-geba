@@ -6,8 +6,9 @@
     "configurations": [
         {
             "type": "chrome",
+            "runtimeExecutable": "C:\\Users\\Moradan\\AppData\\Local\\Programs\\Opera",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
+            "name": "Launch Opera against localhost",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceFolder}"
         }

@@ -5,5 +5,10 @@ export default function BotonImportar({ variant }: { variant: string }) {
 }
 
 function manejarClick() {
-  document.getElementById('campoImportar')?.click();
+  const lectorExcel = document.getElementById('campoImportar') as HTMLInputElement;
+
+  if (lectorExcel) {
+    lectorExcel.value = "";
+    lectorExcel.click();
+  }
 }
