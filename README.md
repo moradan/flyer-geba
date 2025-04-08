@@ -1,6 +1,6 @@
 # [Flyer GEBA](https://flyer-geba.vercel.app)
 
-Es una aplicacion nextjs para administrar datos sobre los partidos de cada fecha para el club G.E.B.A.; y para generar un volante que ilustre la agenda deportiva de tenis del club por mes.
+Es una aplicacion nextjs para administrar datos sobre los partidos de cada fecha para el club G.E.B.A.; y para generar un volante que ilustre la agenda deportiva de tenis del club por fin de semana.
 
 La app consta de tres secciones con funcionalidad claramente demarcada:
 * La primera seccion contiene controles que permiten administrar varios flyers.
