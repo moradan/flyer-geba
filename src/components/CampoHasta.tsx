@@ -1,12 +1,13 @@
 import { ChangeEvent, useState } from "react";
 import { Campo } from "./formulario/Campo";
 
-export default function CampoHasta() {
-    const [fechaHasta, cambiarFechaHasta] = useState(Date.now().toString())
-
-    const manejarCambios = (evento: ChangeEvent<HTMLInputElement>) => {
-        cambiarFechaHasta(evento.target.value);
-    }
+export default function CampoHasta({
+    fecha,
+    actualizador
+}: {
+    fecha: string,
+    actualizador: (e: ChangeEvent<HTMLInputElement>) => void
+}) {
 
     return (
         <Campo
@@ -15,8 +16,8 @@ export default function CampoHasta() {
             nombre='fechaHasta'
             type='date'
             etiqueta='Hasta'
-            valor={fechaHasta}
-            actualizador={manejarCambios}
+            valor={fecha}
+            actualizador={actualizador}
         />
     );
 }

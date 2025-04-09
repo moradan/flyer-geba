@@ -1,12 +1,13 @@
 import { ChangeEvent, useState } from "react";
 import { Campo } from "./formulario/Campo";
 
-export default function CampoDesde() {
-    const [fechaDesde, cambiarFechaDesde] = useState(Date.now().toString())
-
-    const manejarCambios = (evento: ChangeEvent<HTMLInputElement>) => {
-        cambiarFechaDesde(evento.target.value);
-    }
+export default function CampoDesde({
+    fecha,
+    actualizador
+}: {
+    fecha: string,
+    actualizador: (e: ChangeEvent<HTMLInputElement>) => void
+}) {
 
     return (
         <Campo
@@ -15,8 +16,8 @@ export default function CampoDesde() {
             nombre='fechaDesde'
             type='date'
             etiqueta='Desde'
-            valor={fechaDesde}
-            actualizador={manejarCambios}
+            valor={fecha}
+            actualizador={actualizador}
         />
     );
 }

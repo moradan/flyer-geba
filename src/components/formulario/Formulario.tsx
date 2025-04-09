@@ -1,9 +1,7 @@
 import { Dispatch, FormEvent, SetStateAction, useState } from "react";
-import deepcopy from "deepcopy";
 import Partido, { PartidoTexto } from "@/model/Partido";
 import LayoutCampos from "./LayoutCampos";
 import { LayoutBotones } from "./LayoutBotones";
-import { ordenPorTimeStamp } from "@/utils/ordenDeFechaYTiempo";
 import Estado, { CampoEstado } from "@/utils/Estado";
 import AdministradorDatos from "@/utils/AdministradorDatos";
 
@@ -17,21 +15,12 @@ export default function Formulario({
   const estadoFormulario = new Estado<PartidoTexto>(useState(new PartidoTexto()));
 
   function manejarFormulario(e: FormEvent) {
-    agregar();
+    const partidoTexto: PartidoTexto = estadoFormulario.contenido!;
+    const partido = new Partido(partidoTexto);
+    AdministradorDatos.agregar(partido);
     (document.querySelector("#CampoFecha") as HTMLElement).focus();
   }
 
-  function agregar() {
-    const partidoTexto: PartidoTexto = estadoFormulario.contenido!;
-    const copiaListaPartidos: Array<Partido> = deepcopy(listaPartidos);
-
-    const partido = new Partido(partidoTexto);
-    copiaListaPartidos.push(partido);
-    copiaListaPartidos.sort(ordenPorTimeStamp);
-
-    AdministradorDatos.guardar(copiaListaPartidos)
-    actualizador(copiaListaPartidos);
-  }
 
   function limpiarFormulario() {
     const campos: CampoEstado[] = [

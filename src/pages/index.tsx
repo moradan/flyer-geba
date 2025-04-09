@@ -10,6 +10,7 @@ import { Card, Col, Row } from "react-bootstrap";
 import AdministradorDatos from "@/utils/AdministradorDatos";
 import CampoHasta from "@/components/CampoHasta";
 import CampoDesde from "@/components/CampoDesde";
+import Filtro from "@/components/Filtro";
 
 export default function Home() {
   const [listaPartidos, setListaPartidos] = useState<Array<Partido>>([]);
@@ -46,12 +47,7 @@ export default function Home() {
                   <Col>
                     Flyer {AdministradorDatos.nombreFlyer}
                   </Col>
-                  <Col>
-                    <CampoDesde></CampoDesde>
-                  </Col>
-                  <Col>
-                    <CampoHasta></CampoHasta>
-                  </Col>
+                  <Filtro></Filtro>
                 </Row>
               </Card.Footer>
             </Card>
