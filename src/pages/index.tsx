@@ -6,9 +6,10 @@ import { useEffect, useState } from "react";
 import Partido from "@/model/Partido";
 import Fondo from "@/components/flyer/Fondo";
 import Flyer from "@/components/flyer/Flyer";
-import { Card } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
 import AdministradorDatos from "@/utils/AdministradorDatos";
-import DebugLog from "@/components/DebugLog";
+import CampoHasta from "@/components/CampoHasta";
+import CampoDesde from "@/components/CampoDesde";
 
 export default function Home() {
   const [listaPartidos, setListaPartidos] = useState<Array<Partido>>([]);
@@ -41,7 +42,17 @@ export default function Home() {
                 />
               </Card.Body>
               <Card.Footer>
-                Flyer {AdministradorDatos.nombreFlyer}
+                <Row>
+                  <Col>
+                    Flyer {AdministradorDatos.nombreFlyer}
+                  </Col>
+                  <Col>
+                    <CampoDesde></CampoDesde>
+                  </Col>
+                  <Col>
+                    <CampoHasta></CampoHasta>
+                  </Col>
+                </Row>
               </Card.Footer>
             </Card>
             <main id='flyer-node' className='position-relative col align-items-center'>
