@@ -18,7 +18,6 @@ export default function Home() {
 
   return (
     <>
-      <DebugLog></DebugLog>
       <Head>
         <title>Flyer GEBA</title>
         <meta

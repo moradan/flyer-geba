@@ -86,6 +86,7 @@ export class PartidoExcel {
     }
 
     partidoTexto.categoria = this.competencia.slice(this.competencia.indexOf('-') + 1).trim();
+    partidoTexto.categoria = partidoTexto.categoria.replace('Caballeros', 'Cab.');
 
     if (!/ [A-Z]$/i.test(partidoTexto.categoria)) {
       partidoTexto.categoria += ' ' + categoria;
