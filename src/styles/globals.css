@@ -48,3 +48,13 @@ h4 {
 .light-backdrop {
     background-color: #ffffff40;
 }
+
+#flyer-node {
+    display: grid;
+    align-items: start;
+    justify-content: start;
+}
+
+#flyer-node>* {
+    grid-area: 1 / 1;
+}
