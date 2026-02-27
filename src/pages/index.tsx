@@ -51,7 +51,7 @@ export default function Home() {
                 </Row>
               </Card.Footer>
             </Card>
-            <main id='flyer-node' className='position-relative col'>
+            <main id='flyer-node' className='position-relative col mb-5'>
               <Fondo />
               <Flyer listaPartidos={listaPartidos} />
             </main>
