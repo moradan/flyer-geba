@@ -21,14 +21,16 @@ export default function Flyer({ listaPartidos }: { listaPartidos: Array<Partido>
   );
 
   return (
-    <div className='pt-4 mb-5 font-tahoma position-relative'>
+    <div className='pt-4 mb-5 font-tahoma position-relative h-100'>
       <Titulo titulo='Interclubes' />
       <Image
         className='position-absolute end-0 top-0 p-1'
         src='/escudo.png'
         alt='escudo de GEBA'
         width='10%' />
-      <ul className='list-group-flush p-0 pb-5'>{listaFechasJSX}</ul>
+      <div className='h-100 d-flex flex-column justify-content-center'>
+        <ul className='list-group-flush p-0 pb-5'>{listaFechasJSX}</ul>
+      </div>
     </div>
   );
 
