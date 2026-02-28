@@ -45,7 +45,7 @@ export default function Home() {
               <Card.Footer>
                 <Row>
                   <Col>
-                    Flyer {AdministradorDatos.nombreFlyer}
+                    Flyer: {AdministradorDatos.nombreFlyer}
                   </Col>
                   <Filtro></Filtro>
                 </Row>
