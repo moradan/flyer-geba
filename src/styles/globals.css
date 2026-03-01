@@ -3,11 +3,17 @@ h4 {
     margin-bottom: 0;
 }
 
-.tamanio-fondo {
+.fondo {
     min-width: 100%;
-    /* min-height: 100%; */
-    width: 100%;
-    object-fit: cover;
+    height: 100%;
+    background-color: #1d0d8c;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-size: 5rem;
+    letter-spacing: 2rem;
+    padding-right: 3rem;
+    color: rgba(255, 255, 255, 0.2);
 }
 
 .font-tahoma {

@@ -1,13 +1,7 @@
-import Image from 'react-bootstrap/Image'
-
 export default function Fondo() {
   return (
-    <>
-      <Image
-        src='/fondo-febrero-2026.jpeg'
-        alt='fondo azul con marca de agua de GEBA'
-        className='z-n1 tamanio-fondo'
-      />
-    </>
+    <div className="fondo d-flex justify-content-center z-n1">
+      GEBA
+    </div>
   );
 }

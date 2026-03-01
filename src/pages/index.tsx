@@ -8,8 +8,6 @@ import Fondo from "@/components/flyer/Fondo";
 import Flyer from "@/components/flyer/Flyer";
 import { Card, Col, Row } from "react-bootstrap";
 import AdministradorDatos from "@/utils/AdministradorDatos";
-import CampoHasta from "@/components/CampoHasta";
-import CampoDesde from "@/components/CampoDesde";
 import Filtro from "@/components/Filtro";
 
 export default function Home() {
