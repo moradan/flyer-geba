@@ -22,11 +22,8 @@ export default function Home() {
     <>
       <Head>
         <title>Flyer GEBA</title>
-        <meta
-          name='description'
-          content='Intento hacer que funcione autocompletar nativo del browser con campos controlados por ReactJS'
-        />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <link rel="icon" href="/escudo.png" />
       </Head>
 
       <div className='container-fluid p-0'>
