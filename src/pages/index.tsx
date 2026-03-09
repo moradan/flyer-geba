@@ -2,7 +2,7 @@
 import Head from "next/head";
 import PanelControl from "@/components/panelControl/PanelControl";
 import Formulario from "@/components/formulario/Formulario";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Partido from "@/model/Partido";
 import Fondo from "@/components/flyer/Fondo";
 import Flyer from "@/components/flyer/Flyer";
@@ -15,6 +15,8 @@ export default function Home() {
   AdministradorDatos.inicializar(listaPartidos, setListaPartidos);
 
   useEffect(AdministradorDatos.cargarPartidos, []);
+
+  const contenidoFlyerRef = useRef(null);
 
   return (
     <>
@@ -49,8 +51,8 @@ export default function Home() {
                 </Row>
               </Card.Footer>
             </Card>
-            <main id='flyer-node' className='position-relative col mb-5'>
-              <Fondo />
+            <main ref={contenidoFlyerRef} id='flyer-node' className='position-relative col mb-5'>
+              <Fondo contenidoFlyerRef={contenidoFlyerRef} />
               <Flyer listaPartidos={listaPartidos} />
             </main>
           </div>
