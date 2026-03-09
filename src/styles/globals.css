@@ -10,8 +10,9 @@ h4 {
     writing-mode: vertical-rl;
     text-orientation: mixed;
     transform: rotate(180deg);
-    font-size: 5rem;
-    letter-spacing: 2rem;
+    font-family: Arial, sans-serfi;
+    font-weight: bold;
+    font-size: 7rem;
     padding-right: 3rem;
     color: rgba(255, 255, 255, 0.2);
 }
