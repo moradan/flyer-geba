@@ -5,20 +5,23 @@ h4 {
 
 .fondo {
     min-width: 100%;
-    position: absolute;
     writing-mode: vertical-rl;
     text-orientation: mixed;
     transform: rotate(180deg);
     font-family: Arial, sans-serfi;
     font-weight: bold;
     font-size: 7rem;
-    padding-right: 3rem;
     color: rgba(255, 255, 255, 0.2);
 }
 
 #flyer-node {
     position: relative;
     background-color: #1d0d8c;
+    display: grid;
+}
+
+#flyer-node>* {
+    grid-area: 1 / 1;
 }
 
 .font-tahoma {

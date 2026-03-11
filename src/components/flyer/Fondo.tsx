@@ -1,6 +1,5 @@
 "use client";
 import { useRef, useEffect } from "react";
-import { text } from "stream/consumers";
 
 export default function Fondo({ contenidoFlyerRef }: { contenidoFlyerRef: React.RefObject<HTMLElement> }) {
 
@@ -17,24 +16,19 @@ export default function Fondo({ contenidoFlyerRef }: { contenidoFlyerRef: React.
       for (const entry of entries) {
         const height = entry.contentRect.height;
         if (entry.target === contenidoFlyer) {
-          textoFondo.style.fontSize = `${height * 0.3}px`;
+          textoFondo.style.fontSize = `${height * 0.22}px`;
           contentHeightRef.current = height;
-        }
-        if (entry.target === textoFondo) {
-          const offset = (contentHeightRef.current - height) / 2;
-          textoFondo.style.top = `${offset}px`;
         }
       }
     });
 
     observer.observe(contenidoFlyer);
-    observer.observe(textoFondo);
 
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div ref={textoFondoRef} className="fondo d-flex justify-content-center">
+    <div ref={textoFondoRef} className="fondo d-flex justify-content-center align-items-center">
       GEBA
     </div>
   );
