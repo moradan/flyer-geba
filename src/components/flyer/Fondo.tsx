@@ -25,7 +25,7 @@ export default function Fondo({ contenidoFlyerRef }: { contenidoFlyerRef: React.
     observer.observe(contenidoFlyer);
 
     return () => observer.disconnect();
-  }, []);
+  }, [contenidoFlyerRef]);
 
   return (
     <div ref={textoFondoRef} className="fondo d-flex justify-content-center align-items-center">

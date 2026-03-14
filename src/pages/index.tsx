@@ -14,7 +14,7 @@ export default function Home() {
   const [listaPartidos, setListaPartidos] = useState<Array<Partido>>([]);
   AdministradorDatos.inicializar(listaPartidos, setListaPartidos);
 
-  useEffect(AdministradorDatos.cargarPartidos, []);
+  useEffect(() => AdministradorDatos.cargarPartidos(), []);
 
   const contenidoFlyerRef = useRef(null);
 
