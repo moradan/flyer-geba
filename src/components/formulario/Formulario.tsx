@@ -1,18 +1,35 @@
-import { Dispatch, FormEvent, SetStateAction, useState } from "react";
+import { Dispatch, FormEvent, SetStateAction, SyntheticEvent, useEffect, useState } from "react";
 import Partido, { PartidoTexto } from "@/model/Partido";
 import LayoutCampos from "./LayoutCampos";
 import { LayoutBotones } from "./LayoutBotones";
 import Estado, { CampoEstado } from "@/utils/Estado";
 import AdministradorDatos from "@/utils/AdministradorDatos";
 import { Accordion } from "react-bootstrap";
+import { AccordionEventKey } from "react-bootstrap/esm/AccordionContext";
 
 type FormularioProps = {
   listaPartidos: Array<Partido>,
   actualizador: Dispatch<SetStateAction<Array<Partido>>>
 }
 
+type ActiveKeyState = [
+	AccordionEventKey,
+	Dispatch<SetStateAction<AccordionEventKey>>
+]
+
 export default function Formulario({ listaPartidos, actualizador, }: FormularioProps) {
   const estadoFormulario = new Estado<PartidoTexto>(useState(new PartidoTexto()));
+	const [activeKey, setActiveKey] : ActiveKeyState = useState();
+
+	useEffect(() => {
+		const savedStateJSON = sessionStorage.getItem("ui:accordion:activeKey");
+		var savedState = "";
+
+		if(savedStateJSON !== null) {
+			savedState = JSON.parse(savedStateJSON);
+		}
+		setActiveKey(savedState);
+	});
 
   function manejarFormulario(e: FormEvent) {
     const partidoTexto: PartidoTexto = estadoFormulario.contenido!;
@@ -43,8 +60,17 @@ export default function Formulario({ listaPartidos, actualizador, }: FormularioP
     AdministradorDatos.borrarPartidoEnIndice(indice);
   }
 
+	function cambiarAcordion(eventKey: AccordionEventKey, e: SyntheticEvent<unknown, Event>): void {
+		setActiveKey(eventKey);
+		if(eventKey === null) {
+			sessionStorage.removeItem("ui:accordion:activeKey");
+		} else {
+			sessionStorage.setItem("ui:accordion:activeKey", JSON.stringify(eventKey));
+		}
+	}
+
   return (
-		<Accordion className="mi-acordion" flush>
+		<Accordion className="mi-acordion" flush activeKey={activeKey} onSelect={cambiarAcordion}>
 			<Accordion.Item eventKey="0">
 				<Accordion.Header>
 					Agregar un partido

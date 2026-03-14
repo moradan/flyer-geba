@@ -12,11 +12,11 @@ import Filtro from "@/components/Filtro";
 
 export default function Home() {
   const [listaPartidos, setListaPartidos] = useState<Array<Partido>>([]);
-  AdministradorDatos.inicializar(listaPartidos, setListaPartidos);
+  const contenidoFlyerRef = useRef(null);
 
+  AdministradorDatos.inicializar(listaPartidos, setListaPartidos);
   useEffect(() => AdministradorDatos.cargarPartidos(), []);
 
-  const contenidoFlyerRef = useRef(null);
 
   return (
     <>
