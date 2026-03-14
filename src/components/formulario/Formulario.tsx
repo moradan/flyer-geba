@@ -44,7 +44,7 @@ export default function Formulario({ listaPartidos, actualizador, }: FormularioP
   }
 
   return (
-		<Accordion className="mi-acordion" defaultActiveKey="0" flush>
+		<Accordion className="mi-acordion" flush>
 			<Accordion.Item eventKey="0">
 				<Accordion.Header>
 					Agregar un partido
