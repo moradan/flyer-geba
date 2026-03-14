@@ -33,7 +33,7 @@ export default function Home() {
               <Card.Header>
                 <PanelControl />
               </Card.Header>
-              <Card.Body>
+              <Card.Body className="p-0">
                 <Formulario
                   listaPartidos={listaPartidos}
                   actualizador={setListaPartidos}
