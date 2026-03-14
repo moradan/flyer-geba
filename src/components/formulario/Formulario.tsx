@@ -4,14 +4,14 @@ import LayoutCampos from "./LayoutCampos";
 import { LayoutBotones } from "./LayoutBotones";
 import Estado, { CampoEstado } from "@/utils/Estado";
 import AdministradorDatos from "@/utils/AdministradorDatos";
+import { Accordion } from "react-bootstrap";
 
-export default function Formulario({
-  listaPartidos,
-  actualizador,
-}: {
-  listaPartidos: Array<Partido>;
-  actualizador: Dispatch<SetStateAction<Array<Partido>>>;
-}) {
+type FormularioProps = {
+  listaPartidos: Array<Partido>,
+  actualizador: Dispatch<SetStateAction<Array<Partido>>>
+}
+
+export default function Formulario({ listaPartidos, actualizador, }: FormularioProps) {
   const estadoFormulario = new Estado<PartidoTexto>(useState(new PartidoTexto()));
 
   function manejarFormulario(e: FormEvent) {
@@ -44,9 +44,18 @@ export default function Formulario({
   }
 
   return (
-    <form className='col' onSubmit={manejarFormulario} autoComplete='on'>
-      <LayoutCampos estado={estadoFormulario} />
-      <LayoutBotones borrar={dialogoParaBorrar} />
-    </form>
+		<Accordion defaultActiveKey="0">
+			<Accordion.Item eventKey="0">
+				<Accordion.Header>
+					Agregar un partido
+				</Accordion.Header>
+				<Accordion.Body>
+					<form className='col' onSubmit={manejarFormulario} autoComplete='on'>
+					  <LayoutCampos estado={estadoFormulario} />
+					  <LayoutBotones borrar={dialogoParaBorrar} />
+					</form>
+				</Accordion.Body>
+			</Accordion.Item>
+		</Accordion>
   );
 }
