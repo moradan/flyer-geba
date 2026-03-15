@@ -2,7 +2,7 @@ import { PartidoTexto } from "@/model/Partido";
 import deepcopy from "deepcopy";
 import { Dispatch, SetStateAction } from "react";
 
-type ArrayEstado<T> = [valor: T, actualizar: Dispatch<SetStateAction<T>>];
+type ArrayEstado = [valor: PartidoTexto, actualizar: Dispatch<SetStateAction<PartidoTexto>>];
 export class CampoEstado {
   public nombre: string;
   public valor: unknown;
@@ -12,12 +12,12 @@ export class CampoEstado {
   }
 }
 
-/* Estado<T> SOLO FUNCIONA SI T ES PARTIDO O UN SUBTIPO. */
+/* Estado sirve para encapsular el estado de un partido. Estado contiene un PartidoTexto */
 export default class Estado {
   public contenido: PartidoTexto;
   private _actualizar: Dispatch<SetStateAction<PartidoTexto>>;
 
-  constructor(arrayEstado: ArrayEstado<PartidoTexto>) {
+  constructor(arrayEstado: ArrayEstado) {
     this.contenido = arrayEstado[0];
     this._actualizar = arrayEstado[1];
   }
