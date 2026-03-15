@@ -1,3 +1,4 @@
+import { PartidoTexto } from "@/model/Partido";
 import deepcopy from "deepcopy";
 import { Dispatch, SetStateAction } from "react";
 
@@ -11,11 +12,12 @@ export class CampoEstado {
   }
 }
 
-export default class Estado<T> {
-  public contenido: T;
-  private _actualizar: Dispatch<SetStateAction<T>>;
+/* Estado<T> SOLO FUNCIONA SI T ES PARTIDO O UN SUBTIPO. */
+export default class Estado {
+  public contenido: PartidoTexto;
+  private _actualizar: Dispatch<SetStateAction<PartidoTexto>>;
 
-  constructor(arrayEstado: ArrayEstado<T>) {
+  constructor(arrayEstado: ArrayEstado<PartidoTexto>) {
     this.contenido = arrayEstado[0];
     this._actualizar = arrayEstado[1];
   }
@@ -24,7 +26,7 @@ export default class Estado<T> {
     const options = (objetoOriginal: unknown) => {
       return Object.create(Object.getPrototypeOf(objetoOriginal));
     };
-    const nuevoContenido: T = deepcopy(this.contenido, options);
+    const nuevoContenido: PartidoTexto = deepcopy(this.contenido, options);
     for (const campo of campos) {
       (nuevoContenido as any)[campo.nombre] = campo.valor;
     }
