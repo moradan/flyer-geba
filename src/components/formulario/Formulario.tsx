@@ -31,7 +31,7 @@ export default function Formulario({ listaPartidos }: FormularioProps) {
 			savedState = JSON.parse(savedStateJSON);
 		}
 		setActiveKey(savedState);
-	});
+	}, []);
 
   function manejarFormulario(_e: FormEvent) {
     const partidoTexto: PartidoTexto = estadoFormulario.contenido!;
