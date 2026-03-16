@@ -97,7 +97,7 @@ h4 {
 #BotonImportar {
 	background-repeat: no-repeat;
 	background-position-y: center;
-	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M8 2h12l6 6v20a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z' fill='%23ffffff' stroke='%23000000' stroke-width='1.5'/><path d='M20 2v6h6' fill='none' stroke='%23000000' stroke-width='1.5'/><rect x='3' y='9' width='11' height='14' rx='1.5' fill='%23ffffff' stroke='%23000000' stroke-width='1.2'/><path d='M6 12l2.3 4L6 20h2.2l1.5-2.6L11.2 20h2.2l-2.3-4 2.3-4H11.2l-1.5 2.6L8.2 12z' fill='%23000000'/><path d='M17 12h6M17 16h6M17 20h6' stroke='%23000000' stroke-width='1.4' stroke-linecap='round'/></svg>");
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M8 2h12l6 6v20a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z' fill='%23ffffff' stroke='%23ffffff' stroke-width='1.5'/><path d='M20 1v6h7' fill='none' stroke='%23000000' stroke-width='1.5'/><rect x='3' y='9' width='11' height='14' rx='1.5' fill='%23ffffff' stroke='%23000000' stroke-width='1.2'/><path d='M4.5 12l2.3 4L4.5 20h2.2l1.5-2.6L9.7 20h2.2l-2.3-4 2.3-4H9.7l-1.5 2.6L6.7 12z' fill='%23000000'/><path d='M17 12h6M17 16h6M17 20h6' stroke='%23000000' stroke-width='1.4' stroke-linecap='round'/></svg>");
 }
 
 #filtro {
