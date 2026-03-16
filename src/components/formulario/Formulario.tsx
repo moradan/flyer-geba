@@ -2,14 +2,13 @@ import { Dispatch, FormEvent, SetStateAction, SyntheticEvent, useEffect, useStat
 import Partido, { PartidoTexto } from "@/model/Partido";
 import LayoutCampos from "./LayoutCampos";
 import { LayoutBotones } from "./LayoutBotones";
-import Estado, { CampoEstado } from "@/utils/Estado";
 import AdministradorDatos from "@/utils/AdministradorDatos";
 import { Accordion } from "react-bootstrap";
 import { AccordionEventKey } from "react-bootstrap/esm/AccordionContext";
+import Estado from "@/utils/Estado";
 
 type FormularioProps = {
   listaPartidos: Array<Partido>,
-  actualizador: Dispatch<SetStateAction<Array<Partido>>>
 }
 
 type ActiveKeyState = [
@@ -17,12 +16,12 @@ type ActiveKeyState = [
 	Dispatch<SetStateAction<AccordionEventKey>>
 ]
 
-export default function Formulario({ listaPartidos, actualizador, }: FormularioProps) {
-  const estadoFormulario = new Estado<PartidoTexto>(useState(new PartidoTexto()));
+export default function Formulario({ listaPartidos }: FormularioProps) {
+  const estadoFormulario = new Estado(useState(new PartidoTexto()));
 	const [activeKey, setActiveKey] : ActiveKeyState = useState();
 
 	useEffect(() => {
-		const savedStateJSON = sessionStorage.getItem("ui:accordion:activeKey");
+		const savedStateJSON = sessionStorage.getItem("ui:formulario:activeKey");
 		var savedState = "";
 
 		if(savedStateJSON !== null) {
@@ -31,22 +30,13 @@ export default function Formulario({ listaPartidos, actualizador, }: FormularioP
 		setActiveKey(savedState);
 	});
 
-  function manejarFormulario(e: FormEvent) {
+  function manejarFormulario(_e: FormEvent) {
     const partidoTexto: PartidoTexto = estadoFormulario.contenido!;
     const partido = new Partido(partidoTexto);
     AdministradorDatos.agregar(partido);
     (document.querySelector("#CampoFecha") as HTMLElement).focus();
   }
 
-
-  function limpiarFormulario() {
-    const campos: CampoEstado[] = [
-      new CampoEstado({ name: "horario", value: "" }),
-      new CampoEstado({ name: "adversario", value: "" }),
-      new CampoEstado({ name: "categoria", value: "" }),
-    ];
-    estadoFormulario.actualizar(...campos);
-  }
 
   function dialogoParaBorrar() {
     const ultimo: number = listaPartidos.length;
@@ -60,12 +50,12 @@ export default function Formulario({ listaPartidos, actualizador, }: FormularioP
     AdministradorDatos.borrarPartidoEnIndice(indice);
   }
 
-	function cambiarAcordion(eventKey: AccordionEventKey, e: SyntheticEvent<unknown, Event>): void {
+	function cambiarAcordion(eventKey: AccordionEventKey, _e: SyntheticEvent<unknown, Event>): void {
 		setActiveKey(eventKey);
 		if(eventKey === null) {
-			sessionStorage.removeItem("ui:accordion:activeKey");
+			sessionStorage.removeItem("ui:formulario:activeKey");
 		} else {
-			sessionStorage.setItem("ui:accordion:activeKey", JSON.stringify(eventKey));
+			sessionStorage.setItem("ui:formulario:activeKey", JSON.stringify(eventKey));
 		}
 	}
 
