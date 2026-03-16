@@ -15,7 +15,7 @@ export default function CampoHasta({
             identifier='CampoHasta'
             nombre='fechaHasta'
             type='date'
-            etiqueta='Hasta'
+            etiqueta='Hasta cuando'
             valor={fecha}
             actualizador={actualizador}
         />

@@ -15,7 +15,7 @@ export default function CampoDesde({
             identifier='CampoDesde'
             nombre='fechaDesde'
             type='date'
-            etiqueta='Desde'
+            etiqueta='Desde cuando'
             valor={fecha}
             actualizador={actualizador}
         />

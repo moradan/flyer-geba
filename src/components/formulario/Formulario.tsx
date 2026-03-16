@@ -74,7 +74,9 @@ export default function Formulario({ listaPartidos, actualizador, }: FormularioP
 			<Accordion.Item eventKey="0">
 				<Accordion.Header>
 					<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M16 7v18M7 16h18' stroke='%23ffffff' stroke-width='4' stroke-linecap='round' fill='none'/></svg>"></img>
-					<h3>Agregar un partido</h3>
+					<h4>
+						Agregar un partido
+					</h4>
 				</Accordion.Header>
 				<Accordion.Body>
 					<form className='col' onSubmit={manejarFormulario} autoComplete='on'>
