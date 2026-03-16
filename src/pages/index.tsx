@@ -10,6 +10,7 @@ import { Accordion, Card, Row } from "react-bootstrap";
 import AdministradorDatos from "@/utils/AdministradorDatos";
 import Filtro from "@/components/Filtro";
 import { AccordionEventKey } from "react-bootstrap/esm/AccordionContext";
+import Image from "next/image"
 
 type ActiveKeyState = [
 	AccordionEventKey,
@@ -67,7 +68,7 @@ export default function Home() {
 									<Accordion.Item eventKey="0">
 										<Accordion.Header>
 											<h4>
-												<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M4 6h24l-9 11v8l-6 3v-11z' fill='%23ffffff'/><path d='M8 10h16M10 13h12' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' fill='none'/></svg>" />
+												<Image src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M4 6h24l-9 11v8l-6 3v-11z' fill='%23ffffff'/><path d='M8 10h16M10 13h12' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' fill='none'/></svg>" alt={"Icono de filtro"} width="32" height="32"/>
 												Filtro
 											</h4>
 										</Accordion.Header>
