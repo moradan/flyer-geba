@@ -6,6 +6,7 @@ import AdministradorDatos from "@/utils/AdministradorDatos";
 import { Accordion } from "react-bootstrap";
 import { AccordionEventKey } from "react-bootstrap/esm/AccordionContext";
 import Estado from "@/utils/Estado";
+import Image from "next/image";
 
 type FormularioProps = {
   listaPartidos: Array<Partido>,
@@ -15,6 +16,8 @@ type ActiveKeyState = [
 	AccordionEventKey,
 	Dispatch<SetStateAction<AccordionEventKey>>
 ]
+
+const dataUri = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M16 7v18M7 16h18' stroke='%23ffffff' stroke-width='4' stroke-linecap='round' fill='none'/></svg>";
 
 export default function Formulario({ listaPartidos }: FormularioProps) {
   const estadoFormulario = new Estado(useState(new PartidoTexto()));
@@ -63,7 +66,7 @@ export default function Formulario({ listaPartidos }: FormularioProps) {
 		<Accordion className="mi-acordion" flush activeKey={activeKey} onSelect={cambiarAcordion}>
 			<Accordion.Item eventKey="0">
 				<Accordion.Header>
-					<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M16 7v18M7 16h18' stroke='%23ffffff' stroke-width='4' stroke-linecap='round' fill='none'/></svg>"></img>
+					<Image src={dataUri} width="32" height="32" alt={"icono de signo mas"}></Image>
 					<h4>
 						Agregar un partido
 					</h4>
