@@ -1,3 +1,4 @@
+import AdministradorDatos from "@/utils/AdministradorDatos";
 import BotonAbrir from "./BotonAbrir";
 import BotonCompartir from "./BotonCompartir";
 import BotonGuardar from "./BotonGuardar";
@@ -12,6 +13,9 @@ export default function PanelControl() {
       <BotonAbrir variant="col-12 col-md-6" />
       <ExcelReader />
       <BotonImportar variant="col-12 col-md-6" />
+			<div>
+				<h1 className="text-center">Nombre del flyer: {AdministradorDatos.nombreFlyer}</h1>
+			</div>
     </nav>
   );
 }
