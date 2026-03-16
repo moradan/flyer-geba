@@ -1,10 +1,9 @@
-import { PartidoTexto } from "@/model/Partido";
 import { Campo } from "./Campo";
 import { SelectorLocalia } from "./SelectorLocalia";
 import Estado, { CampoEstado } from "@/utils/Estado";
 import { ChangeEvent } from "react";
 
-export default function LayoutCampos({ estado }: { estado: Estado<PartidoTexto> }) {
+export default function LayoutCampos({ estado }: { estado: Estado }) {
   const partidoTexto = estado.contenido;
 
   function manejarCambios(evento: ChangeEvent<HTMLInputElement>) {
