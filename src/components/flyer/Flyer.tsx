@@ -22,17 +22,14 @@ export default function Flyer({ listaPartidos }: { listaPartidos: Array<Partido>
 
   return (
     <div className='d-flex flex-column pt-4 font-tahoma position-relative h-100'>
-      <Titulo titulo='Interclubes' />
+      <Titulo className='text-uppercase' titulo='Interclubes 2026' />
       <main className='flex-grow-1 d-flex flex-column justify-content-center'>
-        <ul className='list-group-flush p-0 pb-5'>{listaFechasJSX}</ul>
+        <ul className='lista-fechas text-white list-group-flush p-0 pb-5'>{listaFechasJSX}</ul>
       </main>
-      <footer className='d-flex justify-content-center pb-2'>
-        <Image
-          className=''
-          src='/escudo.png'
-          alt='escudo de GEBA'
-          width='10%' />
-      </footer>
+			<!-- Este footer no debe verse, existe como un hack para mostrar una franja blanca debajo de la lista de partidos -->
+			<footer className='bg-white text-white pb-4'>
+				Gimnasia y Esgrima de Buenos Aires
+			</footer>
     </div>
   );
 

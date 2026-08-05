@@ -5,18 +5,12 @@ h4 {
 
 .fondo {
     min-width: 100%;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    transform: rotate(180deg);
-    font-family: Arial, sans-serfi;
-    font-weight: bold;
-    font-size: 7rem;
-    color: rgba(255, 255, 255, 0.2);
 }
 
 #flyer-node {
     position: relative;
-    background-color: #1d0d8c;
+		color: #4db5f6;
+    background-color: white;
     display: grid;
 }
 
@@ -29,7 +23,7 @@ h4 {
 }
 
 .text-shadow {
-    text-shadow: -3px 0px black;
+    text-shadow: 0.1rem 0.2rem #449;
 }
 
 .text-primario {
@@ -104,4 +98,8 @@ h4 {
 	background-repeat: no-repeat;
 	background-position-y: center;
 	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'><path d='M8 12h48c2 0 3 2.4 1.7 4.1L40 38v14c0 .7-.4 1.4-1.1 1.8l-10 6C27.6 60.6 26 59.7 26 58V38L6.3 16.1C5 14.4 6 12 8 12z' fill='%23ffffff' stroke='%23000000' stroke-width='3' stroke-linejoin='round'/><path d='M16 20h32M20 26h24' stroke='%23000000' stroke-width='2.5' stroke-linecap='round'/></svg>");
+}
+
+.lista-fechas {
+	background-color: #4db5f6;
 }
