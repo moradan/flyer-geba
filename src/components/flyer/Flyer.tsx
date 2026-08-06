@@ -23,7 +23,7 @@ export default function Flyer({ listaPartidos }: { listaPartidos: Array<Partido>
 	// El footer debe ser visualmente invisible, solo existe como hack para poner una franja blanca al final del flyer
   return (
     <div className='d-flex flex-column pt-4 font-tahoma position-relative h-100'>
-      <Titulo className='text-uppercase' titulo='Interclubes 2026' />
+      <Titulo className='text-uppercase' titulo='Interclubes 2026' subtitulo='Programación' />
       <main className='flex-grow-1 d-flex flex-column justify-content-center'>
         <ul className='lista-fechas text-white list-group-flush p-0 pb-5'>{listaFechasJSX}</ul>
       </main>

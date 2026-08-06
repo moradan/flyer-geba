@@ -1,11 +1,22 @@
-import { Logo } from "./Logo";
-
-export default function Titulo({ titulo, className }: { titulo: string, className: sting}) {
+export default function Titulo({ titulo, subtitulo, className }: { titulo: string, subtitulo: string, className: sting}) {
   return (
-    <div className={`row align-items-center justify-content-center ${className ?? ""}`}>
-      <h1 className="fs-2 col-6 text-center p-2 text-shadow rounded">
-        {titulo}
-      </h1>
+    <div className={`d-flex justify-content-center p-3 ${className ?? ""}`}>
+			<img
+				src="/escudo.png"
+				height="80"
+			/>
+				<div>
+				<h1 className="fs-2 text-shadow">
+					{titulo}
+				</h1>
+				<h2 className="fs-5 text-shadow">
+					{subtitulo}
+				</h2>
+			</div>
+			<img
+				src="/aat.jpeg"
+				style={{ width:"auto", height:80 }}
+				/>
     </div>
   );
 }
