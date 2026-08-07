@@ -1,4 +1,4 @@
-export default function Titulo({ titulo, subtitulo, className }: { titulo: string, subtitulo: string, className: sting}) {
+export default function Titulo({ titulo, subtitulo, className }: { titulo: string, subtitulo: string, className: string}) {
   return (
     <div className={`d-flex justify-content-center p-3 ${className ?? ""}`}>
 			<img
