@@ -2,6 +2,7 @@ export default function Titulo({ titulo, subtitulo, className }: { titulo: strin
   return (
     <div className={`d-flex justify-content-center p-3 ${className ?? ""}`}>
 			<img
+				className="px-3"
 				src="/escudo.png"
 				height="80"
 			/>
@@ -15,6 +16,7 @@ export default function Titulo({ titulo, subtitulo, className }: { titulo: strin
 			</div>
 			<img
 				src="/aat.jpeg"
+				className="px-3"
 				style={{ width:"auto", height:80 }}
 				/>
     </div>
