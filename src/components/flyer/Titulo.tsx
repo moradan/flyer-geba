@@ -15,7 +15,7 @@ export default function Titulo({ titulo, subtitulo, className }: { titulo: strin
 				</h2>
 			</div>
 			<img
-				src="/aat.jpeg"
+				src="/aat.png"
 				className="px-3"
 				style={{ width:"auto", height:80 }}
 				/>
