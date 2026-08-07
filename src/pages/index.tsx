@@ -21,7 +21,6 @@ const dataUri = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'
 
 export default function Home() {
   const [listaPartidos, setListaPartidos] = useState<Array<Partido>>([]);
-  const contenidoFlyerRef = useRef(null);
 	const [activeKey, setActiveKey] : ActiveKeyState = useState();
 
   AdministradorDatos.inicializar(listaPartidos, setListaPartidos);
@@ -83,8 +82,7 @@ export default function Home() {
 								</Accordion>
               </Card.Footer>
             </Card>
-            <main ref={contenidoFlyerRef} id='flyer-node' className='position-relative col mb-5'>
-              <Fondo contenidoFlyerRef={contenidoFlyerRef} />
+            <main id='flyer-node' className='position-relative col mb-5'>
               <Flyer listaPartidos={listaPartidos} />
             </main>
           </div>
