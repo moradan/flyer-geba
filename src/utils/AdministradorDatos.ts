@@ -5,7 +5,7 @@ import deepcopy from "deepcopy";
 
 export default class AdministradorDatos {
     private static setListaPartidos: Dispatch<SetStateAction<Array<Partido>>>; 
-    private static listaPartidos: Array<Partido>;
+    private static listaPartidos: Array<Partido> = [];
     private static listaPartidosCruda: Array<Partido>;
     static nombreFlyer: string;
     
@@ -109,4 +109,14 @@ export default class AdministradorDatos {
     AdministradorDatos.setListaPartidos(AdministradorDatos.listaPartidosCruda.filter(predicado));
   }
 
+  static catalogarFechas(listaFechas: Map<number, Array<Partido>>, listaPartidos: Array<Partido>) {
+    for (const partido of listaPartidos) {
+      const timeStamp = partido.fecha.getTime();
+      if (listaFechas.has(timeStamp)) {
+        listaFechas.get(timeStamp)!.push(partido);
+      } else {
+        listaFechas.set(timeStamp, new Array<Partido>(partido));
+      }
+    }
+  }
 }

@@ -3,22 +3,23 @@ import { ReactNode } from "react";
 import ElementoFecha from "./ElementoFecha";
 import Titulo from "./Titulo";
 import Image from 'react-bootstrap/Image'
+import AdministradorDatos from "@/utils/AdministradorDatos";
 
 export default function Flyer({ listaPartidos }: { listaPartidos: Array<Partido> }) {
   const listaFechasJSX: Array<ReactNode> = [];
   const listaFechas = new Map<number, Array<Partido>>();
 
-  catalogarFechas();
+	AdministradorDatos.catalogarFechas(listaFechas, listaPartidos);
 
-  listaFechas.forEach((listaPartidos, timeStamp) =>
-    listaFechasJSX.push(
-      <ElementoFecha
-        key={timeStamp}
-        fecha={new Date(timeStamp)}
-        listaPartidos={listaPartidos}
-      />
-    )
-  );
+	listaFechas.forEach((listaPartidos, timeStamp) =>
+		listaFechasJSX.push(
+			<ElementoFecha
+				key={timeStamp}
+				fecha={new Date(timeStamp)}
+				listaPartidos={listaPartidos}
+			/>
+		)
+	);
 
 	// El footer debe ser visualmente invisible, solo existe como hack para poner una franja blanca al final del flyer
   return (
@@ -32,15 +33,4 @@ export default function Flyer({ listaPartidos }: { listaPartidos: Array<Partido>
 			</footer>
     </div>
   );
-
-  function catalogarFechas() {
-    for (const partido of listaPartidos) {
-      const timeStamp = partido.fecha.getTime();
-      if (listaFechas.has(timeStamp)) {
-        listaFechas.get(timeStamp)!.push(partido);
-      } else {
-        listaFechas.set(timeStamp, new Array<Partido>(partido));
-      }
-    }
-  }
 }
