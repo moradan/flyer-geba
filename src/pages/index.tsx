@@ -23,8 +23,10 @@ export default function Home() {
   const [listaPartidos, setListaPartidos] = useState<Array<Partido>>([]);
 	const [activeKey, setActiveKey] : ActiveKeyState = useState();
 
-  AdministradorDatos.inicializar(listaPartidos, setListaPartidos);
-  useEffect(() => AdministradorDatos.cargarPartidos(), []);
+  useEffect(() => {
+		AdministradorDatos.inicializar(listaPartidos, setListaPartidos);
+		AdministradorDatos.cargarPartidos()
+	}, []);
 	useEffect(() => {
 		const savedStateJSON = sessionStorage.getItem("ui:filtro:activeKey");
 		var savedState = "";
@@ -82,6 +84,7 @@ export default function Home() {
 								</Accordion>
               </Card.Footer>
             </Card>
+						{/* flyer-node se usa para la rutina de compartir el flyer, se usa el id para encontrar el elemento html a renderizar */ }
             <main id='flyer-node' className='position-relative col mb-5'>
               <Flyer listaPartidos={listaPartidos} />
             </main>
