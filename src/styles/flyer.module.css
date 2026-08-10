@@ -1,0 +1,20 @@
+.titulo {
+    position: relative;
+		color: #4db5f6;
+    background-color: white;
+    display: grid;
+}
+
+/*
+#flyer-node>* {
+    grid-area: 1 / 1;
+}
+*/
+
+.listaFechas {
+	background-color: #4db5f6;
+	margin-bottom: 0px;
+}
+
+.footer {
+}
