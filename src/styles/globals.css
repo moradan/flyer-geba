@@ -7,10 +7,6 @@ h4 {
     min-width: 100%;
 }
 
-#flyer-node>* {
-    grid-area: 1 / 1;
-}
-
 .font-tahoma {
     font-family: 'Tahoma Bold', Geneva, Verdana, sans-serif
 }

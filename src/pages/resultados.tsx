@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Partido from "@/model/Partido";
 import AdministradorDatos from "@/utils/AdministradorDatos";
 import FlyerResultados from "@/components/flyer/FlyerResultados"; 
 import Titulo from "@/components/flyer/Titulo";
