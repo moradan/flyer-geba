@@ -1,4 +1,6 @@
 import Titulo from "./Titulo";
+import Partido from "@/model/Partido";
+import { ReactNode } from "react";
 import AdministradorDatos from "@/utils/AdministradorDatos";
 import ElementoFecha from "./ElementoFecha";
 
