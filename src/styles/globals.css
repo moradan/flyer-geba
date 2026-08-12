@@ -105,7 +105,14 @@ h4 {
 	background-color: #4db5f6;
 }
 
-.resultado.secundario {
+.resultado.camuflado {
+	color: #4db5f6;
+	background-color: #4db5f6;
+}
+
+.resultado.secundario,
+.resultado.secundario .form-control {
 	color: #4db5f6;
 	background-color: white;
+	margin-bottom: 0px;
 }

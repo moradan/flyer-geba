@@ -1,4 +1,3 @@
-import styles from "@/styles/flyerresultados.module.css";
 import Titulo from "./Titulo";
 import Partido from "@/model/Partido";
 import { ReactNode } from "react";
@@ -23,11 +22,11 @@ export default function FlyerResultados({ listaPartidos }: { listaPartidos: Arra
 
   return (
     <div className='d-flex flex-column pt-4 font-tahoma position-relative h-100'>
-      <Titulo className={`text-uppercase ${styles.titulo}`} titulo='Interclubes 2026' subtitulo='Resultados' />
+      <Titulo className="resultado primario text-uppercase" titulo='Interclubes 2026' subtitulo='Resultados' />
       <main className='flex-grow-1 d-flex flex-column justify-content-center'>
-        <ul className={`${styles.listaFechas} text-shadow list-group-flush p-0 pb-5`}>{listaFechasJSX}</ul>
+        <ul className="resultado secundario text-shadow list-group-flush p-0 pb-5">{listaFechasJSX}</ul>
       </main>
-			<footer className={`${styles.footer} p-4 fs-2`}>
+			<footer className="resultado camuflado p-4 fs-2">
 				Gimnasia y Esgrima de Buenos Aires
 			</footer>
     </div>
