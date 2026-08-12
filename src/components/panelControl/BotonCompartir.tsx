@@ -10,6 +10,7 @@ export default function BotonCompartir({ variant }: { variant: string}) {
       throw new Error("No hay un nodo en el documento HTML con id flyer-nodo.");
     }
 
+
     ocultarUI();
 
     toJpeg(nodoFlyer)

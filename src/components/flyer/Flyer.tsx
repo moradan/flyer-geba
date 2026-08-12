@@ -1,4 +1,3 @@
-import styles from "@/styles/flyer.module.css";
 import Partido from "@/model/Partido";
 import { ReactNode } from "react";
 import ElementoFecha from "./ElementoFecha";
@@ -24,10 +23,10 @@ export default function Flyer({ listaPartidos }: { listaPartidos: Array<Partido>
 
 	// El footer debe ser visualmente invisible, solo existe como hack para poner una franja blanca al final del flyer
   return (
-    <div className='d-flex flex-column pt-4 font-tahoma position-relative h-100'>
-      <Titulo className={`text-uppercase ${styles.titulo}`} titulo='Interclubes 2026' subtitulo='Programación' />
-      <main className='flex-grow-1 d-flex flex-column justify-content-center'>
-        <ul className={`${styles.listaFechas} text-white list-group-flush p-0 pb-5`}>{listaFechasJSX}</ul>
+    <div className="d-flex flex-column pt-4 font-tahoma position-relative h-100">
+      <Titulo className="flyer primario text-uppercase" titulo="Interclubes 2026" subtitulo="Programación" />
+      <main className="flex-grow-1 d-flex flex-column justify-content-center">
+        <ul className="flyer secundario list-group-flush p-0 pb-5">{listaFechasJSX}</ul>
       </main>
 			<footer className='bg-white text-white p-4 fs-2'>
 				Gimnasia y Esgrima de Buenos Aires
