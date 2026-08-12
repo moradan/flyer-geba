@@ -14,7 +14,7 @@ export default function ElementoPartido({ partido }: { partido: Partido }) {
 
   return (
     <li className='list-group-item px-2 partido-elemento text-shadow'>
-      <div className='row fs-7 fw-bold gx-1 text-uppercase text-nowrap'>
+      <div className='row align-items-center fs-7 fw-bold gx-1 text-uppercase text-nowrap'>
         <div className='col-4 text-end' style={{ fontSize }}>
           {partido.categoria}
         </div>

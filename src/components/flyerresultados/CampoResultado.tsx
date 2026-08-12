@@ -5,7 +5,7 @@ export default function CampoResultado({ className }: {className: string}) {
 		<Form.Control 
 			type="text" 
 			maxLength={1} 
-			className="border-0 border-bottom rounded-0 bg-light text-center"
+			className="border-0 rounded-0 text-shadow text-center fs-3 font-tahoma"
 		/>
 	);
 }

@@ -10,7 +10,9 @@
 }
 */
 
-.listaFechas {
+.listaFechas,
+.listaFechas div,
+.listaFechas input {
 	color: #4db5f6;
 	background-color: white;
 	margin-bottom: 0px;
