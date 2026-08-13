@@ -4,7 +4,6 @@ import PanelControl from "@/components/panelControl/PanelControl";
 import Formulario from "@/components/formulario/Formulario";
 import { useEffect, useState, useRef, Dispatch, SetStateAction, SyntheticEvent } from "react";
 import Partido from "@/model/Partido";
-import Fondo from "@/components/flyer/Fondo";
 import Flyer from "@/components/flyer/Flyer";
 import { Accordion, Card, Row } from "react-bootstrap";
 import AdministradorDatos from "@/utils/AdministradorDatos";
