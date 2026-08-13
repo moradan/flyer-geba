@@ -1,6 +1,6 @@
 import Form from "react-bootstrap/Form";
 
-export default function CampoResultado({ className }: {className: string}) {
+export default function CampoResultado() {
 	return (
 		<Form.Control 
 			type="text" 
