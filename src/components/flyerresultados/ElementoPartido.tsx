@@ -1,7 +1,7 @@
 import Partido from "@/model/Partido";
 import AdministradorDatos from "@/utils/AdministradorDatos";
 import formatTime from "@/utils/formatTime";
-import CampoResultado from "./CampoResultado.tsx";
+import CampoResultado from "./CampoResultado";
 
 export default function ElementoPartido({ partido }: { partido: Partido }) {
   const longitudTexto = partido.adversario.length + partido.categoria.length;
