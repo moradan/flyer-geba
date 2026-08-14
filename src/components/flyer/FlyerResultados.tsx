@@ -1,4 +1,4 @@
-import Titulo from "./Titulo";
+import TituloResultados from "./TituloResultados";
 import Partido from "@/model/Partido";
 import { ReactNode } from "react";
 import AdministradorDatos from "@/utils/AdministradorDatos";
@@ -22,7 +22,7 @@ export default function FlyerResultados({ listaPartidos }: { listaPartidos: Arra
 
   return (
     <div className='d-flex flex-column pt-4 font-tahoma position-relative h-100'>
-      <Titulo className="resultado primario text-uppercase" titulo='Interclubes 2026' subtitulo='Resultados' />
+      <TituloResultados className="resultado primario text-uppercase" titulo='Interclubes 2026' subtitulo='Resultados' />
       <main className='flex-grow-1 d-flex flex-column justify-content-center'>
         <ul className="resultado secundario text-shadow list-group-flush p-0 pb-5">{listaFechasJSX}</ul>
       </main>
