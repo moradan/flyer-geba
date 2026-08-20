@@ -22,9 +22,9 @@ export default function Home() {
   const [listaPartidos, setListaPartidos] = useState<Array<Partido>>([]);
 	const [activeKey, setActiveKey] : ActiveKeyState = useState();
 
+	AdministradorDatos.inicializar(listaPartidos, setListaPartidos);
   useEffect(() => {
-		AdministradorDatos.inicializar(listaPartidos, setListaPartidos);
-		AdministradorDatos.cargarPartidos()
+		AdministradorDatos.cargarPartidos();
 	}, []);
 	useEffect(() => {
 		const savedStateJSON = sessionStorage.getItem("ui:filtro:activeKey");
