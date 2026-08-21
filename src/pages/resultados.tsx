@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import Partido from "@/model/Partido";
 import AdministradorDatos from "@/utils/AdministradorDatos";
 import FlyerResultados from "@/components/flyer/FlyerResultados"; 
@@ -26,7 +27,7 @@ export default function Resultados() {
       <div className='container-fluid p-0'>
         <div className='row g-0 justify-content-center'>
           <div className='col-12 col-sm-11 col-md-10 col-lg-9 col-xl-7 col-xxl-6'>
-						<a href="/">Programacion</a>
+						<Link href="/">Programacion</Link>
             <Card className='mt-2 mb-3 mx-2'>
               <Card.Header>
 								<BotonCompartir variant="col-12 col-md-6" />

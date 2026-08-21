@@ -1,4 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
+import Link from "next/link";
 import Head from "next/head";
 import PanelControl from "@/components/panelControl/PanelControl";
 import Formulario from "@/components/formulario/Formulario";
@@ -56,7 +57,7 @@ export default function Home() {
       <div className='container-fluid p-0'>
         <div className='row g-0 justify-content-center'>
           <div className='col-12 col-sm-11 col-md-10 col-lg-9 col-xl-7 col-xxl-6'>
-						<a href="/resultados">Resultados</a>
+						<Link href="/resultados">Resultados</Link>
             <Card className='mt-2 mb-3 mx-2'>
               <Card.Header>
                 <PanelControl />
