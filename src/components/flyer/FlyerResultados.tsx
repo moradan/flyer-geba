@@ -4,11 +4,11 @@ import { ReactNode } from "react";
 import AdministradorDatos from "@/utils/AdministradorDatos";
 import ElementoFecha from "../flyerresultados/ElementoFecha";
 
-export default function FlyerResultados({ listaPartidos }: { listaPartidos: Array<Partido> }) {
+export default function FlyerResultados() {
   const listaFechasJSX: Array<ReactNode> = [];
-  const listaFechas = new Map<number, Array<Partido>>();
+  var listaFechas = new Map<number, Array<Partido>>();
 
-  AdministradorDatos.catalogarFechas(listaFechas, listaPartidos);
+  listaFechas = AdministradorDatos.catalogarFechas();
 
   listaFechas.forEach((listaPartidos, timeStamp) =>
     listaFechasJSX.push(

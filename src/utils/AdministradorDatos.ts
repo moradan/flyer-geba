@@ -7,6 +7,7 @@ export default class AdministradorDatos {
     private static setListaPartidos: Dispatch<SetStateAction<Array<Partido>>>; 
     private static listaPartidos: Array<Partido> = [];
     private static listaPartidosCruda: Array<Partido>;
+		private static filtroActivado = false;
     static nombreFlyer: string;
     
     private constructor() {}
@@ -107,10 +108,21 @@ export default class AdministradorDatos {
     }    
 
     AdministradorDatos.setListaPartidos(AdministradorDatos.listaPartidosCruda.filter(predicado));
+		localStorage.setItem("filtro:desde", desde);
+		localStorage.setItem("filtro:hasta", hasta);
   }
 
-  static catalogarFechas(listaFechas: Map<number, Array<Partido>>, listaPartidos: Array<Partido>) {
-    for (const partido of listaPartidos) {
+	static filtrar() {
+		const desde = localStorage.getItem("filtro:desde") ?? "";
+		const hasta = localStorage.getItem("filtro:hasta") ?? "";
+		
+		AdministradorDatos.filtrarPorFecha(desde, hasta);
+	}
+
+  static catalogarFechas(): Map<number, Array<Partido>> {
+		const listaFechas: Map<number, Array<Partido>> = new Map();
+
+    for (const partido of AdministradorDatos.listaPartidos) {
       const timeStamp = partido.fecha.getTime();
       if (listaFechas.has(timeStamp)) {
         listaFechas.get(timeStamp)!.push(partido);
@@ -118,5 +130,7 @@ export default class AdministradorDatos {
         listaFechas.set(timeStamp, new Array<Partido>(partido));
       }
     }
+
+		return listaFechas;
   }
 }
