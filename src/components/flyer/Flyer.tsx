@@ -1,15 +1,14 @@
+import Titulo from "./Titulo";
 import Partido from "@/model/Partido";
 import { ReactNode } from "react";
-import ElementoFecha from "./ElementoFecha";
-import Titulo from "./Titulo";
-import Image from 'react-bootstrap/Image'
 import AdministradorDatos from "@/utils/AdministradorDatos";
+import ElementoFecha from "./ElementoFecha";
 
-export default function Flyer({ listaPartidos }: { listaPartidos: Array<Partido> }) {
+export default function Flyer() {
   const listaFechasJSX: Array<ReactNode> = [];
-  const listaFechas = new Map<number, Array<Partido>>();
+  var listaFechas = new Map<number, Array<Partido>>();
 
-	AdministradorDatos.catalogarFechas(listaFechas, listaPartidos);
+	listaFechas = AdministradorDatos.catalogarFechas();
 
 	listaFechas.forEach((listaPartidos, timeStamp) =>
 		listaFechasJSX.push(

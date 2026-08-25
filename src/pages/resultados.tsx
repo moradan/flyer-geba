@@ -11,9 +11,10 @@ import { Accordion, Card, Row } from "react-bootstrap";
 export default function Resultados() {
   const [listaPartidos, setListaPartidos] = useState<Array<Partido>>([]);
 
+	AdministradorDatos.inicializar(listaPartidos, setListaPartidos);
   useEffect(() => {
-		AdministradorDatos.inicializar(listaPartidos, setListaPartidos);
-		AdministradorDatos.cargarPartidos()
+		AdministradorDatos.cargarPartidos();
+		AdministradorDatos.filtrar();
 	}, []);
 
 	return (
