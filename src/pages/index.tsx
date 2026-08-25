@@ -87,7 +87,7 @@ export default function Home() {
             </Card>
 						{/* flyer-node se usa para la rutina de compartir el flyer, se usa el id para encontrar el elemento html a renderizar */ }
             <main id='flyer-node' className='position-relative col mb-5'>
-              <Flyer listaPartidos={listaPartidos} />
+              <Flyer />
             </main>
           </div>
         </div>

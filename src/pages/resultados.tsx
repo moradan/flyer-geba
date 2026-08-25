@@ -35,7 +35,7 @@ export default function Resultados() {
 							</Card.Header>
             </Card>
             <main id='flyer-node' className='position-relative col mb-5'>
-              <FlyerResultados listaPartidos={listaPartidos} />
+              <FlyerResultados />
             </main>
 					</div>
 				</div>
