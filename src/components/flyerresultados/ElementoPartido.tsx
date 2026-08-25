@@ -18,8 +18,8 @@ export default function ElementoPartido({ partido }: { partido: Partido }) {
         <div className='col-5 pe-2 text-end' style={{ fontSize }}>
           {partido.categoria}
         </div>
-				<div className='col-1 p-1'><CampoResultado /></div>
-				<div className='col-1 p-1'><CampoResultado /></div>
+				<div className='col-1 px-1'><CampoResultado /></div>
+				<div className='col-1 px-1'><CampoResultado /></div>
         <div className='col-5 ps-2' style={{ fontSize }}>
           {partido.adversario}
         </div>
