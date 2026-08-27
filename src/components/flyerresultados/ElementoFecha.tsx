@@ -1,6 +1,7 @@
 import Partido from "@/model/Partido";
 import EncabezadoFecha from "../flyer/EncabezadoFecha";
 import ListaPartidos from "./ListaPartidos";
+import { SeccionLocalia } from "./SeccionLocalia";
 
 export default function ElementoFecha({
   fecha,
@@ -9,12 +10,25 @@ export default function ElementoFecha({
   fecha: Date,
   listaPartidos: Array<Partido>,
 }) {
+  const partidosLocales: Array<Partido> = [];
+  const partidosVisitantes: Array<Partido> = [];
+
+  for (const partido of listaPartidos) {
+    if (partido.localia == "Local") {
+      partidosLocales.push(partido);
+    } else {
+      partidosVisitantes.push(partido);
+    }
+  }
 
   return (
     <li className="list-group-item mx-5 my-4 rounded">
       <EncabezadoFecha fecha={fecha} />
-      {listaPartidos.length !== 0 && (
-        <ListaPartidos listaPartidos={listaPartidos} />
+      {partidosLocales.length !== 0 && (
+        <SeccionLocalia tipo="Local" listaPartidos={partidosLocales} />
+      )}
+      {partidosVisitantes.length !== 0 && (
+        <SeccionLocalia tipo="Visitante" listaPartidos={partidosVisitantes} />
       )}
     </li>
   );
